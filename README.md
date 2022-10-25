@@ -1,5 +1,23 @@
 # TDP-MemoryFlavors-AR
  Memory Flavours Augmented Reality (AR) Postcards Project - The Doodle People x Ngee Ann Poly 
+ 
+Image Tracker Template:
+https://drive.google.com/drive/folders/1KBZbP3z5NO4nXjDLi_jKktMzizXlAOrb?usp=sharing
+
+Memory Flavours NP X TDP Google Drive Folder (PUBLIC) -
+https://drive.google.com/drive/folders/11irX6pNbfPIwM7_ZhWFynr0jDNS5MoSI?usp=sharing
+
+Github Documentation
+https://docs.google.com/document/d/134-ZE1P3ILShT4aXaBDnUU_ZTvIwBaA6WvCMv66jl-U/edit?usp=sharing
+
+Unity Folder Naming Convention
+https://docs.google.com/document/d/1ipLYwuaFCYzIfVhkpFCOI7AMnm9E6y-iIO70QPiRolI/edit?usp=sharing
+
+External Resources
+https://docs.google.com/document/d/1NO0zBy_5snLr0p0TwKAAw0J6dG7GvMczg_f9hqi1c6Y/edit?usp=sharing
+
+Third Party Asset List Overview
+https://docs.google.com/document/d/16x-JlGqxrO2vC6KRYPH0aqKaWFGFg3eWjJU7fNMwKbY/edit?usp=sharing
 
 Third Party Plugins List:
 Package Manager Installations
