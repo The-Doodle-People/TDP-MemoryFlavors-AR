@@ -1,11 +1,11 @@
 # TDP-MemoryFlavors-AR
  Memory Flavours Augmented Reality (AR) Postcards Project - The Doodle People x Ngee Ann Poly 
  
+Main Resources Folder - Memory Flavours NP X TDP Google Drive Folder (PUBLIC) -
+https://drive.google.com/drive/folders/11irX6pNbfPIwM7_ZhWFynr0jDNS5MoSI?usp=sharing
+ 
 Image Tracker Template:
 https://drive.google.com/drive/folders/1KBZbP3z5NO4nXjDLi_jKktMzizXlAOrb?usp=sharing
-
-Memory Flavours NP X TDP Google Drive Folder (PUBLIC) -
-https://drive.google.com/drive/folders/11irX6pNbfPIwM7_ZhWFynr0jDNS5MoSI?usp=sharing
 
 Github Documentation
 https://docs.google.com/document/d/134-ZE1P3ILShT4aXaBDnUU_ZTvIwBaA6WvCMv66jl-U/edit?usp=sharing
