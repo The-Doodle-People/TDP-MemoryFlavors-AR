@@ -29,9 +29,6 @@ public class AboutScreenInfo
             { "ModelTargetsAdvanced", "Model Targets (Advanced)" },
             { "GroundPlane", "Ground Plane" },
             { "MidAir", "Mid-Air" },
-            { "BackgroundTextureAccess", "Background Texture Access" },
-            { "OcclusionManagement", "Occlusion Management" },
-            { "Books", "Books" },
             { "ModelTargetsTest", "Model Targets Test" },
             { "AreaTargets", "Area Targets" },
             { "AreaTargetCapture", "Area Target Capture" },
@@ -346,70 +343,6 @@ public class AboutScreenInfo
             "\n\n" +
             footer + "\n");
 
-        // Background Texture Access
-        mDescriptions.Add(
-            "BackgroundTextureAccess",
-            description +
-            "\nThe Background Texture Access sample shows how to use two shaders to " +
-            "manipulate the background video. One shader turns the video into inverted " +
-            "black-and-white and another distorts the video where you touch on the screen." +
-            "\n\n" +
-            keyFunctionality +
-            "\n• Apply shaders to video background" +
-            "\n\n" +
-            targets +
-            "\n• " + targetPDFsURL +
-            "<color=blue><u>ImageTarget: Fissure</u></color></link>" +
-            "\n\n" +
-            instructions +
-            "\n• Point camera at target to view" +
-            "\n• Tap and drag to distort video background" +
-            "\n\n" +
-            footer + "\n");
-
-        // Occlusion Management
-        mDescriptions.Add(
-            "OcclusionManagement",
-            description +
-            "\nThe Occlusion Management sample shows the use of transparent shaders to " +
-            "let users partially look inside a real object with an occlusion effect." +
-            "\n\n" +
-            keyFunctionality +
-            "\n• Manage occlusion" +
-            "\n\n" +
-            targets +
-            "\n• " + targetPDFsURL +
-            "<color=blue><u>MultiTarget: MarsBox</u></color></link>" +
-            "\n\n" +
-            instructions +
-            "\n• Point camera at target to view" +
-            "\n• Double tap to focus" +
-            "\n\n" +
-            footer + "\n");
-        
-        // Books
-        mDescriptions.Add(
-            "Books",
-            description +
-            "\nThe Books sample shows how to use the Cloud Recognition service to build a " +
-            "simple UI to scan a sample target book cover and display info on that book." +
-            "\n\n" +
-            keyFunctionality +
-            "\n• Display reco query status" +
-            "\n• Request book info meta data based on reco response" +
-            "\n• Render book info on target" +
-            "\n• Transition display of book info to screen when off target" +
-            "\n\n" +
-            targets +
-            "\n• " + targetPDFsURL +
-            "<color=blue><u>ImageTargets: 3 Book Covers</u></color></link>" +
-            "\n\n" +
-            instructions +
-            "\n• Point camera at sample book cover to view info" +
-            "\n• Press close button to scan another book" +
-            "\n\n" +
-            footer + "\n");
-        
         // Model Targets Test
         mDescriptions.Add(
             "ModelTargetsTest",

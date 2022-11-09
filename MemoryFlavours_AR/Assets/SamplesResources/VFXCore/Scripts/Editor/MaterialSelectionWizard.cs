@@ -50,9 +50,6 @@ namespace VFX
                 EditorUtility.DisplayDialog("Material not applied", errorMsg, "OK");
                 return;
             }
-
-            foreach (var obj in objects)
-                MaterialUtil.ApplyMaterial(obj, aMaterial, applyToChildren: true);
         }
     }
 }

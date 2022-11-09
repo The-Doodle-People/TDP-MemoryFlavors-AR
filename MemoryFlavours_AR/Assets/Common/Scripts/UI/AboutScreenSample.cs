@@ -15,8 +15,5 @@ public enum AboutScreenSample
     VirtualButtons,
     ModelTargets,
     GroundPlane,
-    BackgroundTextureAccess,
-    OcclusionManagement,
-    Books,
     ModelTargetsTest
 }

@@ -1,5 +1,5 @@
 ﻿/*========================================================================
-Copyright (c) 2019-2022 PTC Inc. All Rights Reserved.
+Copyright (c) 2019-2021 PTC Inc. All Rights Reserved.
 
 Vuforia is a trademark of PTC Inc., registered in the United States and other
 countries.
@@ -18,13 +18,12 @@ Shader "Vuforia/VFX/Transparent/Phantom" {
         _Min("Min", Vector) = (-1,-1,-1, 0)
         _Max("Max", Vector) = ( 1, 1, 1, 0)
         [Toggle] _RadialClip("Radial Clip", Float) = 0
-        _MinRadius("Min Radius", Float) = 0
-        _MaxRadius("Max Radius", Float) = 1
+        _MinRadius("Min Radius", float) = 0
+        _MaxRadius("Max Radius", float) = 1
         _ClipLineColor("Clip Line Color", Color) = (1,1,1,1)
         _ClipLineWidth("Clip Line Width", Float) = 0.01
-        [Toggle] _Blink("Blink", Float) = 0
+        [Toggle] _Blink("Blink", Float) = 0.0
         _BlinkFrequency("Blink Frequency", Float) = 1
-        _EdgeFactor("Edge Factor", Range(0, 1)) = 1
     }
 
     SubShader
@@ -61,7 +60,6 @@ Shader "Vuforia/VFX/Transparent/Phantom" {
             #pragma vertex vert  
             #pragma fragment frag 
             #include "UnityCG.cginc"
-            #include "../VuforiaVFX.cginc"
 
             float4 _Color;
             sampler2D _MainTex;
@@ -81,37 +79,30 @@ Shader "Vuforia/VFX/Transparent/Phantom" {
             float _ClipLineWidth;
             float _Blink;
             float _BlinkFrequency;
-            float _EdgeFactor;
-
-            struct appdata {
-                float4 vertex : POSITION;
-                float2 normal : NORMAL;
-                float2 uv : TEXCOORD0;
-                UNITY_VERTEX_INPUT_INSTANCE_ID
-            };
 
             struct v2f {
                 float4 pos : SV_POSITION;
                 float3 normal : NORMAL;
                 float2 uv : TEXCOORD0;
                 float3 worldPos : TEXCOORD1;
-                UNITY_VERTEX_OUTPUT_STEREO
             };
 
+            void axial_delta(float3 p, float3 center, float3 axis, float scale, float min, float max, out float deltaMin, out float deltaMax)
+            {
+                float3 centerToPoint = p - center;
+                float proj = dot(centerToPoint, normalize(axis)) / scale;
+                deltaMin = proj - min;
+                deltaMax = proj - max;
+            }
 
-            v2f vert(appdata v)
+            v2f vert(appdata_base v)
             {
                 v2f o;
-
-                UNITY_SETUP_INSTANCE_ID(v);
-                UNITY_INITIALIZE_OUTPUT(v2f, o);
-                UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-
                 o.pos = UnityObjectToClipPos(v.vertex);
 
                 float3 worldNormal = normalize(mul((float3x3)unity_ObjectToWorld, v.normal));
                 o.normal = worldNormal;
-                o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
                 return o;
             }
@@ -125,13 +116,13 @@ Shader "Vuforia/VFX/Transparent/Phantom" {
                 const float amb = 0.2;
                 float diffuse = abs(dot(normal, lightDir));
                 float ambDiffuse = clamp(amb + diffuse, 0.0, 1.0);
-
+                
                 float edge = 1.0 - abs(dot(viewDir, normal));
                 edge = pow(edge, 4.0);
                 float edgeLum = pow(1.0 + edge, 2.0);
                 
                 float4 color = _Color * ambDiffuse * tex2D(_MainTex, i.uv);
-                color *= (1.0 - _EdgeFactor) + edgeLum * _EdgeFactor;
+                color *= edgeLum;
                 
                 if (_AxialClip > 0.5)
                 {
