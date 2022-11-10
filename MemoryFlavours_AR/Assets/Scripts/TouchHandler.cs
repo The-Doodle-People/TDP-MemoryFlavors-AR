@@ -8,7 +8,7 @@ public class TouchHandler : MonoBehaviour
 {
     void OnTouchPress()
     {
-        
+        Debug.Log("touch");
         //x n y coordinated of the touch
         Vector3 rayPosition = Touchscreen.current.primaryTouch.position.ReadValue();
 
