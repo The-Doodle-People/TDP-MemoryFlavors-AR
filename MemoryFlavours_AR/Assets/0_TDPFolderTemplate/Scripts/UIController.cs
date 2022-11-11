@@ -7,12 +7,23 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
+    // Restart confirmation tab 
     public GameObject restartConfirmation;
+
+    // Animator for loading screen
     public Animator loadingScreen;
+
+    // MainUI canvas
     public GameObject mainUI;
+
+    // Start Screen canvas
     public GameObject startCanvas;
     bool experienceStarted;
+
+    // Main Game text
     public TextMeshProUGUI gameText;
+
+    // cameraOff canvas
     public GameObject cameraOff;
 
     void Awake()
@@ -22,6 +33,7 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
+        // If player taps/clicks screen, Start the PlayLoading Coroutine
         if (/*Input.touchCount > 0*/ Input.GetMouseButtonDown(0) && !experienceStarted)
         {
             StartCoroutine("PlayLoading");
@@ -31,11 +43,14 @@ public class UIController : MonoBehaviour
     IEnumerator PlayLoading()
     {
         experienceStarted = true;
+        // Play loading animation
         loadingScreen.SetBool("experienceStart", true);
-        yield return new WaitForSeconds(2f);
-        yield return new WaitForSeconds(4.5f);
+        // Wait 6.5 seconds for loading screen to fade in and out
+        yield return new WaitForSeconds(6.5f);
         ToggleMainUI();
+        // Stop loading animation
         loadingScreen.SetBool("experienceStart", false);
+        // Turn off start canvas
         startCanvas.SetActive(false);
     }
 
@@ -57,17 +72,26 @@ public class UIController : MonoBehaviour
         // Check if Vuforia is running
         if (VuforiaBehaviour.Instance.enabled)
         {
+            // Stop rendering video
             VuforiaBehaviour.Instance.VideoBackground.StopVideoBackgroundRendering();
             VuforiaBehaviour.Instance.enabled = false;
+
+            // Change game text
             gameText.text = "OH! LOOKS LIKE THERE'S\nNOTHING HERE YET!";
+            // Turn on CameraOff Canvas.
             cameraOff.SetActive(true);
         }
 
+        // If Vuforia Camera is not running
         else if(!VuforiaBehaviour.Instance.enabled)
         {
-            VuforiaBehaviour.Instance.VideoBackground.StartVideoBackgroundRendering();
+            // Start rendering video
+            VuforiaBehaviour.Instance.VideoBackground.StartVideoBackgroundRendering(); 
             VuforiaBehaviour.Instance.enabled = true;
+
+            // Change game text
             gameText.text = "CLICK ANYWHERE ON THE\nSCREEN TO PLACE\nTHE TABLE!";
+            // Turn off CameraOff Canvas.
             cameraOff.SetActive(false);
         }
     }
