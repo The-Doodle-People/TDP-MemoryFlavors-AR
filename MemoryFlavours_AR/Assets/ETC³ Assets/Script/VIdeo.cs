@@ -1,22 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Vuforia;
+using UnityEngine.Video;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+using System.Runtime.CompilerServices;
 
-public class VIdeo : MonoBehaviour
+public class Video : MonoBehaviour
 {
-    public UnityEngine.Video.VideoPlayer video;
 
-    public GameObject Video;
+    public Material playButtonMaterial;
+    public Material pauseButtonMaterial;
+    public Renderer playButtonRenderer;
+    private VideoPlayer videoPlayer;
+    private AudioSource audioSource;
 
     private void Awake()
     {
-        VideoPlayBack();
+        videoPlayer = GetComponent<VideoPlayer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
-    public void VideoPlayBack()
+    public void PlayPause()
     {
-        video.Play();
-        Video.SetActive(true);
+        if (videoPlayer.isPlaying)
+        {
+            videoPlayer.Pause();
+            audioSource.Pause();
+            playButtonRenderer.material = playButtonMaterial;
+        }
+        else
+        {
+            videoPlayer.Play();
+            audioSource.Play();
+            playButtonRenderer.material = pauseButtonMaterial;
+        }
+
+        Debug.Log("Play Click!!");
+    }
+
+    public void Play()
+    {
+        Debug.Log("Play");
+        playButtonRenderer.material = pauseButtonMaterial;
     }
 }
