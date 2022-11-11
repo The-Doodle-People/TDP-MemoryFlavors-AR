@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
 
     // Start Screen canvas
     public GameObject startCanvas;
+
     bool experienceStarted;
 
     // Main Game text
@@ -25,6 +26,12 @@ public class UIController : MonoBehaviour
 
     // cameraOff canvas
     public GameObject cameraOff;
+
+    // Check if player can scan postcard
+    public bool canScanPostcardAgain;
+
+    // Check if player scanned postcard the second time
+    public bool postcardScanned2;
 
     void Awake()
     {
