@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class UIController : MonoBehaviour
     public GameObject mainUI;
     public GameObject startCanvas;
     bool experienceStarted;
+    public TextMeshProUGUI gameText;
+    public GameObject cameraOff;
 
     void Awake()
     {
@@ -55,12 +59,16 @@ public class UIController : MonoBehaviour
         {
             VuforiaBehaviour.Instance.VideoBackground.StopVideoBackgroundRendering();
             VuforiaBehaviour.Instance.enabled = false;
+            gameText.text = "OH! LOOKS LIKE THERE'S\nNOTHING HERE YET!";
+            cameraOff.SetActive(true);
         }
 
         else if(!VuforiaBehaviour.Instance.enabled)
         {
             VuforiaBehaviour.Instance.VideoBackground.StartVideoBackgroundRendering();
             VuforiaBehaviour.Instance.enabled = true;
+            gameText.text = "CLICK ANYWHERE ON THE\nSCREEN TO PLACE\nTHE TABLE!";
+            cameraOff.SetActive(false);
         }
     }
 
