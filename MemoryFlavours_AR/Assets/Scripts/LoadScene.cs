@@ -11,6 +11,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +24,13 @@ public class LoadScene : MonoBehaviour
     {
         
     }
+    //Goes to home page
+    public void HomePage()
+    {
+        SceneManager.LoadScene("StartPage");
+    }
 
-   // Closes the application
+    // Closes the application
     public void QuitApp()
     {
         Application.Quit();
