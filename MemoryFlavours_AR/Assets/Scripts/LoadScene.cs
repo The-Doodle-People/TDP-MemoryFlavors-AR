@@ -37,6 +37,6 @@ public class LoadScene : MonoBehaviour
 
     public void GoToGame()
     {
-
+        SceneManager.LoadScene("GameScene");
     }
 }

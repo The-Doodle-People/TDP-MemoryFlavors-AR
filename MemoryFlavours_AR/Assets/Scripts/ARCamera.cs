@@ -18,22 +18,5 @@ public class ARCamera : MonoBehaviour
         
     }
 
-    public void ZoomIn()
-    {
-        if (zoomAmount >= 0 && zoomAmount <=100)
-        publicCamera.fieldOfView = (zoomAmount + 50);
-        zoomAmount += 50;
-        Debug.Log("testing");
-    }
-
-    public void ZoomOut()
-    {
-        if (zoomAmount >= 0 && zoomAmount <= 100)
-        {
-            publicCamera.fieldOfView = (zoomAmount - 50);
-            zoomAmount -= 50;
-            Debug.Log("testing");
-
-        }
-    }
+    
 }
