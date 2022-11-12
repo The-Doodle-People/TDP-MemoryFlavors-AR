@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class AstronautController : MonoBehaviour
 {
-    public Animator myAnimator;
     public GameObject canvas;
+
+    public Animator myAnimator;
 
     public void StartWave()
     {
