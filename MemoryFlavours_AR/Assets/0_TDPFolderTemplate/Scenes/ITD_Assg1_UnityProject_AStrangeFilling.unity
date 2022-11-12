@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 201942157}
   - component: {fileID: 201942160}
   m_Layer: 0
-  m_Name: ImageTarget
+  m_Name: StartImageTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,10 +528,34 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 732823248}
+        m_TargetAssemblyTypeName: ObjectTracker, Assembly-CSharp
+        m_MethodName: ObjectTracked
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 201942156}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 732823248}
+        m_TargetAssemblyTypeName: ObjectTracker, Assembly-CSharp
+        m_MethodName: ObjectLost
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 201942156}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &201942158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,13 +570,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
-  mTrackableName: Rem_ITD_AR
+  mTrackableName: postcard_front
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/ITD_EXD_ASG1_DB.xml
-  mAspectRatio: 1.25
+  mAspectRatio: 0.65714
   mImageTargetType: 0
   mWidth: 0.1
-  mHeight: 0.125
+  mHeight: 0.065714
   mRuntimeTexture: {fileID: 0}
   mMotionHint: 1
   mTrackingOptimization: 0
@@ -1535,6 +1559,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608917038}
   m_CullTransparentMesh: 1
+--- !u!1 &732823246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732823247}
+  - component: {fileID: 732823248}
+  m_Layer: 0
+  m_Name: Object Tracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &732823247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732823246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 589.3478, y: 259.67596, z: -0.5348046}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &732823248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732823246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7ece0d3213aae4eb0aa55fb1161a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameText: {fileID: 1647573838}
+  startImageTarget: {fileID: 201942156}
+  uiController: {fileID: 1673765369}
 --- !u!1 &788822555
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,7 +2960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "CLICK ANYWHERE ON THE SCREEN TO PLACE \nTHE TABLE!"
+  m_text: "SCAN THE \nPOSTCARD IMAGE!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 13cddb46eaf12e341958e98cb5c12562, type: 2}
   m_sharedMaterial: {fileID: 8584395771734969734, guid: 13cddb46eaf12e341958e98cb5c12562,
@@ -3002,8 +3073,11 @@ MonoBehaviour:
   startCanvas: {fileID: 923371681}
   gameText: {fileID: 1647573838}
   cameraOff: {fileID: 2062768808}
+  canPlaceTable: 0
+  tablePlaced: 0
   canScanPostcardAgain: 0
   postcardScanned2: 0
+  startImageTarget: {fileID: 201942156}
 --- !u!4 &1673765371
 Transform:
   m_ObjectHideFlags: 0

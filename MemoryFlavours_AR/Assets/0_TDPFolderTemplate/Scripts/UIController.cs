@@ -27,11 +27,23 @@ public class UIController : MonoBehaviour
     // cameraOff canvas
     public GameObject cameraOff;
 
+    // Check if player can place table
+    public bool canPlaceTable;
+
+    // Check if table is placed
+    public bool tablePlaced;
+
     // Check if player can scan postcard
     public bool canScanPostcardAgain;
 
     // Check if player scanned postcard the second time
     public bool postcardScanned2;
+
+    // Start Image Target GameObject
+    public GameObject startImageTarget;
+
+    // Dictionary for Object Tracking
+    Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
     void Awake()
     {
@@ -44,6 +56,13 @@ public class UIController : MonoBehaviour
         if (/*Input.touchCount > 0*/ Input.GetMouseButtonDown(0) && !experienceStarted)
         {
             StartCoroutine("PlayLoading");
+        }
+        
+        if (Input.GetMouseButtonDown(0) && canPlaceTable)
+        {
+            gameText.text = "CLICK ON THE DIM SUM\nTO EAT IT!";
+            canPlaceTable = false;
+            tablePlaced = true;
         }
     }
 
@@ -59,6 +78,8 @@ public class UIController : MonoBehaviour
         loadingScreen.SetBool("experienceStart", false);
         // Turn off start canvas
         startCanvas.SetActive(false);
+        // Turn on Start Image Target
+        startImageTarget.SetActive(true);
     }
 
     public void ToggleMainUI()
