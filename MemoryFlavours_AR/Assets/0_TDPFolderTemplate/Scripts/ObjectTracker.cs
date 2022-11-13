@@ -13,6 +13,7 @@ public class ObjectTracker : MonoBehaviour
     public GameObject uiController;
     public GameObject groundPlane;
 
+    // Reference UIController script
     UIController uiControllerScript;
     
     void Start()

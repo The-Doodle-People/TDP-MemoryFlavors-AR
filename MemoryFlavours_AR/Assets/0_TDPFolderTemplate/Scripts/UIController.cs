@@ -36,6 +36,9 @@ public class UIController : MonoBehaviour
     // Check if player can interact with dimsum
     public bool canInteractWithDimsum;
 
+    // Check if player has already interacted with the dimsum
+    public bool interactedWithDimsum;
+
     // Animator for Table fall animation
     public Animator tableAnimator;
 
@@ -72,7 +75,13 @@ public class UIController : MonoBehaviour
             gameText.text = "CLICK ON THE DIM SUM\nTO EAT IT!";
             canPlaceTable = false;
             tablePlaced = true;
+            canInteractWithDimsum = true;
+        }
 
+        if (interactedWithDimsum)
+        {
+            StartCoroutine("PlayTableFall");
+            interactedWithDimsum = false;
         }
     }
 

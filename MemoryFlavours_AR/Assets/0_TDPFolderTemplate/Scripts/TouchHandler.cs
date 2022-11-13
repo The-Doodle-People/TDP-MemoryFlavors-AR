@@ -6,6 +6,15 @@ using UnityEngine.UI;
 
 public class TouchHandler : MonoBehaviour
 {
+    public GameObject uiController;
+    // Reference UIController script
+    UIController uiControllerScript;
+
+    void Start()
+    {
+        uiControllerScript = uiController.GetComponent<UIController>();
+    }
+
     void OnTouchPress()
     {
         // Get the x and y coordinates of the touch
@@ -21,11 +30,12 @@ public class TouchHandler : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo))
         {
             // Check if the hit object has an AstronautController component
-            if (hitInfo.collider.tag == "Dimsum")
+            if (hitInfo.collider.tag == "Dimsum" && uiControllerScript.canInteractWithDimsum)
             {
                 // If it does, print message
                 Debug.Log("Touch detected");
-                
+                uiControllerScript.canInteractWithDimsum = false;
+                uiControllerScript.interactedWithDimsum = true;
             }
         }
     }
