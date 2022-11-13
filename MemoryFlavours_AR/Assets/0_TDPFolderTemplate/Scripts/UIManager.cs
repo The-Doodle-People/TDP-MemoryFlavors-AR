@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
     public GameObject startBtn;
+    public TMP_Text step1a;
 
     public void ObjectTracked(GameObject objectToTrack)
     {
@@ -18,6 +20,13 @@ public class UIManager : MonoBehaviour
             {
                 startBtn.SetActive(true);
             }
+
+            if (objectToTrack.name == "table_Model")
+            {
+                step1a.text = "drag and drop flour, salt and sugar into red mixing bowl";
+            }
+
+
         }
         else
         {

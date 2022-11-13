@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class TouchInteraction : MonoBehaviour
@@ -9,9 +10,14 @@ public class TouchInteraction : MonoBehaviour
     public GameObject flour;
     public GameObject saltnSugar;
     TriggerCheck trigger;
+
+    public Slider mixingSlider;
+    public GameObject mixingUI;
+    int mixClickPos = 1;
+    string currentTag;
     void OnTouchPress()
     {
-        Debug.Log("touch");
+        
         //x n y coordinated of the touch
         Vector3 rayPosition = Touchscreen.current.primaryTouch.position.ReadValue();
 
@@ -30,17 +36,24 @@ public class TouchInteraction : MonoBehaviour
                 Debug.Log("touchedS&S");
                 saltnSugar.AddComponent<Lean.Touch.LeanDragTranslate>();
             }
+
+          
+            currentTag = "mixingBtn" + mixClickPos.ToString();
+            if(hitInfo.collider.tag == currentTag)
+            {
+                mixClickPos++;
+
+                mixingSlider.value += 0.1f;
+                if(mixingSlider.value == 1)
+                {
+                    mixingUI.SetActive(false);
+                }
+            }
+            if (mixClickPos > 4)
+            {
+                mixClickPos = 1;
+            }
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
