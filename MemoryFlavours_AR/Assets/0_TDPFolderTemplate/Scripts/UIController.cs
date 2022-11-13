@@ -30,6 +30,12 @@ public class UIController : MonoBehaviour
     // Check if player can place table
     public bool canPlaceTable;
 
+    // Animators for characters
+    public Animator boy6Animator;
+    public Animator boy12Animator;
+    public Animator girl6Animator;
+    public Animator girl12Animator;
+
     // Check if table is placed
     public bool tablePlaced;
 
@@ -76,6 +82,10 @@ public class UIController : MonoBehaviour
             canPlaceTable = false;
             tablePlaced = true;
             canInteractWithDimsum = true;
+            boy6Animator.SetBool("SittingAnimation", true);
+            boy12Animator.SetBool("SittingAnimation", true);
+            girl6Animator.SetBool("SittingAnimation", true);
+            girl12Animator.SetBool("SittingAnimation", true);
         }
 
         if (interactedWithDimsum)
