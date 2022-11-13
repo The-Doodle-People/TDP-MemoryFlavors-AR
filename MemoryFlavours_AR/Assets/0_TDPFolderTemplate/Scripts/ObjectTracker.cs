@@ -11,6 +11,7 @@ public class ObjectTracker : MonoBehaviour
     public TextMeshProUGUI gameText;
     public GameObject startImageTarget;
     public GameObject uiController;
+    public GameObject groundPlane;
 
     UIController uiControllerScript;
     
@@ -32,6 +33,8 @@ public class ObjectTracker : MonoBehaviour
             if (objectToTrack == startImageTarget && !uiControllerScript.tablePlaced)
             {
                 Debug.Log("Change Text");
+                // Set active table ground plane
+                groundPlane.SetActive(true);
                 // Change Game text
                 gameText.text = "CLICK ANYWHERE ON THE\nSCREEN TO PLACE\nTHE TABLE!";
                 uiControllerScript.canPlaceTable = true;
@@ -53,6 +56,8 @@ public class ObjectTracker : MonoBehaviour
             if (objectToTrack == startImageTarget && !uiControllerScript.tablePlaced)
             {
                 Debug.Log("Change Text");
+                // turn off table ground plane
+                groundPlane.SetActive(false);
                 // Change Game text
                 gameText.text = "SCAN THE\nPOSTCARD IMAGE!";
                 uiControllerScript.canPlaceTable = false;

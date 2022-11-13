@@ -33,6 +33,15 @@ public class UIController : MonoBehaviour
     // Check if table is placed
     public bool tablePlaced;
 
+    // Check if player can interact with dimsum
+    public bool canInteractWithDimsum;
+
+    // Animator for Table fall animation
+    public Animator tableAnimator;
+
+    // Animator for transition animation
+    public Animator transitionAnimator;
+
     // Check if player can scan postcard
     public bool canScanPostcardAgain;
 
@@ -63,6 +72,7 @@ public class UIController : MonoBehaviour
             gameText.text = "CLICK ON THE DIM SUM\nTO EAT IT!";
             canPlaceTable = false;
             tablePlaced = true;
+
         }
     }
 
@@ -135,5 +145,20 @@ public class UIController : MonoBehaviour
         {
             restartConfirmation.SetActive(false);
         }
+    }
+
+    IEnumerator PlayTableFall()
+    {
+        // Play TableFall animation
+        tableAnimator.SetBool("TableFall", true);
+        yield return new WaitForSeconds(5.5f);
+        StartCoroutine("PlayTransition");
+    }
+
+    IEnumerator PlayTransition()
+    {
+        transitionAnimator.SetBool("CanTransition", true);
+        yield return new WaitForSeconds(8f);
+        transitionAnimator.SetBool("CanTransition", false);
     }
 }
