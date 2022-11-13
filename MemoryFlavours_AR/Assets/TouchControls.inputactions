@@ -11,7 +11,16 @@
                     "id": "303d913e-692e-406b-9abe-3f3884cc2e45",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Touch Input",
+                    "type": "PassThrough",
+                    "id": "b4ddec0f-9fd8-4ac4-b724-e790bb11fe90",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -24,6 +33,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TouchPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7dabed6b-920b-4a3e-bfa6-479f2c2f2bbe",
+                    "path": "<Touchscreen>/primaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch Input",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

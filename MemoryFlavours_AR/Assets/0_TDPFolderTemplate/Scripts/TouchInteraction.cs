@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class TouchInteraction : MonoBehaviour
 {
+    public GameObject flour;
+    public GameObject saltnSugar;
+    TriggerCheck trigger;
     void OnTouchPress()
     {
         Debug.Log("touch");
@@ -18,11 +21,14 @@ public class TouchInteraction : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(rayPosition);
         RaycastHit hitInfo;
 
+        trigger = flour.GetComponent<TriggerCheck>();
         if (Physics.Raycast(ray, out hitInfo))
         {
-            if (hitInfo.collider.tag == "dryMix")
+            
+            if (hitInfo.collider.tag == "saltnSugar" && trigger.flourEnteredBowl == true)
             {
-                Debug.Log("touched");
+                Debug.Log("touchedS&S");
+                saltnSugar.AddComponent<Lean.Touch.LeanDragTranslate>();
             }
         }
     }
