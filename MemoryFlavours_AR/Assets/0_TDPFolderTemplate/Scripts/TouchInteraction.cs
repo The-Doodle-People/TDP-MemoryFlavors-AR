@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class TouchHandler : MonoBehaviour
+public class TouchInteraction : MonoBehaviour
 {
     void OnTouchPress()
     {
@@ -20,7 +20,7 @@ public class TouchHandler : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitInfo))
         {
-            if (hitInfo.collider.tag == "dry mix")
+            if (hitInfo.collider.tag == "dryMix")
             {
                 Debug.Log("touched");
             }
