@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text stepsText;
     public GameObject step2;
     public GameObject step1;
+    public GameObject flour;
     
     public GameObject mixedDryIngreModel;
     public GameObject nextBtn;
@@ -23,6 +24,7 @@ public class UIManager : MonoBehaviour
     {
         if (objectToTrack != null)
         {
+
             trackedObjectStatus[objectToTrack] = true;
             Debug.Log(objectToTrack.name + "Tracked");
             if(objectToTrack.name == "AngKuKueh_Model")
@@ -30,9 +32,10 @@ public class UIManager : MonoBehaviour
                 startBtn.SetActive(true);
             }
 
-            if (objectToTrack.name == "table_Model")
+            if (objectToTrack.name == "table_model")
             {
                 stepsText.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
+                flour.AddComponent<Lean.Touch.LeanDragTranslate>();
             }
 
 
@@ -52,6 +55,7 @@ public class UIManager : MonoBehaviour
         {
             step2.SetActive(false);
             mixedLiquid.gameObject.SetActive(true);
+            nextBtn.SetActive(true);
 
         }
         else
@@ -59,7 +63,7 @@ public class UIManager : MonoBehaviour
             step1.SetActive(false);
             mixedDryIngreModel.SetActive(true);
             nextBtn.SetActive(true);
-            Debug.Log("change1");
+           
         }
     }
 
@@ -71,10 +75,12 @@ public class UIManager : MonoBehaviour
             mixedDryIngreModel.SetActive(false);
             currentStep++;
             stepsText.text = "drag and drop the beetrot juice into the dry ingredients";
+           
 
         } else if(currentStep== 3)
         {
             stepsText.text = "knead the dough";
+          
         }
     }
 

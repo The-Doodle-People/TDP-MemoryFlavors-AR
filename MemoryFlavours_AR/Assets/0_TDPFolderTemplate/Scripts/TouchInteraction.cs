@@ -41,8 +41,9 @@ public class TouchInteraction : MonoBehaviour
                 saltnSugar.AddComponent<Lean.Touch.LeanDragTranslate>();
             }
 
-          
+            
             currentTag = "mixingBtn" + mixClickPos.ToString();
+            Debug.Log(currentTag);
             if(hitInfo.collider.tag == currentTag)
             {
                 mixClickPos++;
@@ -53,13 +54,15 @@ public class TouchInteraction : MonoBehaviour
                     mixingUI.SetActive(false);
                     mixingSlider.gameObject.SetActive(false);
                     uiManager.HideStepOneOrTwo();
-                    
+                    mixClickPos = 1;
+
                 }
             }
             if (mixClickPos > 4)
             {
                 mixClickPos = 1;
             }
+            
         }
     }
    
