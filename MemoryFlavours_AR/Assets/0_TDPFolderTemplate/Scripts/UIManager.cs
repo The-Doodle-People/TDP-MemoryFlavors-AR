@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject startBtn;
     public TMP_Text step1a;
+    public GameObject step2;
 
     public void ObjectTracked(GameObject objectToTrack)
     {
@@ -23,7 +24,7 @@ public class UIManager : MonoBehaviour
 
             if (objectToTrack.name == "table_Model")
             {
-                step1a.text = "drag and drop flour, salt and sugar into red mixing bowl";
+                step1a.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
             }
 
 
@@ -33,15 +34,9 @@ public class UIManager : MonoBehaviour
             return;
         }
     }
-    // Start is called before the first frame update
-    void Start()
+    
+    public void ShowStepTwo()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        step2.SetActive(true);
     }
 }
