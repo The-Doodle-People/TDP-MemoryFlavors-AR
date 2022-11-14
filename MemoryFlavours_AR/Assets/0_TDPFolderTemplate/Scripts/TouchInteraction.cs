@@ -17,7 +17,8 @@ public class TouchInteraction : MonoBehaviour
     string currentTag;
 
     public UIManager uiManager;
-   
+
+    public ParticleSystem powder;
 
     void OnTouchPress()
     {
@@ -47,12 +48,13 @@ public class TouchInteraction : MonoBehaviour
 
             
             currentTag = "mixingBtn" + mixClickPos.ToString();
-            Debug.Log(currentTag);
+            
             if(hitInfo.collider.tag == currentTag)
             {
                 mixClickPos++;
 
                 mixingSlider.value += 0.1f;
+                powder.Play();
                 if(mixingSlider.value == 1)
                 {
                     mixingUI.SetActive(false);

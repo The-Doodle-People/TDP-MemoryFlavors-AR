@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class TriggerCheck : MonoBehaviour
@@ -17,7 +18,9 @@ public class TriggerCheck : MonoBehaviour
     
     public GameObject mixingUI;
     public GameObject mixingSlider;
-    
+    public ParticleSystem powder;
+    public ParticleSystem splash;
+
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("enter");
@@ -28,8 +31,8 @@ public class TriggerCheck : MonoBehaviour
             {
                 flourEnteredBowl = true;
                 adjustComponents();
-                
                 gameObject.transform.position = flourHoldArea.position;
+                powder.Play();
                 
             }
            
@@ -54,6 +57,7 @@ public class TriggerCheck : MonoBehaviour
                 mixingUI.SetActive(true);
                 mixingSlider.GetComponent<Slider>().value= 0;
                 mixingSlider.SetActive(true);
+                splash.Play();
             }
 
 
