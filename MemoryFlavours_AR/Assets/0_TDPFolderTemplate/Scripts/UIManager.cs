@@ -11,8 +11,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text stepsText;
     public GameObject step2;
     public GameObject step1;
-    public GameObject flour;
-    
+   
     public GameObject mixedDryIngreModel;
     public GameObject nextBtn;
     
@@ -35,7 +34,7 @@ public class UIManager : MonoBehaviour
             if (objectToTrack.name == "table_model")
             {
                 stepsText.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
-                flour.AddComponent<Lean.Touch.LeanDragTranslate>();
+               
             }
 
 

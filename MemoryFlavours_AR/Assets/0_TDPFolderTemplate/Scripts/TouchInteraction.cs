@@ -34,6 +34,10 @@ public class TouchInteraction : MonoBehaviour
         trigger = flour.GetComponent<TriggerCheck>();
         if (Physics.Raycast(ray, out hitInfo))
         {
+            if(hitInfo.collider.tag == "flour")
+            {
+                flour.AddComponent<Lean.Touch.LeanDragTranslate>();
+            }
             
             if (hitInfo.collider.tag == "saltnSugar" && trigger.flourEnteredBowl == true)
             {
