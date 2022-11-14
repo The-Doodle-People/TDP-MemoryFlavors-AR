@@ -30,7 +30,7 @@ public class UIController : MonoBehaviour
     // Check if player can place table
     public bool canPlaceTable;
 
-    // Animators for characters
+    // Character Animators
     public Animator boy6Animator;
     public Animator boy12Animator;
     public Animator girl6Animator;
@@ -87,10 +87,6 @@ public class UIController : MonoBehaviour
             canPlaceTable = false;
             tablePlaced = true;
             canInteractWithDimsum = true;
-            boy6Animator.SetBool("SittingAnimation", true);
-            boy12Animator.SetBool("SittingAnimation", true);
-            girl6Animator.SetBool("SittingAnimation", true);
-            girl12Animator.SetBool("SittingAnimation", true);
         }
 
         if (interactedWithDimsum)
@@ -175,7 +171,51 @@ public class UIController : MonoBehaviour
     {
         // Play TableFall animation
         tableAnimator.SetBool("TableFall", true);
-        yield return new WaitForSeconds(5.5f);
+
+        // Changing character animation speed according to speed of table animation
+        yield return new WaitForSeconds(1f);
+        boy12Animator.speed = 0.7f;
+        boy6Animator.speed = 0.7f;
+        girl6Animator.speed = 0.7f;
+        girl12Animator.speed = 0.7f;
+        yield return new WaitForSeconds(0.5f);
+        boy12Animator.speed = 0.6f;
+        boy6Animator.speed = 0.6f;
+        girl6Animator.speed = 0.6f;
+        girl12Animator.speed = 0.6f;
+        yield return new WaitForSeconds(0.4f);
+        boy12Animator.speed = 0.55f;
+        boy6Animator.speed = 0.55f;
+        girl6Animator.speed = 0.55f;
+        girl12Animator.speed = 0.55f;
+        yield return new WaitForSeconds(0.4f);
+        boy12Animator.speed = 0.45f;
+        boy6Animator.speed = 0.45f;
+        girl6Animator.speed = 0.45f;
+        girl12Animator.speed = 0.45f;
+        yield return new WaitForSeconds(0.3f);
+        boy12Animator.speed = 0.35f;
+        boy6Animator.speed = 0.35f;
+        girl6Animator.speed = 0.35f;
+        girl12Animator.speed = 0.35f;
+        yield return new WaitForSeconds(0.3f);
+        boy12Animator.speed = 0.25f;
+        boy6Animator.speed = 0.25f;
+        girl6Animator.speed = 0.25f;
+        girl12Animator.speed = 0.25f;
+        yield return new WaitForSeconds(0.3f);
+        boy12Animator.speed = 0.15f;
+        boy6Animator.speed = 0.15f;
+        girl6Animator.speed = 0.15f;
+        girl12Animator.speed = 0.15f;
+        yield return new WaitForSeconds(0.3f);
+        boy12Animator.speed = 0f;
+        boy6Animator.speed = 0f;
+        girl6Animator.speed = 0f;
+        girl12Animator.speed = 0f;
+        //yield return new WaitForSeconds(3.5f);
+
+        yield return new WaitForSeconds(2f);
         StartCoroutine("PlayTransition");
     }
 
