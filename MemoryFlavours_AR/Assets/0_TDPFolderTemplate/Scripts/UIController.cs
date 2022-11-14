@@ -87,11 +87,16 @@ public class UIController : MonoBehaviour
             canPlaceTable = false;
             tablePlaced = true;
             canInteractWithDimsum = true;
+            boy6Animator.SetBool("SittingAnimation", true);
+            boy12Animator.SetBool("SittingAnimation", true);
+            girl6Animator.SetBool("SittingAnimation", true);
+            girl12Animator.SetBool("SittingAnimation", true);
         }
 
         if (interactedWithDimsum)
         {
             StartCoroutine("PlayTableFall");
+            interactedWithDimsum = false;
         }
     }
 
