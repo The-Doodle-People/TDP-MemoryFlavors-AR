@@ -8,9 +8,17 @@ public class UIManager : MonoBehaviour
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
     public GameObject startBtn;
-    public TMP_Text step1a;
+    public TMP_Text stepsText;
     public GameObject step2;
-
+    public GameObject step1;
+    
+    public GameObject mixedDryIngreModel;
+    public GameObject nextBtn;
+    
+    public GameObject mixedDryIngreWWell;
+    public GameObject mixedLiquid;
+    int currentStep = 2;
+   
     public void ObjectTracked(GameObject objectToTrack)
     {
         if (objectToTrack != null)
@@ -24,7 +32,7 @@ public class UIManager : MonoBehaviour
 
             if (objectToTrack.name == "table_Model")
             {
-                step1a.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
+                stepsText.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
             }
 
 
@@ -35,8 +43,40 @@ public class UIManager : MonoBehaviour
         }
     }
     
-    public void ShowStepTwo()
+    
+    
+
+    public void HideStepOneOrTwo()
     {
-        step2.SetActive(true);
+        if (step2.gameObject.activeSelf)
+        {
+            step2.SetActive(false);
+            mixedLiquid.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            step1.SetActive(false);
+            mixedDryIngreModel.SetActive(true);
+            nextBtn.SetActive(true);
+            Debug.Log("change1");
+        }
     }
+
+    public void NextBtnFunctions()
+    {
+        if(currentStep== 2)
+        {
+            step2.SetActive(true);
+            mixedDryIngreModel.SetActive(false);
+            currentStep++;
+            stepsText.text = "drag and drop the beetrot juice into the dry ingredients";
+
+        } else if(currentStep== 3)
+        {
+            stepsText.text = "knead the dough";
+        }
+    }
+
+
 }

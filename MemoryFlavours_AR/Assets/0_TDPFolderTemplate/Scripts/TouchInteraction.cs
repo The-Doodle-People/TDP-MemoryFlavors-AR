@@ -15,8 +15,9 @@ public class TouchInteraction : MonoBehaviour
     public GameObject mixingUI;
     int mixClickPos = 1;
     string currentTag;
-    public GameObject mixedDryIngreModel;
-    public GameObject others;
+
+    public UIManager uiManager;
+   
 
     void OnTouchPress()
     {
@@ -50,10 +51,9 @@ public class TouchInteraction : MonoBehaviour
                 if(mixingSlider.value == 1)
                 {
                     mixingUI.SetActive(false);
-                    flour.SetActive(false);
-                    saltnSugar.SetActive(false);
-                    mixedDryIngreModel.SetActive(true);
-                    others.SetActive(false);
+                    mixingSlider.gameObject.SetActive(false);
+                    uiManager.HideStepOneOrTwo();
+                    
                 }
             }
             if (mixClickPos > 4)

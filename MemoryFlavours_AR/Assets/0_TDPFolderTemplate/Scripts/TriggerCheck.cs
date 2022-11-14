@@ -12,7 +12,8 @@ public class TriggerCheck : MonoBehaviour
     Rigidbody rb;
     public Transform flourHoldArea;
     public Transform saltSugarHoldArea;
-    public TMP_Text step1b;
+    public Transform btJuiceHoldArea;
+    public TMP_Text steps;
     
     public GameObject mixingUI;
     public GameObject mixingSlider;
@@ -27,7 +28,7 @@ public class TriggerCheck : MonoBehaviour
             {
                 flourEnteredBowl = true;
                 adjustComponents();
-                rb.transform.parent = flourHoldArea;
+                
                 gameObject.transform.position = flourHoldArea.position;
                 
             }
@@ -36,12 +37,22 @@ public class TriggerCheck : MonoBehaviour
             {
                 
                 adjustComponents();
-                rb.transform.parent = saltSugarHoldArea;
+               
                 gameObject.transform.position = saltSugarHoldArea.position;
-                step1b.text = "tap all the buttons to mix the dry ingredients";
+                steps.text = "tap all the buttons in the correct order to mix the dry ingredients";
                
 
                 mixingUI.SetActive(true);
+                mixingSlider.SetActive(true);
+            }
+
+            if(gameObject.tag == "btJuice")
+            {
+                adjustComponents();
+                gameObject.transform.position= btJuiceHoldArea.position;
+                steps.text = "tap all the buttons in the correct order to mix the ingredients into a dough";
+                mixingUI.SetActive(true);
+                mixingSlider.GetComponent<Slider>().value= 0;
                 mixingSlider.SetActive(true);
             }
 
