@@ -51,8 +51,6 @@ public class UIController : MonoBehaviour
     // Animator for transition animation
     public Animator transitionAnimator;
 
-    public GameObject transitionCanvas;
-
     // Check if player can scan postcard
     public bool canScanPostcardAgain;
 
@@ -61,9 +59,6 @@ public class UIController : MonoBehaviour
 
     // Start Image Target GameObject
     public GameObject startImageTarget;
-
-    // Minigame Image Target GameObject
-    public GameObject minigameImageTarget;
 
     // Dictionary for Object Tracking
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
@@ -184,13 +179,5 @@ public class UIController : MonoBehaviour
         transitionAnimator.SetBool("CanTransition", true);
         yield return new WaitForSeconds(8f);
         transitionAnimator.SetBool("CanTransition", false);
-        canScanPostcardAgain = true;
-        gameText.text = "SCAN THE POSTCARD\nIMAGE AGAIN!";
-
-        // Turn off Start Image Target
-        startImageTarget.SetActive(false);
-
-        // Turn on Minigame Image Target
-        minigameImageTarget.SetActive(true);
     }
 }
