@@ -21,6 +21,9 @@ public class TriggerCheck : MonoBehaviour
     public ParticleSystem powder;
     public ParticleSystem splash;
 
+    //step 4
+    public Transform blenderArea;
+
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("enter");

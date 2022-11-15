@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Data.SqlClient;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class UIManager : MonoBehaviour
     public TMP_Text stepsText;
     public GameObject step2;
     public GameObject step1;
+    public GameObject step3;
+    public GameObject step4;
    
     public GameObject mixedDryIngreModel;
     public GameObject nextBtn;
@@ -82,14 +85,14 @@ public class UIManager : MonoBehaviour
             if(objectToTrack.name == "AngKuKueh_Model")
             {
                 startBtn.SetActive(true);
-            }
-
-            if (objectToTrack.name == "table_model")
+            }else if (objectToTrack.name == "table_model")
             {
                 stepsText.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
                
+            }else if(objectToTrack.name == "BlenderBase")
+            {
+                stepsText.text = "drag and drop the peanut fillings to the blender and add the blender cap afterwards to blend it";
             }
-
 
         }
         else
@@ -103,20 +106,32 @@ public class UIManager : MonoBehaviour
 
     public void HideStepOneOrTwo()
     {
-        if (step2.gameObject.activeSelf)
+        if(step2.gameObject.activeSelf)
         {
             step2.SetActive(false);
-            mixedLiquid.gameObject.SetActive(true);
+            mixedLiquid.SetActive(true);
             nextBtn.SetActive(true);
 
-        }
-        else
+        } else if(step1.gameObject.activeSelf)
         {
             step1.SetActive(false);
             mixedDryIngreModel.SetActive(true);
+            mixedLiquid.SetActive(false);
             nextBtn.SetActive(true);
-           
+            
+        } else if(step4.gameObject.activeSelf)
+        {
+            step3.SetActive(false);
+            nextBtn.SetActive(true);
+            mixedLiquid.SetActive(false);
+
+        } else if(step3.gameObject.activeSelf)
+        {
+            step4.SetActive(false);
+            mixedLiquid.SetActive(true);
+            nextBtn.SetActive(true);
         }
+
     }
 
     public void NextBtnFunctions()
@@ -131,10 +146,19 @@ public class UIManager : MonoBehaviour
 
         } else if(currentStep== 3)
         {
+            step3.SetActive(true);
             stepsText.text = "drag up and down continuously to knead the dough!";
             mixingSlider.GetComponent<Slider>().value = 0;
-            mixingSlider.gameObject.SetActive(true);            
+            mixingSlider.gameObject.SetActive(true);
+            mixedLiquid.SetActive(true);
             kneadCanva.SetActive(true);
+            currentStep++;
+
+        } else if(currentStep == 4)
+        {
+            stepsText.text = "scan the blender section";
+            step4.SetActive(true);
+            currentStep++;
         }
     }
 }
