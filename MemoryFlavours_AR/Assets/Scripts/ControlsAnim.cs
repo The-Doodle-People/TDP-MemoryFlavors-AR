@@ -75,10 +75,15 @@ public class ControlsAnim : MonoBehaviour
     /// </summary>
     public GameObject imageKueh;
 
+    public AudioSource audioSource;
+
+    public AudioClip[] changeClip = new AudioClip[0];
+
     // Start is called before the first frame update
     void Start()
     {
-      
+        audioSource.clip = changeClip[3];
+        audioSource.Play();
     }
 
     // Update is called once per frame
@@ -96,6 +101,8 @@ public class ControlsAnim : MonoBehaviour
         chinaTown.SetActive(true);
         startButton.SetActive(true);
         stopButton.SetActive(false);
+        audioSource.clip = changeClip[0];
+        audioSource.Play();
     }
 
     // called when target two image appears
@@ -107,6 +114,8 @@ public class ControlsAnim : MonoBehaviour
         mosque.SetActive(true);
         startButton.SetActive(true);
         stopButton.SetActive(false);
+        audioSource.clip = changeClip[1];
+        audioSource.Play();
     }
 
     // called when target three image appears
@@ -118,6 +127,8 @@ public class ControlsAnim : MonoBehaviour
         littleIndia.SetActive(true);
         startButton.SetActive(true);
         stopButton.SetActive(false);
+        audioSource.clip = changeClip[2];
+        audioSource.Play();
     }
     //called when any image target disappears from camera view
     public void ImageDisappears()
@@ -142,6 +153,8 @@ public class ControlsAnim : MonoBehaviour
         imageMosque.SetActive(false);
         imagePrata.SetActive(false);
         imageLittleIndia.SetActive(false);
+        audioSource.clip = changeClip[3];
+        audioSource.Play();
     }
 
     //Animation starts if active in hierarchy and button is pressed
