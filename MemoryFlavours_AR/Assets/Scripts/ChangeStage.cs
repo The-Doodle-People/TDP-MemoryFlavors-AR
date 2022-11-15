@@ -24,6 +24,10 @@ public class ChangeStage : MonoBehaviour
             stages[2].SetActive(false);
             stages[3].SetActive(false);
             stages[4].SetActive(false);
+            stages[5].SetActive(false);
+            stages[6].SetActive(false);
+            stages[7].SetActive(false);
+            stages[8].SetActive(false);
         }
         else if (numObject == 1)
         {
@@ -31,6 +35,10 @@ public class ChangeStage : MonoBehaviour
             stages[2].SetActive(true);
             stages[3].SetActive(false);
             stages[4].SetActive(false);
+            stages[5].SetActive(false);
+            stages[6].SetActive(false);
+            stages[7].SetActive(false);
+            stages[8].SetActive(false);
             stages[0].SetActive(false);
         }
         else if (numObject == 2)
@@ -40,6 +48,10 @@ public class ChangeStage : MonoBehaviour
             stages[1].SetActive(false);
             stages[3].SetActive(false);
             stages[4].SetActive(false);
+            stages[5].SetActive(false);
+            stages[6].SetActive(false);
+            stages[7].SetActive(false);
+            stages[8].SetActive(false);
         }
         else if (numObject == 3)
         {
@@ -48,6 +60,10 @@ public class ChangeStage : MonoBehaviour
             stages[4].SetActive(false);
             stages[1].SetActive(false);
             stages[2].SetActive(false);
+            stages[5].SetActive(false);
+            stages[6].SetActive(false);
+            stages[7].SetActive(false);
+            stages[8].SetActive(false);
         }
         else if (numObject == 4)
         {
@@ -56,15 +72,68 @@ public class ChangeStage : MonoBehaviour
             stages[0].SetActive(false);
             stages[1].SetActive(false);
             stages[2].SetActive(false);
+            stages[5].SetActive(false);
+            stages[6].SetActive(false);
+            stages[7].SetActive(false);
+            stages[8].SetActive(false);
         }
-        if (numObject != 5)
+        else if(numObject == 5)
         {
-            numObject += 1;
+            stages[4].SetActive(false);
+            stages[5].SetActive(true);
+            stages[6].SetActive(false);
+            stages[7].SetActive(false);
+            stages[8].SetActive(false);
+            stages[0].SetActive(false);
+            stages[1].SetActive(false);
+            stages[2].SetActive(false);
+            stages[3].SetActive(false);
+        }
+        else if (numObject == 6)
+        {
+            stages[5].SetActive(false);
+            stages[6].SetActive(true);
+            stages[7].SetActive(false);
+            stages[8].SetActive(false);
+            stages[0].SetActive(false);
+            stages[1].SetActive(false);
+            stages[2].SetActive(false);
+            stages[3].SetActive(false);
+            stages[4].SetActive(false);
+        }
+        else if (numObject == 7)
+        {
+            stages[6].SetActive(false);
+            stages[7].SetActive(true);
+            stages[8].SetActive(false);
+            stages[0].SetActive(false);
+            stages[1].SetActive(false);
+            stages[2].SetActive(false);
+            stages[3].SetActive(false);
+            stages[4].SetActive(false);
+            stages[5].SetActive(false);
+        }
+        else if(numObject == 8)
+        {
+            stages[7].SetActive(false);
+            stages[8].SetActive(true);
+            stages[0].SetActive(false);
+            stages[1].SetActive(false);
+            stages[2].SetActive(false);
+            stages[3].SetActive(false);
+            stages[4].SetActive(false);
+            stages[5].SetActive(false);
+            stages[6].SetActive(false);
         }
 
-        else if (numObject == 5)
-        {
-            numObject = 0;
+            if (numObject != 10)
+            {
+                numObject += 1;
+            }
+
+            else if (numObject == 10)
+            {
+                numObject = 0;
+            }
         }
     }
-}
