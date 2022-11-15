@@ -10,7 +10,11 @@ using Vuforia;
 
 public class CameraController : MonoBehaviour
 {
+    /// <summary>
+    /// Store GameObject to stop displaying it when camera is off
+    /// </summary>
     public List<GameObject> storeGameObjects;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,7 @@ public class CameraController : MonoBehaviour
         
     }
 
+    //Toggle camera on and off
     public void ToggleCamera()
     {
         // if true, stop AR features

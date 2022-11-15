@@ -1,3 +1,8 @@
+/*
+ * Author: Shi Jie, Anqi, Jessica
+ * Date: 14/11/22
+ * Description: Calculate score earned and display model accordingly
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -88,7 +93,7 @@ public class PointSystem : MonoBehaviour
             }
         }
     }
-
+    // when function is triggered, add one point to countPoints
     public void PrataIngredients()
     {
         if (stageNum <= 4)
@@ -98,7 +103,7 @@ public class PointSystem : MonoBehaviour
             stageNum += 1;
             Debug.Log(stageNum);
         }
-
+        // set active plane finder 
         if (stageNum > 4)
         {
             activePlane.SetActive(true);
@@ -108,6 +113,7 @@ public class PointSystem : MonoBehaviour
         
     }
 
+    // when function is triggered, add two points to countPoints
     public void KuehIngredients()
     {
         if (stageNum <= 4)
@@ -117,6 +123,7 @@ public class PointSystem : MonoBehaviour
             Debug.Log(stageNum);
         }
 
+        // set active plane finder 
         if (stageNum > 4)
         {
             activePlane.SetActive(true);
@@ -125,6 +132,7 @@ public class PointSystem : MonoBehaviour
         }
     }
 
+    // when function is triggered, add three points to countPoints
     public void MooncakeIngredients()
     {
         if (stageNum <= 4)
@@ -133,6 +141,7 @@ public class PointSystem : MonoBehaviour
             stageNum += 1;
         }
 
+        // set active plane finder 
         if (stageNum > 4)
         {
             activePlane.SetActive(true);
@@ -141,31 +150,30 @@ public class PointSystem : MonoBehaviour
         }
     }
 
-    public void ReplayGame()
-    {
-        stageNum = 1;
-        countPoints = 0;
-        checkStage = true;
-    }
-
+   
+    // Change stage on click
     public void ChangeStage()
     {
         if (checkPlane)
         {
             activePositioner.SetActive(false);
             activePlane.SetActive(true);
+
+            // Display prata model
             if (countPoints >= 4 && countPoints <= 6)
             {
                 planeFinder.AnchorStage = groundStages[0];
 
             }
 
+            // Display tutu kueh model
             if (countPoints >= 7 && countPoints <= 9)
             {
                 planeFinder.AnchorStage = groundStages[1];
 
             }
 
+            // Display mooncake model
             if (countPoints >= 10 && countPoints <= 12)
             {
                 planeFinder.AnchorStage = groundStages[2];
@@ -177,18 +185,22 @@ public class PointSystem : MonoBehaviour
         {
             activePositioner.SetActive(true);
             activePlane.SetActive(false);
+
+            // Display little india model
             if (countPoints >= 4 && countPoints <= 6)
             {
                 airPositioner.AnchorStage = airStages[0];
 
             }
 
+            // Display mosque model
             if (countPoints >= 7 && countPoints <= 9)
             {
                 airPositioner.AnchorStage = airStages[1];
 
             }
 
+            // Display chinatown model
             if (countPoints >= 10 && countPoints <= 12)
             {
                 airPositioner.AnchorStage = airStages[2];
@@ -196,7 +208,7 @@ public class PointSystem : MonoBehaviour
             }
         }
     }
-
+    // switch between plane finder and air positioner
     public void SwitchPlane()
     {
         checkPlane = !checkPlane;

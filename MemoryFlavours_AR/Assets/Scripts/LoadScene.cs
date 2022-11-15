@@ -42,6 +42,7 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("ARCamera");
     }
 
+    // Go to game scene
     public void GoToGame()
     {
         SceneManager.LoadScene("GameScene");

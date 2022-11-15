@@ -1,3 +1,8 @@
+/*
+ * Author: Shi Jie, Anqi, Jessica
+ * Date: 14/11/22
+ * Description: Change the animation and music when image target appears
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -86,11 +91,6 @@ public class ControlsAnim : MonoBehaviour
         audioSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     // called when target one image appears
     public void ImageAppearsTargetOne()
@@ -153,7 +153,7 @@ public class ControlsAnim : MonoBehaviour
         imageMosque.SetActive(false);
         imagePrata.SetActive(false);
         imageLittleIndia.SetActive(false);
-        audioSource.clip = changeClip[3];
+        audioSource.clip = changeClip[3]; //play music 
         audioSource.Play();
     }
 
