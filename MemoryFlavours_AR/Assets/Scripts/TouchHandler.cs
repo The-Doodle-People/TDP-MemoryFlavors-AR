@@ -20,9 +20,9 @@ public class TouchHandler : MonoBehaviour
         if(Physics.Raycast(ray, out hitInfo))
         {
             // Check if the hit object has an AstronautController component
-            if(hitInfo.collider.GetComponent<AstronautController>() != null)
+            if(hitInfo.collider.GetComponent<WavesController>() != null)
             {
-                hitInfo.collider.GetComponent<AstronautController>().Interact();
+                hitInfo.collider.GetComponent<WavesController>().Interact();
             }
         }
     }

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3528166337686373342}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &3528166336362388108
 SpriteRenderer:
@@ -114,7 +114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3528166337686373342}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &3528166336899041082
 SpriteRenderer:
@@ -198,7 +198,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3528166337686373342}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0.143, y: 180, z: -0.128}
 --- !u!212 &3528166337309686153
 SpriteRenderer:
@@ -261,6 +261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3528166337686373342}
+  - component: {fileID: 5055853155637020243}
   m_Layer: 0
   m_Name: Ham_And_Cheese_Waves
   m_TagString: Untagged
@@ -280,6 +281,8 @@ Transform:
   m_LocalScale: {x: 0.3328071, y: 0.3328071, z: 0.3328071}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4732966237259049501}
+  - {fileID: 1372946535257524148}
   - {fileID: 3528166336362388111}
   - {fileID: 3528166336899041061}
   - {fileID: 3528166337309686152}
@@ -288,6 +291,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &5055853155637020243
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3528166337686373337}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f1eed2ab2126ee04f8d454c02865427e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3528166337984464151
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +341,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3528166337686373342}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &3528166337984464149
 SpriteRenderer:
@@ -402,7 +425,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3528166337686373342}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &3528166338385401551
 SpriteRenderer:
@@ -456,3 +479,168 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &4149181600717376624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3528166337686373342}
+    m_Modifications:
+    - target: {fileID: 2437192436188451198, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_Name
+      value: Ham & Cheese Tail
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.27069998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.24939997
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a49b0ad1352ee5449e38b83d14f4240, type: 3}
+--- !u!4 &1372946535257524148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3069613501102705604, guid: 5a49b0ad1352ee5449e38b83d14f4240,
+    type: 3}
+  m_PrefabInstance: {fileID: 4149181600717376624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8492251097394754035
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3528166337686373342}
+    m_Modifications:
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.176
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9271107
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.37478778
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 44.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557509210235781460, guid: cc06a87db7be66347932d9d89bd4b815,
+        type: 3}
+      propertyPath: m_Name
+      value: Ham & Cheese Head
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc06a87db7be66347932d9d89bd4b815, type: 3}
+--- !u!4 &4732966237259049501 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3779741466442374126, guid: cc06a87db7be66347932d9d89bd4b815,
+    type: 3}
+  m_PrefabInstance: {fileID: 8492251097394754035}
+  m_PrefabAsset: {fileID: 0}

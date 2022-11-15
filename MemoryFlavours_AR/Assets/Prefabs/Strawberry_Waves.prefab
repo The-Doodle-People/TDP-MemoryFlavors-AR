@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5252468012008132443}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &2929266068475579338
 SpriteRenderer:
@@ -114,7 +114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5252468012008132443}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &3838499463707662252
 SpriteRenderer:
@@ -198,7 +198,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5252468012008132443}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &6031523339665150086
 SpriteRenderer:
@@ -282,7 +282,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5252468012008132443}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0.143, y: 180, z: -0.128}
 --- !u!212 &2926504901821526913
 SpriteRenderer:
@@ -345,6 +345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5252468012008132443}
+  - component: {fileID: 7342028768414264128}
   m_Layer: 0
   m_Name: Strawberry_Waves
   m_TagString: Untagged
@@ -364,6 +365,8 @@ Transform:
   m_LocalScale: {x: 0.3328071, y: 0.3328071, z: 0.3328071}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2050187007031374030}
+  - {fileID: 3600485894702285351}
   - {fileID: 8126967057708087839}
   - {fileID: 8940142555658379101}
   - {fileID: 7002796980380085601}
@@ -372,6 +375,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7342028768414264128
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078921935413448517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b699c905cd44054b98300ebf84e0c1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4553772981790171309
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +425,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5252468012008132443}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &5799873553204451934
 SpriteRenderer:
@@ -456,3 +479,163 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &3396643497353084536
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5252468012008132443}
+    m_Modifications:
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.085
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.163
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.056
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9292463
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.36946106
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 43.365
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042868895669244940, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_Name
+      value: Strawberry Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042868895669244940, guid: c5fedb1a16113ea4789615a7585a99bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5fedb1a16113ea4789615a7585a99bd, type: 3}
+--- !u!4 &2050187007031374030 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3697727404767645366, guid: c5fedb1a16113ea4789615a7585a99bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 3396643497353084536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3766226150668775292
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5252468012008132443}
+    m_Modifications:
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2002
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2256
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078890072454903777, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_Name
+      value: Strawberry Tail
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078890072454903777, guid: c7f33cdd9f2d12341a86413d37a4028e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c7f33cdd9f2d12341a86413d37a4028e, type: 3}
+--- !u!4 &3600485894702285351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 410720793038613851, guid: c7f33cdd9f2d12341a86413d37a4028e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3766226150668775292}
+  m_PrefabAsset: {fileID: 0}
