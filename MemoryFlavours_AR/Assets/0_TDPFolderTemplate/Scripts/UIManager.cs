@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.Data.SqlClient;
 
 public class UIManager : MonoBehaviour
 {
@@ -34,6 +32,15 @@ public class UIManager : MonoBehaviour
     int targetKnead = 20;
     int currentKnead;
     bool targetTF;
+
+    //step4
+    TriggerCheck triggerCheck;
+    public GameObject blenderCap; // recall script bool 
+    public GameObject aftBlenderCap;
+    public GameObject blendedPeanuts;
+    public GameObject notBlendedPeanuts;
+    public GameObject blendedCapUi;
+    public bool finishBlend;
 
     private void Update()
     {
@@ -64,9 +71,34 @@ public class UIManager : MonoBehaviour
                     mixedLiquid.SetActive(false);
                     guideArrow.SetActive(false);
                     kneadedDough.SetActive(true);
+                    stepsText.text = "Good Job! Dough looking good";
                     nextBtn.SetActive(true);
                 }
             };
+        }
+
+        if(step4.activeSelf)
+        {
+            triggerCheck = blenderCap.GetComponent<TriggerCheck>();
+
+            if (triggerCheck.readyToBlend == true)
+            {
+                blendedCapUi.SetActive(false);
+                aftBlenderCap.SetActive(true);
+                if (mixingSlider.value < 1f)
+                {
+                    mixingSlider.value += 0.2f * Time.deltaTime;
+                }
+                else if(mixingSlider.value == 1f)
+                {
+                    aftBlenderCap.SetActive(false);
+                    stepsText.text = "Take out the peanut fillings and place to empty bowl.";
+                    notBlendedPeanuts.SetActive(false);
+                    blendedPeanuts.SetActive(true);
+                    mixingSlider.gameObject.SetActive(false);
+                    finishBlend = true;
+                }
+            }    
         }
     }
 
@@ -91,7 +123,7 @@ public class UIManager : MonoBehaviour
                
             }else if(objectToTrack.name == "BlenderBase")
             {
-                stepsText.text = "drag and drop the peanut fillings to the blender and add the blender cap afterwards to blend it";
+                stepsText.text = "drag and drop to blend the peanut fillings";
             }
 
         }
@@ -158,6 +190,7 @@ public class UIManager : MonoBehaviour
         {
             stepsText.text = "scan the blender section";
             step4.SetActive(true);
+            aftBlenderCap.SetActive(false);
             currentStep++;
         }
     }

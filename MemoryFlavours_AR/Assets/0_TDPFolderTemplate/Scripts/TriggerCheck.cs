@@ -22,7 +22,11 @@ public class TriggerCheck : MonoBehaviour
     public ParticleSystem splash;
 
     //step 4
-    public Transform blenderArea;
+    public Transform peanutArea;
+    public GameObject blenderCap;
+    public GameObject blendedPeanutArea;
+    public GameObject blendedPeanuts;
+    public bool readyToBlend = false;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -62,10 +66,38 @@ public class TriggerCheck : MonoBehaviour
                 mixingSlider.SetActive(true);
                 splash.Play();
             }
-
-
         }
-       
+
+        if(other.gameObject.tag == "blenderTrigger")
+        {
+            if(gameObject.tag == "peanutFillings")
+            {
+                adjustComponents();
+                gameObject.transform.position = peanutArea.position;
+            }
+
+            if(gameObject.tag == "blenderCap")
+            {
+                gameObject.SetActive(false);
+                blenderCap.SetActive(true);
+                steps.text = "Blending in process!";
+                readyToBlend = true;
+                mixingSlider.GetComponent<Slider>().value = 0;
+                mixingSlider.SetActive(true);
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+        }
+
+        if(other.gameObject.tag == "placePeanutTrigger")
+        {
+            if(gameObject.tag == "blendedPeanuts")
+            {
+                blendedPeanuts.SetActive(false);
+                blendedPeanutArea.SetActive(true);
+                adjustComponents();
+                Destroy(gameObject.GetComponent<Lean.Touch.LeanDragTranslate>());
+            }
+        }
 
     }
 
