@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,7 +21,57 @@ public class UIManager : MonoBehaviour
     public GameObject mixedDryIngreWWell;
     public GameObject mixedLiquid;
     int currentStep = 2;
-   
+
+    //step 3
+    public Slider kneadSlider;
+    public Slider mixingSlider;
+    public GameObject kneadCanva;
+    public GameObject kneadedDough;
+    public GameObject guideArrow;
+    int targetKnead = 20;
+    int currentKnead;
+    bool targetTF;
+
+    private void Update()
+    {
+        if(kneadCanva.activeSelf)
+        {            
+            kneadSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+
+            if (kneadSlider.value == kneadSlider.maxValue) // complete one round of kneading
+            {
+                var input = EventSystem.current.GetComponent<StandaloneInputModule>(); // deactivate constant drag slider
+                targetTF = true; //means it has rch the max point
+                input.DeactivateModule();
+                if(targetTF)
+                {                    
+                    currentKnead += 2;
+                    mixingSlider.value += 0.1f;
+                    targetTF = false;
+                    kneadSlider.value = 0f;
+                }
+            }
+
+            if(currentKnead == targetKnead) // once kneading done
+            {
+                if (mixingSlider.value == 1)
+                {
+                    mixingSlider.gameObject.SetActive(false);
+                    mixingSlider.value = 0f;
+                    mixedLiquid.SetActive(false);
+                    guideArrow.SetActive(false);
+                    kneadedDough.SetActive(true);
+                    nextBtn.SetActive(true);
+                }
+            };
+        }
+    }
+
+    public void ValueChangeCheck() // a callback function to check if slider value has change, if yes means user is using the slider
+    {
+        mixedLiquid.transform.Rotate(0, 90 * Time.deltaTime, 0, Space.World);
+    }
+
     public void ObjectTracked(GameObject objectToTrack)
     {
         if (objectToTrack != null)
@@ -78,10 +131,10 @@ public class UIManager : MonoBehaviour
 
         } else if(currentStep== 3)
         {
-            stepsText.text = "knead the dough";
-          
+            stepsText.text = "drag up and down continuously to knead the dough!";
+            mixingSlider.GetComponent<Slider>().value = 0;
+            mixingSlider.gameObject.SetActive(true);            
+            kneadCanva.SetActive(true);
         }
     }
-
-
 }
