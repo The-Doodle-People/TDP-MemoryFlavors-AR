@@ -10,18 +10,20 @@ public class UIManager : MonoBehaviour
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
     public GameObject startBtn;
+    public GameObject angKuKueh;
     public TMP_Text stepsText;
     public GameObject step2;
     public GameObject step1;
     public GameObject step3;
     public GameObject step4;
+    public GameObject tableBowl;
    
     public GameObject mixedDryIngreModel;
     public GameObject nextBtn;
     
     public GameObject mixedDryIngreWWell;
     public GameObject mixedLiquid;
-    int currentStep = 2;
+    int currentStep = 1;
 
     //step 3
     public Slider kneadSlider;
@@ -39,6 +41,7 @@ public class UIManager : MonoBehaviour
     public GameObject aftBlenderCap;
     public GameObject blendedPeanuts;
     public GameObject notBlendedPeanuts;
+    public GameObject aftBlendedPeanuts;
     public GameObject blendedCapUi;
     public bool finishBlend;
 
@@ -84,7 +87,7 @@ public class UIManager : MonoBehaviour
             if (triggerCheck.readyToBlend == true)
             {
                 blendedCapUi.SetActive(false);
-                aftBlenderCap.SetActive(true);
+                
                 if (mixingSlider.value < 1f)
                 {
                     mixingSlider.value += 0.2f * Time.deltaTime;
@@ -92,13 +95,20 @@ public class UIManager : MonoBehaviour
                 else if(mixingSlider.value == 1f)
                 {
                     aftBlenderCap.SetActive(false);
-                    stepsText.text = "Take out the peanut fillings and place to empty bowl.";
+                    stepsText.text = "Take out the peanut fillings and place to empty bowl";
                     notBlendedPeanuts.SetActive(false);
                     blendedPeanuts.SetActive(true);
                     mixingSlider.gameObject.SetActive(false);
                     finishBlend = true;
                 }
-            }    
+            } 
+            
+            if(aftBlendedPeanuts.activeSelf)
+            {
+                blendedPeanuts.SetActive(false);
+                stepsText.text = "Well done!";
+                nextBtn.SetActive(true);
+            }
         }
     }
 
@@ -123,7 +133,7 @@ public class UIManager : MonoBehaviour
                
             }else if(objectToTrack.name == "BlenderBase")
             {
-                stepsText.text = "drag and drop to blend the peanut fillings";
+                stepsText.text = "drag and drop peanut fillings to blender";
             }
 
         }
@@ -149,37 +159,31 @@ public class UIManager : MonoBehaviour
             step1.SetActive(false);
             mixedDryIngreModel.SetActive(true);
             mixedLiquid.SetActive(false);
-            nextBtn.SetActive(true);
-            
-        } else if(step4.gameObject.activeSelf)
-        {
-            step3.SetActive(false);
-            nextBtn.SetActive(true);
-            mixedLiquid.SetActive(false);
-
-        } else if(step3.gameObject.activeSelf)
-        {
-            step4.SetActive(false);
-            mixedLiquid.SetActive(true);
-            nextBtn.SetActive(true);
+            nextBtn.SetActive(true);            
         }
 
     }
 
     public void NextBtnFunctions()
     {
-        if(currentStep== 2)
+        if(currentStep == 1)
+        {
+            angKuKueh.SetActive(false);
+            startBtn.SetActive(false);
+            currentStep++;
+
+        }else if(currentStep== 2)
         {
             step2.SetActive(true);
             mixedDryIngreModel.SetActive(false);
             currentStep++;
-            stepsText.text = "drag and drop the beetrot juice into the dry ingredients";
+            stepsText.text = "Drag and drop the beetrot juice into the dry ingredients";
            
 
         } else if(currentStep== 3)
         {
             step3.SetActive(true);
-            stepsText.text = "drag up and down continuously to knead the dough!";
+            stepsText.text = "Drag up and down continuously to knead the dough!";
             mixingSlider.GetComponent<Slider>().value = 0;
             mixingSlider.gameObject.SetActive(true);
             mixedLiquid.SetActive(true);
@@ -188,9 +192,17 @@ public class UIManager : MonoBehaviour
 
         } else if(currentStep == 4)
         {
-            stepsText.text = "scan the blender section";
+            stepsText.text = "Scan the blender section";
+            step3.SetActive(false);
+            tableBowl.SetActive(false);
+            kneadCanva.SetActive(false);
             step4.SetActive(true);
-            aftBlenderCap.SetActive(false);
+            currentStep++;
+
+        } else if(currentStep == 5)
+        {
+            stepsText.text = "Scan the mold section";
+            step4.SetActive(false);
             currentStep++;
         }
     }

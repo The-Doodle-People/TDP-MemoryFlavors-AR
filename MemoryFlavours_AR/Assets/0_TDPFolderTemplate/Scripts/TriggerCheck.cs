@@ -23,15 +23,15 @@ public class TriggerCheck : MonoBehaviour
 
     //step 4
     public Transform peanutArea;
+    public TMP_Text emptyText;
+    public GameObject noFillingsBowl;
+    public GameObject bowlBlendedFillings;
     public GameObject blenderCap;
     public GameObject blendedPeanutArea;
-    public GameObject blendedPeanuts;
     public bool readyToBlend = false;
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter");
-
         if (other.gameObject.tag == "bowlTrigger" )
         {
             if (gameObject.tag == "flour")
@@ -74,6 +74,9 @@ public class TriggerCheck : MonoBehaviour
             {
                 adjustComponents();
                 gameObject.transform.position = peanutArea.position;
+                emptyText.text = "Empty Bowl";
+                noFillingsBowl.SetActive(false);
+                bowlBlendedFillings.SetActive(true);
             }
 
             if(gameObject.tag == "blenderCap")
@@ -92,10 +95,10 @@ public class TriggerCheck : MonoBehaviour
         {
             if(gameObject.tag == "blendedPeanuts")
             {
-                blendedPeanuts.SetActive(false);
+                gameObject.SetActive(false);
+                Destroy(gameObject.GetComponent<Lean.Touch.LeanDragTranslate>());
                 blendedPeanutArea.SetActive(true);
                 adjustComponents();
-                Destroy(gameObject.GetComponent<Lean.Touch.LeanDragTranslate>());
             }
         }
 

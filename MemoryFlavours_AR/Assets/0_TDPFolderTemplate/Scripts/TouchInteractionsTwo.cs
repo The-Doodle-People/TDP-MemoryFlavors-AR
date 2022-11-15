@@ -48,7 +48,7 @@ public class TouchInteractionsTwo : MonoBehaviour
                 }
             }
 
-            if (hitInfo.collider.tag == "blendedPeanuts")
+            if(hitInfo.collider.tag == "blendedPeanuts")
             {
                 blendedPeanuts.AddComponent<Lean.Touch.LeanDragTranslate>();
             }

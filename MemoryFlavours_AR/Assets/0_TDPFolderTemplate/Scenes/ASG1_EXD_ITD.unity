@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29244739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00020000339, y: 0, z: 0.0007}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -160,6 +160,7 @@ Transform:
   - {fileID: 1588134986}
   - {fileID: 1808569035}
   - {fileID: 974325615}
+  - {fileID: 1182718900}
   m_Father: {fileID: 1144132742}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -507,7 +508,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4c929bbac383c5f40a5f30856bee8f4a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4c929bbac383c5f40a5f30856bee8f4a,
         type: 3}
@@ -597,6 +598,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 131134366}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &138064033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 138064034}
+  m_Layer: 0
+  m_Name: Table_Bowl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &138064034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138064033}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 577387065}
+  - {fileID: 166521402}
+  m_Father: {fileID: 575050352}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143066449
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,19 +740,19 @@ Transform:
   - {fileID: 361738530}
   - {fileID: 468709242}
   m_Father: {fileID: 575050352}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &166521401
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 575050352}
+    m_TransformParent: {fileID: 138064034}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
@@ -758,7 +792,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
@@ -1327,11 +1361,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startBtn: {fileID: 1311963116}
+  angKuKueh: {fileID: 919132148735254065}
   stepsText: {fileID: 186420476}
   step2: {fileID: 2126780852}
   step1: {fileID: 154992673}
   step3: {fileID: 1047290512}
   step4: {fileID: 29244739}
+  tableBowl: {fileID: 138064033}
   mixedDryIngreModel: {fileID: 504125561}
   nextBtn: {fileID: 88050553}
   mixedDryIngreWWell: {fileID: 573964317}
@@ -1345,6 +1381,7 @@ MonoBehaviour:
   aftBlenderCap: {fileID: 703026940}
   blendedPeanuts: {fileID: 467230713}
   notBlendedPeanuts: {fileID: 1807886654}
+  aftBlendedPeanuts: {fileID: 1873527633}
   blendedCapUi: {fileID: 1808569034}
   finishBlend: 0
 --- !u!4 &266782141
@@ -1590,9 +1627,11 @@ MonoBehaviour:
   powder: {fileID: 0}
   splash: {fileID: 0}
   peanutArea: {fileID: 0}
+  emptyText: {fileID: 0}
+  noFillingsBowl: {fileID: 0}
+  bowlBlendedFillings: {fileID: 0}
   blenderCap: {fileID: 0}
   blendedPeanutArea: {fileID: 0}
-  blendedPeanuts: {fileID: 0}
   readyToBlend: 0
 --- !u!54 &361738534
 Rigidbody:
@@ -1752,7 +1791,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7e608a8b57d866248a05f281c71df3e8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00028999872
+      value: 0.0040900037
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7e608a8b57d866248a05f281c71df3e8,
         type: 3}
@@ -2148,7 +2187,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a3f2f927a4b029a4f8fd4581b8374eff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0024
+      value: 0.0014
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3f2f927a4b029a4f8fd4581b8374eff,
         type: 3}
@@ -2286,9 +2325,11 @@ MonoBehaviour:
   powder: {fileID: 0}
   splash: {fileID: 0}
   peanutArea: {fileID: 0}
+  emptyText: {fileID: 0}
+  noFillingsBowl: {fileID: 0}
+  bowlBlendedFillings: {fileID: 0}
   blenderCap: {fileID: 703026940}
   blendedPeanutArea: {fileID: 1873527633}
-  blendedPeanuts: {fileID: 467230713}
   readyToBlend: 0
 --- !u!1001 &468709241
 PrefabInstance:
@@ -2395,7 +2436,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 52f40b9e38cced44a926ccc0e213d372,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 52f40b9e38cced44a926ccc0e213d372,
         type: 3}
@@ -2613,9 +2654,8 @@ Transform:
   - {fileID: 1304041277}
   - {fileID: 1355051366}
   - {fileID: 64142784}
+  - {fileID: 138064034}
   - {fileID: 154992674}
-  - {fileID: 577387065}
-  - {fileID: 166521402}
   - {fileID: 2126780853}
   - {fileID: 1047290513}
   - {fileID: 504125560}
@@ -2647,12 +2687,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 575050352}
+    m_TransformParent: {fileID: 138064034}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 4bb87dc7102225c44a32d24ee12f2b99,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4bb87dc7102225c44a32d24ee12f2b99,
         type: 3}
@@ -3187,7 +3227,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1cf9a61b65dac2a4fba02d9daf7cbe8f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.042310003
+      value: -0.03851
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cf9a61b65dac2a4fba02d9daf7cbe8f,
         type: 3}
@@ -3335,9 +3375,11 @@ MonoBehaviour:
   powder: {fileID: 0}
   splash: {fileID: 0}
   peanutArea: {fileID: 0}
+  emptyText: {fileID: 0}
+  noFillingsBowl: {fileID: 0}
+  bowlBlendedFillings: {fileID: 0}
   blenderCap: {fileID: 703026940}
   blendedPeanutArea: {fileID: 0}
-  blendedPeanuts: {fileID: 0}
   readyToBlend: 0
 --- !u!1 &822885324
 GameObject:
@@ -3548,7 +3590,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974325614}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.026699997}
+  m_LocalPosition: {x: 0, y: 0, z: 0.024499997}
   m_LocalScale: {x: 0.0018682999, y: 0.0018682999, z: 0.0018682999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3801,7 +3843,7 @@ Transform:
   - {fileID: 608335043}
   - {fileID: 1585226980}
   m_Father: {fileID: 575050352}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1048738206 stripped
 GameObject:
@@ -3923,7 +3965,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 29244740}
-  - {fileID: 1182718900}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4050,12 +4091,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1144132742}
+    m_TransformParent: {fileID: 29244740}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
@@ -4075,7 +4116,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00020000339
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
@@ -4085,7 +4126,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0007
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cd12cd43bdeac564b877555344781e7e,
         type: 3}
@@ -4270,7 +4311,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01416
+      value: 0.007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
         type: 3}
@@ -9404,17 +9445,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1311963116}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 266782140}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: NextBtnFunctions
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1311963119
 MonoBehaviour:
@@ -9689,9 +9730,11 @@ MonoBehaviour:
   powder: {fileID: 1304041276}
   splash: {fileID: 1355051368}
   peanutArea: {fileID: 0}
+  emptyText: {fileID: 0}
+  noFillingsBowl: {fileID: 0}
+  bowlBlendedFillings: {fileID: 0}
   blenderCap: {fileID: 0}
   blendedPeanutArea: {fileID: 0}
-  blendedPeanuts: {fileID: 0}
   readyToBlend: 0
 --- !u!54 &1352549199
 Rigidbody:
@@ -15013,7 +15056,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.038
+      value: 0.0367
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
         type: 3}
@@ -15023,7 +15066,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0141
+      value: 0.0096
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
         type: 3}
@@ -15072,6 +15115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
+        type: 3}
       propertyPath: m_TagString
       value: placePeanutTrigger
       objectReference: {fileID: 0}
@@ -15100,8 +15148,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0097191045, y: 0.017382333, z: 0.008520753}
-  m_Center: {x: -0.0006404332, y: 0.007550503, z: 0.00025634922}
+  m_Size: {x: 0.010222894, y: 0.016635958, z: 0.00940238}
+  m_Center: {x: -0.0008923249, y: 0.007177315, z: -0.00018446351}
 --- !u!1 &1589202462
 GameObject:
   m_ObjectHideFlags: 0
@@ -15928,7 +15976,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e5a9627d957005142b2748c19b654906,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.014
+      value: 0.006840001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e5a9627d957005142b2748c19b654906,
         type: 3}
@@ -16067,9 +16115,11 @@ MonoBehaviour:
   powder: {fileID: 0}
   splash: {fileID: 0}
   peanutArea: {fileID: 44385121}
+  emptyText: {fileID: 974325616}
+  noFillingsBowl: {fileID: 1956927178}
+  bowlBlendedFillings: {fileID: 1588134987}
   blenderCap: {fileID: 703026940}
   blendedPeanutArea: {fileID: 0}
-  blendedPeanuts: {fileID: 0}
   readyToBlend: 0
 --- !u!1 &1808569034
 GameObject:
@@ -16097,7 +16147,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808569034}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0268}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0246}
   m_LocalScale: {x: 0.0018682999, y: 0.0018682999, z: 0.0018682999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16449,7 +16499,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1cf9a61b65dac2a4fba02d9daf7cbe8f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.081
+      value: -0.0772
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1cf9a61b65dac2a4fba02d9daf7cbe8f,
         type: 3}
@@ -16597,9 +16647,11 @@ MonoBehaviour:
   powder: {fileID: 0}
   splash: {fileID: 0}
   peanutArea: {fileID: 44385121}
+  emptyText: {fileID: 0}
+  noFillingsBowl: {fileID: 0}
+  bowlBlendedFillings: {fileID: 0}
   blenderCap: {fileID: 703026940}
   blendedPeanutArea: {fileID: 0}
-  blendedPeanuts: {fileID: 0}
   readyToBlend: 0
 --- !u!1 &1910141260
 GameObject:
@@ -16696,6 +16748,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1956927178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fdeb75fd07aa74c47b9ea1b4d9d59edf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283094267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2006901213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16918,9 +16976,11 @@ MonoBehaviour:
   powder: {fileID: 0}
   splash: {fileID: 1355051368}
   peanutArea: {fileID: 0}
+  emptyText: {fileID: 0}
+  noFillingsBowl: {fileID: 0}
+  bowlBlendedFillings: {fileID: 0}
   blenderCap: {fileID: 0}
   blendedPeanutArea: {fileID: 0}
-  blendedPeanuts: {fileID: 0}
   readyToBlend: 0
 --- !u!54 &2057233105
 Rigidbody:
@@ -17083,7 +17143,7 @@ Transform:
   - {fileID: 2127863737}
   - {fileID: 324645878}
   m_Father: {fileID: 575050352}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2127863736
 GameObject:
