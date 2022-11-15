@@ -125,15 +125,27 @@ public class ChangeStage : MonoBehaviour
             stages[5].SetActive(false);
             stages[6].SetActive(false);
         }
+        else if(numObject == 9)
+        {
+            stages[0].SetActive(true);
+            stages[1].SetActive(true);
+            stages[2].SetActive(true);
+            stages[3].SetActive(true);
+            stages[4].SetActive(true);
+            stages[5].SetActive(true);
+            stages[6].SetActive(true);
+            stages[7].SetActive(true);
+            stages[8].SetActive(true);
+        }
 
-            if (numObject != 10)
+            if (numObject != 11)
             {
                 numObject += 1;
             }
 
-            else if (numObject == 10)
+            else if (numObject == 11)
             {
-                numObject = 0;
+                numObject = 9;
             }
         }
     }
