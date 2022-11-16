@@ -14,6 +14,6 @@ public class ScenesManager : MonoBehaviour
     }
     public void ArCam()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("ArCamera");
     }
 }

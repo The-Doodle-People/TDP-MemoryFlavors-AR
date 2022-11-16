@@ -42,12 +42,12 @@ public class QuizManager : MonoBehaviour
     /// <summary>
     /// Check if answer is correct 
     /// </summary>
-    void setAnswers()
+    void SetAnswers()
     {
         for(int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestions].Answers[i];
+            options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[currentQuestions].Answers[i];
            
             if(QnA[currentQuestions].CorrectAnswer == i+1)
             {
@@ -65,5 +65,6 @@ public class QuizManager : MonoBehaviour
         currentQuestions = Random.Range(0, QnA.Count);
 
         QuestionText.text = QnA[currentQuestions].Question ;
+        SetAnswers();
     }
 }
