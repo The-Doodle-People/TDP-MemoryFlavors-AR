@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class TouchHandler : MonoBehaviour
 {
     public Animator ingredients;
+    public IceKacangTracker ice;
     void OnTouchPress()
     {
         ///Get the position of the touch input, which is the primaryTouch
@@ -28,8 +29,57 @@ public class TouchHandler : MonoBehaviour
             if (hitInfo.collider.tag=="Ice")
             {
                 ingredients.SetBool("isIngre", true);
+                ice.resetBtn.SetActive(true);
                 ///Touch is detected
                 Debug.Log("Touch is detected");
+            }
+            else if (hitInfo.collider.tag == "Chendol")
+            {
+                ice.isChendol = true;
+                ice.Toppings();
+            }
+            else if (hitInfo.collider.tag == "Jelly")
+            {
+                ice.isJelly = true;
+                ice.Toppings();
+            }
+            else if (hitInfo.collider.tag == "Seed")
+            {
+                ice.isSeed = true;
+                ice.Toppings();
+            }
+            else if (hitInfo.collider.tag == "Corn")
+            {
+                ice.isCorn = true;
+                ice.Toppings();
+            }
+            else if (hitInfo.collider.tag == "Redbean")
+            {
+                ice.isBean = true;
+                ice.Toppings();
+            }
+            else if (hitInfo.collider.tag == "RedS")
+            {
+                ice.isRedS = true;
+                ice.Syrups();
+            }
+            else if (hitInfo.collider.tag == "BlueS")
+            {
+                ice.isBlueS = true;
+                ice.Syrups();
+            }
+            else if (hitInfo.collider.tag == "GreenS")
+            {
+                ice.isGreenS = true;
+                ice.Syrups();
+            }
+            else if (hitInfo.collider.tag == "Sugar")
+            {
+                ice.Sugar();
+            }
+            else if (hitInfo.collider.tag == "Milk")
+            {
+                ice.Milk();
             }
         }
 
