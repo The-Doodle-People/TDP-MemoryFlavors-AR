@@ -6,19 +6,13 @@ using UnityEngine.InputSystem;
 
 public class TouchHandler : MonoBehaviour
 {
-    /// <summary>
-    /// Wave button
-    /// </summary>
-    public GameObject WaveButton;
-
-
-    // When user touches screen
+    public Animator ingredients;
     void OnTouchPress()
     {
         ///Get the position of the touch input, which is the primaryTouch
         Vector3 rayPosition = Touchscreen.current.primaryTouch.position.ReadValue();
 
-        ///Assign the nearClipPlane value of the camera as the ëzí coordinate
+        ///Assign the nearClipPlane value of the camera as the xÅEcoordinate
         rayPosition.z = Camera.main.nearClipPlane;
 
         ///The function returns a Ray, so we create a Ray variable to store it.
@@ -31,11 +25,9 @@ public class TouchHandler : MonoBehaviour
         if (Physics.Raycast(ray,out hitInfo))
         {
             ///Checking if the object we hit has an AstronautController component 
-            if (hitInfo.collider.GetComponent<AstronautController>() != null)
+            if (hitInfo.collider.tag=="Ice")
             {
-                ///Sets canvas and button to active
-                WaveButton.SetActive(true);
-
+                ingredients.SetBool("isIngre", true);
                 ///Touch is detected
                 Debug.Log("Touch is detected");
             }
