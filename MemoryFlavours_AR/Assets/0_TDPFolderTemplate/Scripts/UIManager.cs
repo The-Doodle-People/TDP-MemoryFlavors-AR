@@ -45,9 +45,17 @@ public class UIManager : MonoBehaviour
     public GameObject blendedCapUi;
     public bool finishBlend;
 
+    public ParticleSystem kneadParticles;
+    public ParticleSystem blendingEffect;
+    public ParticleSystem peanutBlendedEffect;
+    public ParticleSystem aftKneadingEffect;
+
+    public AudioSource kneadSound;
+    public AudioSource blendingSound;
+
     private void Update()
     {
-        if(kneadCanva.activeSelf)
+        if (kneadCanva.activeSelf)
         {            
             kneadSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
 
@@ -70,6 +78,7 @@ public class UIManager : MonoBehaviour
                 if (mixingSlider.value == 1)
                 {
                     mixingSlider.gameObject.SetActive(false);
+                    aftKneadingEffect.Play();
                     mixingSlider.value = 0f;
                     mixedLiquid.SetActive(false);
                     guideArrow.SetActive(false);
@@ -90,10 +99,24 @@ public class UIManager : MonoBehaviour
                 
                 if (mixingSlider.value < 1f)
                 {
+                    if(!blendingEffect.isPlaying)
+                    {
+                        blendingEffect.Play();
+                    }
+                    if(!blendingSound.isPlaying)
+                    {
+                        blendingSound.Play();
+                    }
                     mixingSlider.value += 0.2f * Time.deltaTime;
                 }
                 else if(mixingSlider.value == 1f)
                 {
+                    blendingEffect.Stop();
+                    if (blendingSound.isPlaying)
+                    {
+                        blendingSound.Stop();
+                    }
+
                     aftBlenderCap.SetActive(false);
                     stepsText.text = "Take out the peanut fillings and place to empty bowl";
                     notBlendedPeanuts.SetActive(false);
@@ -106,6 +129,10 @@ public class UIManager : MonoBehaviour
             if(aftBlendedPeanuts.activeSelf)
             {
                 blendedPeanuts.SetActive(false);
+                if(!peanutBlendedEffect.isPlaying)
+                {
+                    peanutBlendedEffect.Play();
+                }
                 stepsText.text = "Well done!";
                 nextBtn.SetActive(true);
             }
@@ -115,6 +142,8 @@ public class UIManager : MonoBehaviour
     public void ValueChangeCheck() // a callback function to check if slider value has change, if yes means user is using the slider
     {
         mixedLiquid.transform.Rotate(0, 90 * Time.deltaTime, 0, Space.World);
+        kneadParticles.Play();
+        kneadSound.Play();
     }
 
     public void ObjectTracked(GameObject objectToTrack)
@@ -134,6 +163,7 @@ public class UIManager : MonoBehaviour
             }else if(objectToTrack.name == "BlenderBase")
             {
                 stepsText.text = "drag and drop peanut fillings to blender";
+                startBtn.SetActive(false);
             }
 
         }

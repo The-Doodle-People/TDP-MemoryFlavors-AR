@@ -29,7 +29,7 @@ public class TriggerCheck : MonoBehaviour
     public GameObject blenderCap;
     public GameObject blendedPeanutArea;
     public bool readyToBlend = false;
-
+    public ParticleSystem peanutToBlenderEffect;
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "bowlTrigger" )
@@ -77,6 +77,7 @@ public class TriggerCheck : MonoBehaviour
                 emptyText.text = "Empty Bowl";
                 noFillingsBowl.SetActive(false);
                 bowlBlendedFillings.SetActive(true);
+                peanutToBlenderEffect.Play();
             }
 
             if(gameObject.tag == "blenderCap")
@@ -96,6 +97,7 @@ public class TriggerCheck : MonoBehaviour
             if(gameObject.tag == "blendedPeanuts")
             {
                 gameObject.SetActive(false);
+                emptyText.text = "Blended Fillings";
                 Destroy(gameObject.GetComponent<Lean.Touch.LeanDragTranslate>());
                 blendedPeanutArea.SetActive(true);
                 adjustComponents();
