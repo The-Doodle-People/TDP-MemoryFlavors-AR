@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
 
     public GameObject dimsums;
 
-    public float xBound = 480f;
-    public float yBound = 2280f;
+    
+
+    private float xBound = 480f;
+    private float yBound = 2280f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator SpawnRandomGameObject()
     {
+        ///for every 1 to 2 seconds, the Dim Sums will fall within the x and y bounds.
         yield return new WaitForSeconds(Random.Range(1, 2));
 
         if(Random.value < .6f)
