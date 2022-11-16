@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     //movement speed in units per second
     private float movementSpeed = 500f;
 
-    private float xBound;
+    private float xBound = 380f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
     // FixedUpdate is called once per frame and its reccomended with the rigid body
 
-    void FixedUpdate()
+    void Update()
     {
-        float h = Input.GetAxis("Horizontal");
+        float h = Input.GetAxisRaw("Horizontal");
 
         if(h > 0)
         {
@@ -37,5 +37,7 @@ public class PlayerMovement : MonoBehaviour
         {
             myBody.velocity = Vector2.zero;
         }
+
+        
     }
 }
