@@ -52,6 +52,9 @@ public class UIManager : MonoBehaviour
 
     public AudioSource kneadSound;
     public AudioSource blendingSound;
+    public AudioSource voiceOver;
+    
+    public AudioSource bgMusic;
 
     private void Update()
     {
@@ -137,6 +140,7 @@ public class UIManager : MonoBehaviour
                 nextBtn.SetActive(true);
             }
         }
+
     }
 
     public void ValueChangeCheck() // a callback function to check if slider value has change, if yes means user is using the slider
@@ -146,6 +150,14 @@ public class UIManager : MonoBehaviour
         kneadSound.Play();
     }
 
+    public IEnumerator WaitForSound(AudioSource Sound)
+    {
+        yield return new WaitUntil(() => voiceOver.isPlaying == false);
+        // or yield return new WaitWhile(() => audiosource.isPlaying == true);
+        Destroy(voiceOver);
+            startBtn.SetActive(true); //Do something
+    }
+
     public void ObjectTracked(GameObject objectToTrack)
     {
         if (objectToTrack != null)
@@ -153,12 +165,17 @@ public class UIManager : MonoBehaviour
             Debug.Log(currentStep);
             trackedObjectStatus[objectToTrack] = true;
             Debug.Log(objectToTrack.name + "Tracked");
-            if(objectToTrack.name == "AngKuKueh_Model" && currentStep ==1)
+            if (objectToTrack.name == "AngKuKueh_Model" && currentStep == 1)
             {
-                startBtn.SetActive(true);
-            }else if (objectToTrack.name == "table_model" && currentStep == 2 )
+                voiceOver.Play();
+                StartCoroutine(WaitForSound(voiceOver));
+
+            
+            }
+            else if (objectToTrack.name == "table_model" && currentStep == 2 )
             {
                 stepsText.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
+                
                
             }else if(objectToTrack.name == "BlenderBase" && currentStep ==3)
             {
@@ -205,8 +222,10 @@ public class UIManager : MonoBehaviour
             angKuKueh.SetActive(false);
             startBtn.SetActive(false);
             currentStep++;
+            bgMusic.Play();
 
-        }else if(currentStep== 2)
+        }
+        else if(currentStep== 2)
         {
             step2.SetActive(true);
             mixedDryIngreModel.SetActive(false);
