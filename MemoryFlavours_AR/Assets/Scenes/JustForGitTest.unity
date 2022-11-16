@@ -6484,8 +6484,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938214785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0049562217, y: 0.0049562217, z: 0.0049562217}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 0.0041676867, y: 0.0041676867, z: 0.0041676867}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1631486641}
@@ -6493,7 +6493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.602, y: -1.097}
+  m_AnchoredPosition: {x: -0.836, y: -1.282}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &938214787
@@ -6544,6 +6544,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ShowMaker, Assembly-CSharp
+        m_MethodName: DisableMaker
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7243,7 +7255,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1008541453}
   - component: {fileID: 1008541451}
-  - component: {fileID: 1008541450}
   - component: {fileID: 1008541454}
   m_Layer: 0
   m_Name: Map
@@ -7252,24 +7263,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1008541450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1008541449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf32ea2cc0514b569329f6b6b68f9b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _map: {fileID: 1008541454}
-  _locationStrings:
-  - 1.33461, 103.721421
-  _spawnScale: 0.1
-  _markerPrefab: {fileID: 1839187062704024, guid: 0870a24abb55d2847b1e2414d5d8f9d1,
-    type: 3}
 --- !u!114 &1008541451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13788,7 +13781,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1997959896}
   - component: {fileID: 1997959899}
-  - component: {fileID: 1997959898}
   - component: {fileID: 1997959897}
   m_Layer: 0
   m_Name: Map
@@ -13920,24 +13912,6 @@ MonoBehaviour:
   _tileProvider: {fileID: 0}
   _previewOptions:
     isPreviewEnabled: 0
---- !u!114 &1997959898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997959895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcf32ea2cc0514b569329f6b6b68f9b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _map: {fileID: 1997959897}
-  _locationStrings:
-  - 1.2805532061445044, 103.84480958145913
-  _spawnScale: 0.1
-  _markerPrefab: {fileID: 1839187062704024, guid: 0870a24abb55d2847b1e2414d5d8f9d1,
-    type: 3}
 --- !u!114 &1997959899
 MonoBehaviour:
   m_ObjectHideFlags: 0

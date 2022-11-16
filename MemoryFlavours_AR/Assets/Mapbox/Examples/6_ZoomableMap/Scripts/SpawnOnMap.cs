@@ -20,8 +20,8 @@
 		[SerializeField]
 		float _spawnScale = 10f;
 
-		[SerializeField]
-		GameObject _markerPrefab;
+		
+		public GameObject _markerPrefab;
 
 		List<GameObject> _spawnedObjects;
 
