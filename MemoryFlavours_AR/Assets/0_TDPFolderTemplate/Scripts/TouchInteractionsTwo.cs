@@ -30,13 +30,14 @@ public class TouchInteractionsTwo : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitInfo))
         {
-            if(hitInfo.collider.tag == "peanutFillings")
+            if(hitInfo.collider.tag == "peanutFillings" && uiMgr.currentStep == 5)
             {
+               
                 peanutFillings.AddComponent<Lean.Touch.LeanDragTranslate>();
                 peanutTaken = true;
             }
 
-            if(hitInfo.collider.tag == "blenderCap")
+            if(hitInfo.collider.tag == "blenderCap" && uiMgr.currentStep == 5)
             {
                 if(peanutTaken == false)
                 {

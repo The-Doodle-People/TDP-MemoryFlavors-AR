@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     
     public GameObject mixedDryIngreWWell;
     public GameObject mixedLiquid;
-    int currentStep = 1;
+    public int currentStep = 1;
 
     //step 3
     public Slider kneadSlider;
@@ -150,17 +150,17 @@ public class UIManager : MonoBehaviour
     {
         if (objectToTrack != null)
         {
-
+            Debug.Log(currentStep);
             trackedObjectStatus[objectToTrack] = true;
             Debug.Log(objectToTrack.name + "Tracked");
-            if(objectToTrack.name == "AngKuKueh_Model")
+            if(objectToTrack.name == "AngKuKueh_Model" && currentStep ==1)
             {
                 startBtn.SetActive(true);
-            }else if (objectToTrack.name == "table_model")
+            }else if (objectToTrack.name == "table_model" && currentStep == 2 )
             {
                 stepsText.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
                
-            }else if(objectToTrack.name == "BlenderBase")
+            }else if(objectToTrack.name == "BlenderBase" && currentStep ==3)
             {
                 stepsText.text = "drag and drop peanut fillings to blender";
                 startBtn.SetActive(false);
@@ -182,14 +182,18 @@ public class UIManager : MonoBehaviour
         {
             step2.SetActive(false);
             mixedLiquid.SetActive(true);
+            aftKneadingEffect.Play();
             nextBtn.SetActive(true);
+            stepsText.text = "so far so good!";
 
         } else if(step1.gameObject.activeSelf)
         {
             step1.SetActive(false);
             mixedDryIngreModel.SetActive(true);
+            aftKneadingEffect.Play();
             mixedLiquid.SetActive(false);
-            nextBtn.SetActive(true);            
+            nextBtn.SetActive(true);
+            stepsText.text = "its slowly coming together!";
         }
 
     }
@@ -222,7 +226,7 @@ public class UIManager : MonoBehaviour
 
         } else if(currentStep == 4)
         {
-            stepsText.text = "Scan the blender section";
+            stepsText.text = "Scan the blender";
             step3.SetActive(false);
             tableBowl.SetActive(false);
             kneadCanva.SetActive(false);
@@ -231,7 +235,7 @@ public class UIManager : MonoBehaviour
 
         } else if(currentStep == 5)
         {
-            stepsText.text = "Scan the mold section";
+            stepsText.text = "Scan the Ang Ku Kueh mold ";
             step4.SetActive(false);
             currentStep++;
         }

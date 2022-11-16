@@ -21,6 +21,11 @@ public class TriggerCheck : MonoBehaviour
     public ParticleSystem powder;
     public ParticleSystem splash;
 
+    public AudioSource puff;
+    public AudioSource waterDrop;
+    public AudioSource pouring;
+
+
     //step 4
     public Transform peanutArea;
     public TMP_Text emptyText;
@@ -40,6 +45,7 @@ public class TriggerCheck : MonoBehaviour
                 adjustComponents();
                 gameObject.transform.position = flourHoldArea.position;
                 powder.Play();
+                puff.Play();
                 
             }
            
@@ -50,7 +56,7 @@ public class TriggerCheck : MonoBehaviour
                
                 gameObject.transform.position = saltSugarHoldArea.position;
                 steps.text = "tap all the buttons in the correct order to mix the dry ingredients";
-               
+                pouring.Play();
 
                 mixingUI.SetActive(true);
                 mixingSlider.SetActive(true);
@@ -64,6 +70,7 @@ public class TriggerCheck : MonoBehaviour
                 mixingUI.SetActive(true);
                 mixingSlider.GetComponent<Slider>().value= 0;
                 mixingSlider.SetActive(true);
+                waterDrop.Play();
                 splash.Play();
             }
         }

@@ -19,6 +19,7 @@ public class TouchInteraction : MonoBehaviour
     public UIManager uiManager;
 
     public ParticleSystem powder;
+    public AudioSource mixing;
 
     void OnTouchPress()
     {
@@ -35,7 +36,7 @@ public class TouchInteraction : MonoBehaviour
         trigger = flour.GetComponent<TriggerCheck>();
         if (Physics.Raycast(ray, out hitInfo))
         {
-            if(hitInfo.collider.tag == "flour")
+            if(hitInfo.collider.tag == "flour" )
             {
                 flour.AddComponent<Lean.Touch.LeanDragTranslate>();
             }
@@ -55,12 +56,14 @@ public class TouchInteraction : MonoBehaviour
 
                 mixingSlider.value += 0.1f;
                 powder.Play();
-                if(mixingSlider.value == 1)
+                mixing.Play();
+                if (mixingSlider.value == 1)
                 {
                     mixingUI.SetActive(false);
                     mixingSlider.gameObject.SetActive(false);
                     uiManager.HideStepOneOrTwo();
                     mixClickPos = 1;
+                    
 
                 }
             }
