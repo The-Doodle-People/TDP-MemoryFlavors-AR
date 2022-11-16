@@ -88,6 +88,9 @@ public class GroundPlaneToggle : MonoBehaviour
         // Change the button texts after changing the bool value.
         ChangeButtonTexts();
 
+        // Update the active stage
+        SetStage();
+
         // Enable the correct finder after changing the bool value.
         EnableFinder();
     }
@@ -177,7 +180,7 @@ public class GroundPlaneToggle : MonoBehaviour
     /// Cycles through the active stages
     /// </summary>
     public void CycleStages()
-    {
+    {   
         // If trackingGroundStages is true, cycle through the ground stages
         if(trackingGroundStages)
         {
@@ -204,6 +207,7 @@ public class GroundPlaneToggle : MonoBehaviour
             }
             airItem[airStageIndex].SetActive(true);
         }
+
 
         // Update the active stage
         SetStage();
