@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D myBody;
 
+    
+
     //movement speed in units per second
     private float movementSpeed = 500f;
 
@@ -23,21 +25,34 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float h = Input.GetAxisRaw("Horizontal");
+        //float h = Input.GetAxisRaw("Horizontal");
 
-        if(h > 0)
-        {
-            myBody.velocity = Vector2.right * movementSpeed;
-        }
-        else if(h < 0)
-        {
-            myBody.velocity = Vector2.left * movementSpeed;
-        }
-        else
-        {
-            myBody.velocity = Vector2.zero;
-        }
-
-        
+        //if(h > 0)
+        //{
+            //myBody.velocity = Vector2.right * movementSpeed;
+        //}
+        //else if(h < 0)
+        //{
+            //myBody.velocity = Vector2.left * movementSpeed;
+        //}
+        //else
+        //{
+            //myBody.velocity = Vector2.zero;
+        //}
     }
+
+    public void MoveLeft()
+    {
+        myBody.velocity = Vector2.left * movementSpeed;
+    }
+
+    public void MoveRight()
+    {
+        myBody.velocity = Vector2.right * movementSpeed;
+    }
+    public void StopMoving()
+    {
+        myBody.velocity = Vector2.zero;
+    }
+
 }
