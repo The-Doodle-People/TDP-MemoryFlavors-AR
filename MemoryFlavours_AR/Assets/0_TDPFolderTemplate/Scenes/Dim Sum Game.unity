@@ -566,54 +566,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520025727}
   m_CullTransparentMesh: 1
---- !u!1 &667592579
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 667592581}
-  - component: {fileID: 667592580}
-  m_Layer: 0
-  m_Name: ScoreController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &667592580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667592579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27de0ce00a70d424983c2f0c18fb65cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1284984397}
-  gameOver: 0
-  gameOverMessage: {fileID: 1882530890}
-  score: 0
---- !u!4 &667592581
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667592579}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 333.80136, y: 623.28644, z: 0.8643211}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &669151257
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dimsums: {fileID: 6729778947333541719, guid: cf7becef06c73cd4ba0b7278a71a61d6, type: 3}
-  game: {fileID: 667592580}
+  game: {fileID: 2101967092}
 --- !u!65 &841061094
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -892,7 +844,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &857568254
 GameObject:
@@ -2767,7 +2719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b622956b915b5d143a1b6aea7dbcb924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 667592580}
+  game: {fileID: 2101967092}
 --- !u!114 &2101967092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2783,6 +2735,7 @@ MonoBehaviour:
   scoreText: {fileID: 1284984397}
   gameOver: 0
   gameOverMessage: {fileID: 1882530890}
+  spawner: {fileID: 841061093}
   score: 0
 --- !u!1001 &3291480291202786889
 PrefabInstance:

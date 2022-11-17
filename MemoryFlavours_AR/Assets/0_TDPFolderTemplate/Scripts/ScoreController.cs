@@ -11,11 +11,13 @@ public class ScoreController : MonoBehaviour
     public bool gameOver;
     public GameObject gameOverMessage;
 
+    public Spawner spawner;
+
     public int score;
     // Start is called before the first frame update
     void Start()
     {
-        gameOver = false;   
+        
     }
 
     // Update is called once per frame
@@ -43,7 +45,8 @@ public class ScoreController : MonoBehaviour
             {
 
                 gameOver = true;
-                Debug.Log("GameOver is "+ gameOver.ToString());
+                //Debug.Log("GameOver is "+ gameOver.ToString());
+                Debug.Log("Game ended " + gameOver);
                 GameOver();
             }
 
@@ -54,6 +57,7 @@ public class ScoreController : MonoBehaviour
     public void GameOver()
     {
         gameOverMessage.SetActive(true);
+        spawner.StopCoroutine("SpawnRandomGameObject");
     }
 
 }

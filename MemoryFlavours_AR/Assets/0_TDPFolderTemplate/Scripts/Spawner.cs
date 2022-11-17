@@ -40,6 +40,7 @@ public class Spawner : MonoBehaviour
         }
         else
         {
+            Debug.Log("Stop Coroutine");
             StopCoroutine(SpawnRandomGameObject());
         }
 
