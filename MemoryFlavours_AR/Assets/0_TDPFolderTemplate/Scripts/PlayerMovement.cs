@@ -41,15 +41,19 @@ public class PlayerMovement : MonoBehaviour
         //}
     }
 
+    //if the player press the left button, the player will move left
     public void MoveLeft()
     {
         myBody.velocity = Vector2.left * movementSpeed;
     }
 
+    //if the player press the right button, the player will move right
     public void MoveRight()
     {
         myBody.velocity = Vector2.right * movementSpeed;
     }
+
+    //if the player is not pressing any button, the player will not move
     public void StopMoving()
     {
         myBody.velocity = Vector2.zero;
