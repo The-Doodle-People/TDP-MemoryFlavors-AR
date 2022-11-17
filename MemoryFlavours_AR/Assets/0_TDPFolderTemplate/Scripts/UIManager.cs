@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,10 +17,10 @@ public class UIManager : MonoBehaviour
     public GameObject step3;
     public GameObject step4;
     public GameObject tableBowl;
-   
+
     public GameObject mixedDryIngreModel;
     public GameObject nextBtn;
-    
+
     public GameObject mixedDryIngreWWell;
     public GameObject mixedLiquid;
     public int currentStep = 1;
@@ -53,13 +53,13 @@ public class UIManager : MonoBehaviour
     public AudioSource kneadSound;
     public AudioSource blendingSound;
     public AudioSource voiceOver;
-    
+
     public AudioSource bgMusic;
 
     private void Update()
     {
         if (kneadCanva.activeSelf)
-        {            
+        {
             kneadSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
 
             if (kneadSlider.value == kneadSlider.maxValue) // complete one round of kneading
@@ -67,8 +67,8 @@ public class UIManager : MonoBehaviour
                 var input = EventSystem.current.GetComponent<StandaloneInputModule>(); // deactivate constant drag slider
                 targetTF = true; //means it has rch the max point
                 input.DeactivateModule();
-                if(targetTF)
-                {                    
+                if (targetTF)
+                {
                     currentKnead += 2;
                     mixingSlider.size += 0.1f;
                     targetTF = false;
@@ -76,7 +76,7 @@ public class UIManager : MonoBehaviour
                 }
             }
 
-            if(currentKnead == targetKnead) // once kneading done
+            if (currentKnead == targetKnead) // once kneading done
             {
                 if (mixingSlider.size == 1)
                 {
@@ -92,27 +92,27 @@ public class UIManager : MonoBehaviour
             };
         }
 
-        if(step4.activeSelf)
+        if (step4.activeSelf)
         {
             triggerCheck = blenderCap.GetComponent<TriggerCheck>();
 
             if (triggerCheck.readyToBlend == true)
             {
                 blendedCapUi.SetActive(false);
-                
+
                 if (mixingSlider.size < 1f)
                 {
-                    if(!blendingEffect.isPlaying)
+                    if (!blendingEffect.isPlaying)
                     {
                         blendingEffect.Play();
                     }
-                    if(!blendingSound.isPlaying)
+                    if (!blendingSound.isPlaying)
                     {
                         blendingSound.Play();
                     }
                     mixingSlider.size += 0.2f * Time.deltaTime;
                 }
-                else if(mixingSlider.size == 1f)
+                else if (mixingSlider.size == 1f)
                 {
                     blendingEffect.Stop();
                     if (blendingSound.isPlaying)
@@ -127,12 +127,12 @@ public class UIManager : MonoBehaviour
                     mixingSlider.gameObject.SetActive(false);
                     finishBlend = true;
                 }
-            } 
-            
-            if(aftBlendedPeanuts.activeSelf)
+            }
+
+            if (aftBlendedPeanuts.activeSelf)
             {
                 blendedPeanuts.SetActive(false);
-                if(!peanutBlendedEffect.isPlaying)
+                if (!peanutBlendedEffect.isPlaying)
                 {
                     peanutBlendedEffect.Play();
                 }
@@ -155,7 +155,7 @@ public class UIManager : MonoBehaviour
         yield return new WaitUntil(() => voiceOver.isPlaying == false);
         // or yield return new WaitWhile(() => audiosource.isPlaying == true);
         Destroy(voiceOver);
-            startBtn.SetActive(true); //Do something
+        startBtn.SetActive(true); //Do something
     }
 
     public void ObjectTracked(GameObject objectToTrack)
@@ -170,14 +170,15 @@ public class UIManager : MonoBehaviour
                 voiceOver.Play();
                 StartCoroutine(WaitForSound(voiceOver));
 
-            
+
             }
-            else if (objectToTrack.name == "table_model" && currentStep == 2 )
+            else if (objectToTrack.name == "table_model" && currentStep == 2)
             {
                 stepsText.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
-                
-               
-            }else if(objectToTrack.name == "BlenderBase" && currentStep ==3)
+
+
+            }
+            else if (objectToTrack.name == "BlenderBase" && currentStep == 3)
             {
                 stepsText.text = "drag and drop peanut fillings to blender";
                 startBtn.SetActive(false);
@@ -189,13 +190,13 @@ public class UIManager : MonoBehaviour
             return;
         }
     }
-    
-    
-    
+
+
+
 
     public void HideStepOneOrTwo()
     {
-        if(step2.gameObject.activeSelf)
+        if (step2.gameObject.activeSelf)
         {
             step2.SetActive(false);
             mixedLiquid.SetActive(true);
@@ -203,7 +204,8 @@ public class UIManager : MonoBehaviour
             nextBtn.SetActive(true);
             stepsText.text = "so far so good!";
 
-        } else if(step1.gameObject.activeSelf)
+        }
+        else if (step1.gameObject.activeSelf)
         {
             step1.SetActive(false);
             mixedDryIngreModel.SetActive(true);
@@ -217,7 +219,7 @@ public class UIManager : MonoBehaviour
 
     public void NextBtnFunctions()
     {
-        if(currentStep == 1)
+        if (currentStep == 1)
         {
             angKuKueh.SetActive(false);
             startBtn.SetActive(false);
@@ -225,15 +227,16 @@ public class UIManager : MonoBehaviour
             bgMusic.Play();
 
         }
-        else if(currentStep== 2)
+        else if (currentStep == 2)
         {
             step2.SetActive(true);
             mixedDryIngreModel.SetActive(false);
             currentStep++;
             stepsText.text = "Drag and drop the beetrot juice into the dry ingredients";
-           
 
-        } else if(currentStep== 3)
+
+        }
+        else if (currentStep == 3)
         {
             step3.SetActive(true);
             stepsText.text = "Drag up and down continuously to knead the dough!";
@@ -243,7 +246,8 @@ public class UIManager : MonoBehaviour
             kneadCanva.SetActive(true);
             currentStep++;
 
-        } else if(currentStep == 4)
+        }
+        else if (currentStep == 4)
         {
             stepsText.text = "Scan the blender";
             step3.SetActive(false);
@@ -252,7 +256,8 @@ public class UIManager : MonoBehaviour
             step4.SetActive(true);
             currentStep++;
 
-        } else if(currentStep == 5)
+        }
+        else if (currentStep == 5)
         {
             stepsText.text = "Scan the Ang Ku Kueh mold ";
             step4.SetActive(false);
