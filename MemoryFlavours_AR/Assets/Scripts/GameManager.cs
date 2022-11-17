@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject UserDialogue4;
     public GameObject UserDialogue5;
     public int dialogueNum = 0;
+
+    private int photoIndex;
 
     public void OnNext()
     {
@@ -84,11 +87,24 @@ public class GameManager : MonoBehaviour
 
     public void GoToARFeature()
     {
+        SceneManager.LoadScene(2);
+    }
+
+    public void GoToConversation()
+    {
         SceneManager.LoadScene(1);
     }
 
     public void ReplayStory()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
+    }
+
+    public void TakePhoto()
+    {
+
+        ScreenCapture.CaptureScreenshot($"AR{photoIndex}.png");
+        //savedPhoto.SetActive(true);
+        photoIndex++;
     }
 }
