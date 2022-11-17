@@ -40,22 +40,29 @@ public class ARManager : MonoBehaviour
             Debug.Log(objectToTrack.name);
             if (objectToTrack.name == "DevilCurry")
             {
-                displayText.text = objectToTrack.name + " is Devil Curry Tracked";
+                displayText.text = objectToTrack.name + "<insert Description here>";
                 OpenQuiz(objectToTrack.name);
             }
             else if (objectToTrack.name == "NasiPandang")
             {
-                displayText.text = objectToTrack.name + " is Nasi Pandang Tracked";
+                displayText.text = objectToTrack.name + " <insert Description here>";
                 OpenQuiz(objectToTrack.name);
             }
             else if (objectToTrack.name == "HokkienMee")
             {
-                displayText.text = objectToTrack.name + " is Hokkien Mee Tracked";
+                displayText.text = objectToTrack.name + "In Singapore, Hokkien mee (???) refers to a dish of" +
+                    " egg noodles and rice noodles stir-fried with egg, slices of pork, prawns, and squid. The key" +
+                    " to the dish is copious quantities of an aromatic broth made from prawns and pork bones, slowly" +
+                    " simmered for many hours. Sambal chili and calamansi limes are served on the side for the diner" +
+                    " to blend in, giving it an extra zing and tanginess. Traditionally, small cubes of fried lard are added," +
+                    " and some stalls also serve the open on an opeh leaf (soft areca palm bark), which enhances the fragrance of the dish.";
                 OpenQuiz(objectToTrack.name);
             }
-            else if (objectToTrack.name == "Tosai")
+            else if (objectToTrack.name == "Thosai")
             {
-                displayText.text = objectToTrack.name + " is Tosai Tracked";
+                displayText.text = objectToTrack.name + "Thosai (also spelled dosa) is a savory pancake " +
+                    "served with a slew of spicy dipping sauces. Like so much of the Indian food popular at" +
+                    " Singapore hawker centers, thosai are cheap, tasty and 100% vegetarian.";
                 OpenQuiz(objectToTrack.name);
             }
             else if (objectToTrack.name == "Hawker")
@@ -97,42 +104,7 @@ public class ARManager : MonoBehaviour
 
     public void OpenQuiz(string scannedItem)
     {
-        if (scannedItem != null && checkQuiz == true)
-        {
-            quizCanvas.SetActive(true);
-            mainCanvas.SetActive(false);
-            //displayText.text = objectToTrack.name + " Track Status: true";
-            Debug.Log("Open Quiz Scanned item " + scannedItem);
-            if (scannedItem == "DevilCurry")
-            {
-                quizQuestion.text = scannedItem + " is Devil Curry Quiz";
-            }
-            else if (scannedItem == "NasiPandang")
-            {
-                quizQuestion.text = scannedItem + " is Nasi Pandang Quiz";
-            }
-            else if (scannedItem == "HokkienMee")
-            {
-                quizQuestion.text = scannedItem + " is Hokkien Mee Quiz";
-            }
-            else if (scannedItem == "Tosai")
-            {
-                quizQuestion.text = scannedItem + " is Tosai Quiz";
-            }
-            else if (scannedItem == "Hawker")
-            {
-                quizQuestion.text = scannedItem + " is Hawker Quiz";
-            }
-            else if (scannedItem == "PushCart")
-            {
-                quizQuestion.text = scannedItem + " is Push Cart Quiz";
-            }
-        }
-
-        else
-        {
-            return;
-        }
+        
     }
 
 }
