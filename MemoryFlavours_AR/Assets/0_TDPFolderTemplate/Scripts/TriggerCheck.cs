@@ -68,7 +68,7 @@ public class TriggerCheck : MonoBehaviour
                 gameObject.transform.position= btJuiceHoldArea.position;
                 steps.text = "tap all the buttons in the correct order to mix the ingredients into a dough";
                 mixingUI.SetActive(true);
-                mixingSlider.GetComponent<Slider>().value= 0;
+                mixingSlider.GetComponent<Scrollbar>().size= 0;
                 mixingSlider.SetActive(true);
                 waterDrop.Play();
                 splash.Play();
@@ -93,7 +93,7 @@ public class TriggerCheck : MonoBehaviour
                 blenderCap.SetActive(true);
                 steps.text = "Blending in process!";
                 readyToBlend = true;
-                mixingSlider.GetComponent<Slider>().value = 0;
+                mixingSlider.GetComponent<Scrollbar>().size = 0;
                 mixingSlider.SetActive(true);
                 gameObject.GetComponent<BoxCollider>().enabled = false;
             }

@@ -11,7 +11,7 @@ public class TouchInteraction : MonoBehaviour
     public GameObject saltnSugar;
     TriggerCheck trigger;
 
-    public Slider mixingSlider;
+    public Scrollbar mixingSlider;
     public GameObject mixingUI;
     int mixClickPos = 1;
     string currentTag;
@@ -54,10 +54,10 @@ public class TouchInteraction : MonoBehaviour
             {
                 mixClickPos++;
 
-                mixingSlider.value += 0.1f;
+                mixingSlider.size += 0.1f;
                 powder.Play();
                 mixing.Play();
-                if (mixingSlider.value == 1)
+                if (mixingSlider.size == 1)
                 {
                     mixingUI.SetActive(false);
                     mixingSlider.gameObject.SetActive(false);

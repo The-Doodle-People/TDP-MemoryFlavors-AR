@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
 
     //step 3
     public Slider kneadSlider;
-    public Slider mixingSlider;
+    public Scrollbar mixingSlider;
     public GameObject kneadCanva;
     public GameObject kneadedDough;
     public GameObject guideArrow;
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
                 if(targetTF)
                 {                    
                     currentKnead += 2;
-                    mixingSlider.value += 0.1f;
+                    mixingSlider.size += 0.1f;
                     targetTF = false;
                     kneadSlider.value = 0f;
                 }
@@ -78,11 +78,11 @@ public class UIManager : MonoBehaviour
 
             if(currentKnead == targetKnead) // once kneading done
             {
-                if (mixingSlider.value == 1)
+                if (mixingSlider.size == 1)
                 {
                     mixingSlider.gameObject.SetActive(false);
                     aftKneadingEffect.Play();
-                    mixingSlider.value = 0f;
+                    mixingSlider.size = 0f;
                     mixedLiquid.SetActive(false);
                     guideArrow.SetActive(false);
                     kneadedDough.SetActive(true);
@@ -100,7 +100,7 @@ public class UIManager : MonoBehaviour
             {
                 blendedCapUi.SetActive(false);
                 
-                if (mixingSlider.value < 1f)
+                if (mixingSlider.size < 1f)
                 {
                     if(!blendingEffect.isPlaying)
                     {
@@ -110,9 +110,9 @@ public class UIManager : MonoBehaviour
                     {
                         blendingSound.Play();
                     }
-                    mixingSlider.value += 0.2f * Time.deltaTime;
+                    mixingSlider.size += 0.2f * Time.deltaTime;
                 }
-                else if(mixingSlider.value == 1f)
+                else if(mixingSlider.size == 1f)
                 {
                     blendingEffect.Stop();
                     if (blendingSound.isPlaying)
@@ -237,7 +237,7 @@ public class UIManager : MonoBehaviour
         {
             step3.SetActive(true);
             stepsText.text = "Drag up and down continuously to knead the dough!";
-            mixingSlider.GetComponent<Slider>().value = 0;
+            mixingSlider.GetComponent<Scrollbar>().size = 0;
             mixingSlider.gameObject.SetActive(true);
             mixedLiquid.SetActive(true);
             kneadCanva.SetActive(true);

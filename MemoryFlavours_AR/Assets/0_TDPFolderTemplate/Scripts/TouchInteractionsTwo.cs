@@ -14,7 +14,7 @@ public class TouchInteractionsTwo : MonoBehaviour
     public TMP_Text stepsText;
 
     bool peanutTaken; // ensure that peanut are taken before blending
-    public Slider mixingSlider;
+   
 
     public UIManager uiMgr;
     void OnTouchPress()
