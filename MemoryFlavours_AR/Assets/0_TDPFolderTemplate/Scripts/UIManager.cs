@@ -263,5 +263,11 @@ public class UIManager : MonoBehaviour
             step4.SetActive(false);
             currentStep++;
         }
+        //else if (currentStep == 6)
+        //{
+        //    stepsText.text = "Scan the Steamer";
+        //    step5.SetActive(false);
+        //    currentStep++;
+        //}
     }
 }

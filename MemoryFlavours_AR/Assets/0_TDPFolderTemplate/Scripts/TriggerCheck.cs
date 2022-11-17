@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TriggerCheck : MonoBehaviour
 {
     public bool flourEnteredBowl = false;
-  
+
     
     Rigidbody rb;
     public Transform flourHoldArea;
@@ -35,6 +35,21 @@ public class TriggerCheck : MonoBehaviour
     public GameObject blendedPeanutArea;
     public bool readyToBlend = false;
     public ParticleSystem peanutToBlenderEffect;
+
+    //step 5
+    public bool doughInMold = false;
+
+    public Transform doughPosition;
+    public Transform fillingPosition;
+
+    //Step 6
+    public bool kuehInSteamer = false;
+
+    public Transform angkkPos;
+    public Transform steamerCapPos;
+
+
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "bowlTrigger" )
@@ -108,6 +123,35 @@ public class TriggerCheck : MonoBehaviour
                 Destroy(gameObject.GetComponent<Lean.Touch.LeanDragTranslate>());
                 blendedPeanutArea.SetActive(true);
                 adjustComponents();
+            }
+        }
+
+        if (other.gameObject.tag == "moldTrigger")
+        {
+            if (gameObject.tag == "dough")
+            {
+                doughInMold = true;
+                adjustComponents();
+                gameObject.transform.position = doughPosition.position;
+            }
+            if (gameObject.tag == "fillings")
+            {
+                gameObject.transform.position = fillingPosition.position;
+                adjustComponents();
+            }
+        }
+
+        if (other.gameObject.tag == "steamTrigger")
+        {
+            if (gameObject.tag == "kueh")
+            {
+                kuehInSteamer = true;
+                gameObject.transform.position = angkkPos.position;
+                adjustComponents();
+            }
+            if (gameObject.tag == "steamerCap")
+            {
+                gameObject.transform.position = steamerCapPos.position;
             }
         }
 
