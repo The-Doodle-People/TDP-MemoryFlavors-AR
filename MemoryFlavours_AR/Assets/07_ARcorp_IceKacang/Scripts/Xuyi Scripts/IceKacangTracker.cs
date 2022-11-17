@@ -7,6 +7,7 @@ public class IceKacangTracker : MonoBehaviour
     public TouchHandler touchHandle;
     public GameObject iceKacang;
     public GameObject resetBtn;
+    public GameObject nxtBtn;
     public GameObject[] chendol;
     public GameObject[] grassJelly;
     public GameObject[] seed;
@@ -27,6 +28,8 @@ public class IceKacangTracker : MonoBehaviour
     public bool isGreenS;
     public Animator iceAnim;
     public Animator ingreAnim;
+    public Animator kacangAnim;
+    public Animator table;
     public ParticleSystem snow;
     private int toppingNo;
     private int syrupNo;
@@ -40,7 +43,7 @@ public class IceKacangTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ShowBtn();
     }
     public void ShowFood()
     {
@@ -52,6 +55,8 @@ public class IceKacangTracker : MonoBehaviour
     {
         iceAnim.SetBool("isIce", false);
         touchHandle.ingredients.SetBool("isIngre", false);
+        table.SetBool("isTable", false);
+        kacangAnim.SetBool("isFull", false);
         resetBtn.SetActive(false);
         ToppingsReset();
 
@@ -186,7 +191,7 @@ public class IceKacangTracker : MonoBehaviour
         syrupNo = 0;
         sugar.SetActive(false);
         milk.SetActive(false);
-        for(int i = 0; i <= 2; i++)
+        for (int i = 0; i <= 2; i++)
         {
             chendol[i].SetActive(false);
             grassJelly[i].SetActive(false);
@@ -200,5 +205,26 @@ public class IceKacangTracker : MonoBehaviour
             blueSyrup[i].SetActive(false);
             greenSyrup[i].SetActive(false);
         }
+    }
+
+    public void ShowBtn()
+    {
+        if(toppingNo>2 && syrupNo>1 && sugar.activeSelf==true && 
+            milk.activeSelf==true&&table.GetBool("isTable")==false)
+        {
+            nxtBtn.SetActive(true);
+        }
+        else
+        {
+            nxtBtn.SetActive(false);
+        }
+    }
+    public void NextEvent()
+    {
+        table.SetBool("isTable", true);
+        kacangAnim.SetBool("isFull", true);
+        touchHandle.ingredients.SetBool("isIngre", false);
+        resetBtn.SetActive(false);
+        nxtBtn.SetActive(false);
     }
 }
