@@ -8,12 +8,13 @@ using UnityEngine.SceneManagement;
 public class ScoreController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public bool gameOver;
 
     private int score;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameOver = false;   
     }
 
     // Update is called once per frame
@@ -29,7 +30,13 @@ public class ScoreController : MonoBehaviour
         {
             Debug.Log("item collided");
             Destroy(target.gameObject);
-            score++;
+
+            if (gameOver == false)
+            {
+                score++;
+            }
+            
+            
         }
     }
 

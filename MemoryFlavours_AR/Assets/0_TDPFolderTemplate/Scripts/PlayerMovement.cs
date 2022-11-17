@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D myBody;
 
-    
+    public ScoreController game;
 
     //movement speed in units per second
     private float movementSpeed = 500f;
@@ -17,8 +17,11 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //have to find it because rigid body is private
-        myBody = GetComponent<Rigidbody2D>();
+        if (game.gameOver == false)
+        {
+            myBody = GetComponent<Rigidbody2D>();
+        }
+            //have to find it because rigid body is private
     }
 
     // FixedUpdate is called once per frame and its reccomended with the rigid body
@@ -44,19 +47,30 @@ public class PlayerMovement : MonoBehaviour
     //if the player press the left button, the player will move left
     public void MoveLeft()
     {
-        myBody.velocity = Vector2.left * movementSpeed;
+        if (game.gameOver == false)
+        {
+            myBody.velocity = Vector2.left * movementSpeed;
+        }
+            
     }
 
     //if the player press the right button, the player will move right
     public void MoveRight()
     {
-        myBody.velocity = Vector2.right * movementSpeed;
+        if (game.gameOver == false)
+        {
+            myBody.velocity = Vector2.right * movementSpeed;
+        }
+            
     }
 
     //if the player is not pressing any button, the player will not move
     public void StopMoving()
     {
-        myBody.velocity = Vector2.zero;
+        if (game.gameOver == false)
+        {
+            myBody.velocity = Vector2.zero;
+        }
     }
 
 }
