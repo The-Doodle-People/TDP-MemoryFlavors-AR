@@ -9,8 +9,9 @@ public class ScoreController : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public bool gameOver;
+    public GameObject gameOverMessage;
 
-    private int score;
+    public int score;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,16 +29,31 @@ public class ScoreController : MonoBehaviour
         
         if (target.tag == "DimSum")
         {
-            Debug.Log("item collided");
-            Destroy(target.gameObject);
-
-            if (gameOver == false)
+            if(score < 5)
             {
-                score++;
+                if (gameOver == false)
+                {
+                    Debug.Log("item collided");
+                    Destroy(target.gameObject);
+                    score++;
+                }
+                
             }
-            
-            
+            else
+            {
+
+                gameOver = true;
+                Debug.Log("GameOver is "+ gameOver.ToString());
+                GameOver();
+            }
+
+
         }
+        
+    }
+    public void GameOver()
+    {
+        gameOverMessage.SetActive(true);
     }
 
 }
