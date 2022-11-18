@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using AppAdvisory.SharingSystem;
+using System.Threading.Tasks;
 
 public class ARManager : MonoBehaviour
 {
     public TextMeshProUGUI displayText;
     public bool isTracked = false;
     public GameObject mainCanvas;
+
+    public GameObject descriptionBtn;
+    public GameObject descriptionBox;
+    
 
     /// <summary>
     /// This dictionary holds the tracked status of AR objects
@@ -19,11 +25,12 @@ public class ARManager : MonoBehaviour
     {
         mainCanvas.SetActive(true);
         displayText.text = "";
+        descriptionBtn.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        //LoadQuizScene();
+        
     }
 
     public void ObjectTracked(GameObject objectToTrack)
@@ -39,18 +46,21 @@ public class ARManager : MonoBehaviour
             if (objectToTrack.name == "DevilCurry")
             {
                 StaticController.objectName = objectToTrack.name;
+                descriptionBtn.gameObject.SetActive(true);
                 displayText.text = objectToTrack.name + "<insert Description here>";
-                
+
             }
             else if (objectToTrack.name == "NasiPandang")
             {
                 StaticController.objectName = objectToTrack.name;
+                descriptionBtn.gameObject.SetActive(true);
                 displayText.text = objectToTrack.name + " <insert Description here>";
-                
+
             }
             else if (objectToTrack.name == "HokkienMee")
             {
                 StaticController.objectName = objectToTrack.name;
+                descriptionBtn.gameObject.SetActive(true);
                 displayText.text = objectToTrack.name + "In Singapore, Hokkien mee (???) refers to a dish of" +
                     " egg noodles and rice noodles stir-fried with egg, slices of pork, prawns, and squid. The key" +
                     " to the dish is copious quantities of an aromatic broth made from prawns and pork bones, slowly" +
@@ -62,6 +72,7 @@ public class ARManager : MonoBehaviour
             else if (objectToTrack.name == "Thosai")
             {
                 StaticController.objectName = objectToTrack.name;
+                descriptionBtn.gameObject.SetActive(true);
                 displayText.text = objectToTrack.name + "Thosai (also spelled dosa) is a savory pancake " +
                     "served with a slew of spicy dipping sauces. Like so much of the Indian food popular at" +
                     " Singapore hawker centers, thosai are cheap, tasty and 100% vegetarian.";
@@ -70,12 +81,14 @@ public class ARManager : MonoBehaviour
             else if (objectToTrack.name == "Hawker")
             {
                 StaticController.objectName = objectToTrack.name;
+                descriptionBtn.gameObject.SetActive(true);
                 displayText.text = objectToTrack.name + " is Hawker Tracked";
                 
             }
             else if (objectToTrack.name == "PushCart")
             {
                 StaticController.objectName = objectToTrack.name;
+                descriptionBtn.gameObject.SetActive(true);
                 displayText.text = objectToTrack.name + " is Push Cart Tracked";
                 
             }
@@ -104,6 +117,20 @@ public class ARManager : MonoBehaviour
         }
     }
 
+    public async void SharingButton()
+    {
+        VSSHARE.DOTakeScreenShot();
+        await Task.Delay(1000);
+        VSSHARE.DOOpenScreenshotButton();
+        await Task.Delay(10000);
+        VSSHARE.DOHideScreenshotIcon();
+    }
+    
+    public void ToggleDescription()
+    {
+        descriptionBox.gameObject.SetActive(true);
+    }
+
     public void LoadQuizScene()
     {
         Debug.Log(isTracked);
@@ -117,6 +144,11 @@ public class ARManager : MonoBehaviour
         {
             return;
         }
+    }
+
+    public void RefreshCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

@@ -854,7 +854,7 @@ AndroidJNIHelper.debug = true;
 
 string screenShotPath = Application.persistentDataPath + "/" + ScreenshotName;
 
-
+			Debug.Log("Unity Andriod");
 
 			if (File.Exists (screenShotPath)) 
 			{

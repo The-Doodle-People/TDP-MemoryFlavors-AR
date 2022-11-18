@@ -13,23 +13,26 @@ public class QuizManager : MonoBehaviour
     public TextMeshProUGUI answerOneText;
     public TextMeshProUGUI answerTwoText;
     public TextMeshProUGUI answerThreeText;
+    public GameObject CompleteBtn;
     string objectName;
     int answer = 0;
-
+    bool isCorrect = false;
 
     private void Update()
     {
-        
-
         Question();
         MCQ();
+        CompleteButtonCheck();
         Debug.Log("Answer: " + answer);
         Debug.Log("The Food: " + objectName);
+        Debug.Log("Answer is Correct: " + isCorrect);
     }
 
     private void Start()
     {
         objectName = StaticController.objectName;
+        isCorrect = false;
+        tryAgainText.text = "";
     }
 
     private void Question()
@@ -92,20 +95,21 @@ public class QuizManager : MonoBehaviour
         {
             if (answer == 1)
             {
-                
-                tryAgainText.text = "wrong";
+                answerOneText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
             else if (answer == 2)
             {
-               
-                tryAgainText.text = "correct";
+                isCorrect = true;
+                answerTwoText.color = Color.green;
+                tryAgainText.text = "Correct";
                 answer = 0;
             }
             else if (answer == 3)
             {
-                
-                tryAgainText.text = "wrong";
+                answerThreeText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
         }
@@ -113,20 +117,21 @@ public class QuizManager : MonoBehaviour
         {
             if (answer == 1)
             {
-                
-                tryAgainText.text = "wrong";
+                answerOneText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
             else if (answer == 2)
             {
-                
-                tryAgainText.text = "wrong";
+                answerTwoText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
             else if (answer == 3)
             {
-               
-                tryAgainText.text = "correct";
+                isCorrect = true;
+                answerThreeText.color = Color.green;
+                tryAgainText.text = "Correct";
                 answer = 0;
             }
 
@@ -135,20 +140,21 @@ public class QuizManager : MonoBehaviour
         {
             if (answer == 1)
             {
-                
-                tryAgainText.text = "wrong";
+                answerOneText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
             else if (answer == 2)
             {
-                
-                tryAgainText.text = "correct";
+                isCorrect = true;
+                answerTwoText.color = Color.green;
+                tryAgainText.text = "Correct";
                 answer = 0;
             }
             else if (answer == 3)
             {
-                
-                tryAgainText.text = "wrong";
+                answerThreeText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
 
@@ -157,20 +163,21 @@ public class QuizManager : MonoBehaviour
         {
             if (answer == 1)
             {
-                
-                tryAgainText.text = "correct";
+                isCorrect = true;
+                answerOneText.color = Color.green;
+                tryAgainText.text = "Correct!";
                 answer = 0;
             }
             else if (answer == 2)
             {
-                
-                tryAgainText.text = "wrong";
+                answerTwoText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
             else if (answer == 3)
             {
-               
-                tryAgainText.text = "wrong";
+                answerThreeText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
 
@@ -179,20 +186,21 @@ public class QuizManager : MonoBehaviour
         {
             if (answer == 1)
             {
-                
-                tryAgainText.text = "wrong";
+                answerOneText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
             else if (answer == 2)
             {
-                
-                tryAgainText.text = "correct";
+                isCorrect = true;
+                answerTwoText.color = Color.green;
+                tryAgainText.text = "Correct";
                 answer = 0;
             }
             else if (answer == 3)
             {
-                
-                tryAgainText.text = "wrong";
+                answerThreeText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
 
@@ -201,20 +209,21 @@ public class QuizManager : MonoBehaviour
         {
             if (answer == 1)
             {
-                
-                tryAgainText.text = "correct";
+                isCorrect = true;
+                answerOneText.color = Color.green;
+                tryAgainText.text = "Correct";
                 answer = 0;
             }
             else if (answer == 2)
             {
-                
-                tryAgainText.text = "wrong";
+                answerTwoText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
             else if (answer == 3)
             {
-                
-                tryAgainText.text = "wrong";
+                answerThreeText.color = Color.red;
+                tryAgainText.text = "Wrong";
                 answer = 0;
             }
 
@@ -232,6 +241,18 @@ public class QuizManager : MonoBehaviour
     public void AnswerThree()
     {
         answer = 3;
+    }
+
+    public void CompleteButtonCheck()
+    {
+        if(isCorrect == true)
+        {
+            CompleteBtn.gameObject.SetActive(true);
+        }
+        else
+        {
+            CompleteBtn.gameObject.SetActive(false);
+        }
     }
 
     public void GoBackToMain()
