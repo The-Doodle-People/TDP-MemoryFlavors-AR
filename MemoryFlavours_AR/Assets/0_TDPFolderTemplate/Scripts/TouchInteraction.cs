@@ -58,6 +58,7 @@ public class TouchInteraction : MonoBehaviour
                 mixingSlider.size += 0.25f;
                 powder.Play();
                 mixing.Play();
+                
                 if (mixingSlider.size == 1)
                 {
                     mixingUI.SetActive(false);

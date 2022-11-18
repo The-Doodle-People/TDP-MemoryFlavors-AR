@@ -10,16 +10,53 @@ public class TouchInteractionThree : MonoBehaviour
     public GameObject dough;
     public GameObject peanutFilling;
     TriggerCheck trigger;
+    TriggerCheck triggerCheck;
 
     public UIManager managerUI;
 
     public GameObject steamerCap;
     public GameObject kueh;
 
+    public Scrollbar mixingSlider;
+    int moldClickPos = 1;
+    string moldTag;
+    public GameObject moldUI;
+    public GameObject akkModel;
+
+    public ParticleSystem moldingPowder;
+    public ParticleSystem finishMolding;
+    public ParticleSystem steam;
+
+    public AudioSource moldingSound;
+    public AudioSource steaming;
+
+
+
+
+
+    private void Update()
+    {
+        trigger = steamerCap.GetComponent<TriggerCheck>();
+       
+        if(trigger.steamerCapOn == true)
+        {
+            if (mixingSlider.size < 1f)
+            {
+                mixingSlider.size += 0.2f * Time.deltaTime;
+            }
+            else if(mixingSlider.size ==1f)
+            {
+                steam.Stop();
+                steaming.Stop();
+            }
+        }
+       
+    }
 
 
     void OnTouchPress()
     {
+        
         //x n y coordinates of the touch 
         Vector3 rayPosition = Touchscreen.current.primaryTouch.position.ReadValue();
 
@@ -36,16 +73,46 @@ public class TouchInteractionThree : MonoBehaviour
             {
                 dough.AddComponent<Lean.Touch.LeanDragTranslate>();
             }
-            if(hitInfo.collider.tag=="fillings" && trigger.doughInMold == true)
+            if (hitInfo.collider.tag == "fillings" && trigger.doughInMold == true)
             {
                 Debug.Log("on peaunt filling");
                 peanutFilling.AddComponent<Lean.Touch.LeanDragTranslate>();
             }
 
+            
+
+
+            moldTag = "moldCircle" + moldClickPos.ToString();
+            //Debug.Log(moldTag);
+
+            if (hitInfo.collider.tag == moldTag)
+            {
+                Debug.Log(moldTag);
+                moldClickPos++;
+                hitInfo.collider.gameObject.SetActive(false);
+                mixingSlider.size += 0.5f;
+                Debug.Log("clicked");
+                moldingPowder.Play();
+                moldingSound.Play();
+
+
+                if (mixingSlider.size == 1)
+                {
+                    moldClickPos = 1;
+                    moldUI.SetActive(false);
+                    mixingSlider.gameObject.SetActive(false);
+                    dough.gameObject.SetActive(false);
+                    peanutFilling.gameObject.SetActive(false);
+                    akkModel.gameObject.SetActive(true);
+                    finishMolding.Play();
+
+                }
+            }
+           
         }
 
-        trigger = kuehMold.GetComponent<TriggerCheck>();
-        if(Physics.Raycast(ray, out hitInfo))
+        trigger=kueh.GetComponent<TriggerCheck>();
+        if (Physics.Raycast(ray, out hitInfo))
         {
             if (hitInfo.collider.tag == "kueh")
             {
@@ -53,8 +120,27 @@ public class TouchInteractionThree : MonoBehaviour
             }
             if (hitInfo.collider.tag == "steamerCap" && trigger.kuehInSteamer == true)
             {
-                Debug.Log("kueh ready for steaming");
                 steamerCap.AddComponent<Lean.Touch.LeanDragTranslate>();
+                Debug.Log("steamer cap move");
+            }
+
+
+            if (hitInfo.collider.tag == "steamerCap")
+            {
+                if (mixingSlider.size < 1f)
+                {
+                    //mixingSlider.size += 0.5f * Time.deltaTime;
+                    //Debug.Log("steaming");
+                    steam.Play();
+                    steaming.Play();
+
+                }
+                else if (mixingSlider.size == 1)
+                {
+                    steamerCap.AddComponent<Lean.Touch.LeanDragTranslate>();
+                    //steam.Stop();
+                    //steaming.Stop();
+                }
             }
         }
 

@@ -38,16 +38,24 @@ public class TriggerCheck : MonoBehaviour
 
     //step 5
     public bool doughInMold = false;
+    public bool fillingInMold = false;
 
     public Transform doughPosition;
     public Transform fillingPosition;
 
+    public GameObject moldingUI;
+
+    public ParticleSystem moldingPower;
+
     //Step 6
     public bool kuehInSteamer = false;
+    public bool steamerCapOn = false;
 
     public Transform angkkPos;
     public Transform steamerCapPos;
     public UIManager uiMgr;
+
+
 
 
     public void OnTriggerEnter(Collider other)
@@ -137,6 +145,8 @@ public class TriggerCheck : MonoBehaviour
             }
             if (gameObject.tag == "fillings")
             {
+                fillingInMold = true;
+                moldingUI.SetActive(true);
                 gameObject.transform.position = fillingPosition.position;
                 adjustComponents();
             }
@@ -153,6 +163,9 @@ public class TriggerCheck : MonoBehaviour
             if (gameObject.tag == "steamerCap")
             {
                 gameObject.transform.position = steamerCapPos.position;
+                adjustComponents();
+                steamerCapOn = true;
+
             }
         }
 

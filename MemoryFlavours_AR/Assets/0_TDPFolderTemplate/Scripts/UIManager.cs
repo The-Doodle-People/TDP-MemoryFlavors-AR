@@ -62,6 +62,13 @@ public class UIManager : MonoBehaviour
 
     bool audioIsPlaying = false;
 
+    //Step 5 
+    public GameObject moldArrow;
+    public Slider moldSlider;
+    //public Scrollbar mixingScrollbar;
+    public GameObject moldedKueh;
+
+
     private void Update()
     {
         if (kneadCanva.activeSelf)
@@ -146,6 +153,7 @@ public class UIManager : MonoBehaviour
                 stepsText.text = "Well done!";                
                 nextBtn.SetActive(true);
             }
+
         }
 
     }
