@@ -71,10 +71,10 @@ public class QuizManager : MonoBehaviour
         else if (objectName == "Hawker")
         {
             StaticController.objectName = "";
-            quizQuestionText.text = "Why was hawker build in the first place?";
-            answerOneText.text = "1. High demand";
-            answerTwoText.text = "2. No Space";
-            answerThreeText.text = "3. Problem of unhygienic ";
+            quizQuestionText.text = "When did Hawker centers become popular?";
+            answerOneText.text = "1. 2000s";
+            answerTwoText.text = "2. 1950s";
+            answerThreeText.text = "3. 1700s ";
         }
         else if (objectName == "PushCart")
         {
@@ -186,13 +186,13 @@ public class QuizManager : MonoBehaviour
             else if (answer == 2)
             {
                 
-                tryAgainText.text = "wrong";
+                tryAgainText.text = "correct";
                 answer = 0;
             }
             else if (answer == 3)
             {
                 
-                tryAgainText.text = "correct";
+                tryAgainText.text = "wrong";
                 answer = 0;
             }
 
