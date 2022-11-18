@@ -34,6 +34,8 @@ public class IceKacangTracker : MonoBehaviour
     public Animator kacangAnim;
     public Animator table;
     public ParticleSystem snow;
+    public ParticleSystem stars;
+    public AudioSource iceShave;
     private int toppingNo;
     private int syrupNo;
     // Start is called before the first frame update
@@ -52,6 +54,7 @@ public class IceKacangTracker : MonoBehaviour
     {
         iceAnim.SetBool("isIce", true);
         snow.Play();
+        iceShave.Play();
 
     }
     public void HideFood()
@@ -236,6 +239,7 @@ public class IceKacangTracker : MonoBehaviour
         listBtn.SetActive(false);
         listDropdown.SetActive(false);
         picBtn.SetActive(true);
+        stars.Play();
     }
 
     public void ShowList()
