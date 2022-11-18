@@ -70,7 +70,7 @@ public class TriggerCheck : MonoBehaviour
                 adjustComponents();
                
                 gameObject.transform.position = saltSugarHoldArea.position;
-                steps.text = "tap all the buttons in the correct order to mix the dry ingredients";
+                steps.text = "Tap the circles in the correct order to mix the ingredients";
                 pouring.Play();
 
                 mixingUI.SetActive(true);
@@ -81,7 +81,7 @@ public class TriggerCheck : MonoBehaviour
             {
                 adjustComponents();
                 gameObject.transform.position= btJuiceHoldArea.position;
-                steps.text = "tap all the buttons in the correct order to mix the ingredients into a dough";
+                steps.text = "Tap the circles in the correct order to mix the ingredients";
                 mixingUI.SetActive(true);
                 mixingSlider.GetComponent<Scrollbar>().size= 0;
                 mixingSlider.SetActive(true);

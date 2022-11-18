@@ -207,7 +207,7 @@ public class UIManager : MonoBehaviour
             mixedLiquid.SetActive(true);
             aftKneadingEffect.Play();
             nextBtn.SetActive(true);
-            stepsText.text = "So far so good!";
+            stepsText.text = "your dough is getting there!";
 
         }
         else if (step1.gameObject.activeSelf)
@@ -217,7 +217,7 @@ public class UIManager : MonoBehaviour
             aftKneadingEffect.Play();
             mixedLiquid.SetActive(false);
             nextBtn.SetActive(true);
-            stepsText.text = "Its slowly coming together!";
+            stepsText.text = "So far so good!";
         }
 
     }
