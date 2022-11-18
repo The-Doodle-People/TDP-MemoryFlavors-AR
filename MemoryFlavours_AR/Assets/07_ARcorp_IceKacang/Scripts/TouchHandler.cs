@@ -26,10 +26,11 @@ public class TouchHandler : MonoBehaviour
         if (Physics.Raycast(ray,out hitInfo))
         {
             ///Checking if the object we hit has an AstronautController component 
-            if (hitInfo.collider.tag=="Ice")
+            if (hitInfo.collider.tag=="Ice" && ice.table.GetBool("isTable")!=true)
             {
                 ingredients.SetBool("isIngre", true);
                 ice.resetBtn.SetActive(true);
+                ice.listBtn.SetActive(true);
                 ///Touch is detected
                 Debug.Log("Touch is detected");
             }
