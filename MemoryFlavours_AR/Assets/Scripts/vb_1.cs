@@ -5,15 +5,16 @@ using Vuforia;
 
 public class vb_1 : MonoBehaviour
 {
-    public GameObject vbBtnObj;
+    public GameObject vbBtnChicken;
     public Animator chickenAnim;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        vbBtnObj = GameObject.Find("chickenBtn");
-        vbBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
-        vbBtnObj.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
+        vbBtnChicken = GameObject.Find("chickenBtn");
+        vbBtnChicken.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
+        vbBtnChicken.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
         chickenAnim.GetComponent<Animator>();
     }
 
