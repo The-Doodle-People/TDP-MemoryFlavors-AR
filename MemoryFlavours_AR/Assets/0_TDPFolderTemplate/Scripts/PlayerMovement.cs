@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public ScoreController game;
 
     //movement speed in units per second
-    private float movementSpeed = 500f;
+    private float movementSpeed = 600f;
 
     private float xBound = 380f;
 
