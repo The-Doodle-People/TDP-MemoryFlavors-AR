@@ -10,6 +10,7 @@ public class IceKacangTracker : MonoBehaviour
     public GameObject listBtn;
     public GameObject listDropdown;
     public GameObject nxtBtn;
+    public GameObject picBtn;
     public GameObject[] chendol;
     public GameObject[] grassJelly;
     public GameObject[] seed;
@@ -61,6 +62,7 @@ public class IceKacangTracker : MonoBehaviour
         kacangAnim.SetBool("isFull", false);
         resetBtn.SetActive(false);
         listBtn.SetActive(false);
+        picBtn.SetActive(false);
         listDropdown.SetActive(false);
         FindObjectOfType<SwitchInfo>().Back();
         ToppingsReset();
@@ -233,6 +235,7 @@ public class IceKacangTracker : MonoBehaviour
         nxtBtn.SetActive(false);
         listBtn.SetActive(false);
         listDropdown.SetActive(false);
+        picBtn.SetActive(true);
     }
 
     public void ShowList()
