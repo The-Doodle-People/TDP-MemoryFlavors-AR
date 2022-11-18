@@ -47,7 +47,7 @@ public class TriggerCheck : MonoBehaviour
 
     public Transform angkkPos;
     public Transform steamerCapPos;
-
+    public UIManager uiMgr;
 
 
     public void OnTriggerEnter(Collider other)
@@ -122,6 +122,7 @@ public class TriggerCheck : MonoBehaviour
                 emptyText.text = "Blended Fillings";
                 Destroy(gameObject.GetComponent<Lean.Touch.LeanDragTranslate>());
                 blendedPeanutArea.SetActive(true);
+                uiMgr.TicksUI();
                 adjustComponents();
             }
         }

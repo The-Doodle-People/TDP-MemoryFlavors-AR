@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     public GameObject step3;
     public GameObject step4;
     public GameObject tableBowl;
+    public GameObject stepsUI;
 
     public GameObject mixedDryIngreModel;
     public GameObject nextBtn;
@@ -31,7 +32,7 @@ public class UIManager : MonoBehaviour
     public GameObject kneadCanva;
     public GameObject kneadedDough;
     public GameObject guideArrow;
-    int targetKnead = 20;
+    int targetKnead = 10;
     int currentKnead;
     bool targetTF;
 
@@ -44,6 +45,9 @@ public class UIManager : MonoBehaviour
     public GameObject aftBlendedPeanuts;
     public GameObject blendedCapUi;
     public bool finishBlend;
+
+    public GameObject[] stepsTickUI;
+    int q = 0;
 
     public ParticleSystem kneadParticles;
     public ParticleSystem blendingEffect;
@@ -72,7 +76,7 @@ public class UIManager : MonoBehaviour
                 if (targetTF)
                 {
                     currentKnead += 2;
-                    mixingSlider.size += 0.1f;
+                    mixingSlider.size += 0.2f;
                     targetTF = false;
                     kneadSlider.value = 0f;
                 }
@@ -89,6 +93,7 @@ public class UIManager : MonoBehaviour
                     guideArrow.SetActive(false);
                     kneadedDough.SetActive(true);
                     stepsText.text = "Good Job! Dough looking good";
+                    TicksUI();
                     nextBtn.SetActive(true);
                 }
             };
@@ -138,7 +143,7 @@ public class UIManager : MonoBehaviour
                 {
                     peanutBlendedEffect.Play();
                 }
-                stepsText.text = "Well done!";
+                stepsText.text = "Well done!";                
                 nextBtn.SetActive(true);
             }
         }
@@ -174,8 +179,7 @@ public class UIManager : MonoBehaviour
             }
             else if (objectToTrack.name == "table_model" && currentStep == 2)
             {
-                stepsText.text = "Drag and drop flour, salt and sugar into the yellow bowl";
-
+                stepsText.text = "Drag and drop flour, salt and sugar into the yellow bowl";                
 
             }
             else if (objectToTrack.name == "BlenderBase" && currentStep == 3)
@@ -206,9 +210,9 @@ public class UIManager : MonoBehaviour
             step2.SetActive(false);
             mixedLiquid.SetActive(true);
             aftKneadingEffect.Play();
-            nextBtn.SetActive(true);
             stepsText.text = "your dough is getting there!";
-
+            TicksUI();
+            nextBtn.SetActive(true);
         }
         else if (step1.gameObject.activeSelf)
         {
@@ -216,10 +220,17 @@ public class UIManager : MonoBehaviour
             mixedDryIngreModel.SetActive(true);
             aftKneadingEffect.Play();
             mixedLiquid.SetActive(false);
-            nextBtn.SetActive(true);
             stepsText.text = "So far so good!";
+            TicksUI();
+            nextBtn.SetActive(true);
         }
 
+    }
+
+    public void TicksUI() //tick UI appear after complete steps
+    {
+        stepsTickUI[q].SetActive(true);
+        q++;
     }
 
     public void NextBtnFunctions()
@@ -228,6 +239,7 @@ public class UIManager : MonoBehaviour
         {
             angKuKueh.SetActive(false);
             startBtn.SetActive(false);
+            stepsUI.SetActive(true);
             currentStep++;
             bgMusic.Play();
 
@@ -244,7 +256,7 @@ public class UIManager : MonoBehaviour
         else if (currentStep == 3)
         {
             step3.SetActive(true);
-            stepsText.text = "Drag up and down continuously to knead the dough!";
+            stepsText.text = "Drag from bottom to top continuously on the arrow to knead the dough!";
             mixingSlider.GetComponent<Scrollbar>().size = 0;
             mixingSlider.gameObject.SetActive(true);
             mixedLiquid.SetActive(true);
