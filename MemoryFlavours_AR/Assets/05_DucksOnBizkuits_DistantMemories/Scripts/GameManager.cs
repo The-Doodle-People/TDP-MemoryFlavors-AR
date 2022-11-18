@@ -1,12 +1,17 @@
-using System;
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description:
+ */
+
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("GameManager General")]
     public static GameManager instance;
 
     public int previousSceneIndex;
@@ -15,9 +20,12 @@ public class GameManager : MonoBehaviour
 
     public bool loadFadeOut;
     
+    private bool sceneChanging;
+
     private static readonly int FadeOut = Animator.StringToHash("fadeOut");
 
-    [SerializeField] private bool sceneChanging;
+    [Header("For Quiz Scene")]
+    public int quizId;
     
     private void Awake()
     {
@@ -46,20 +54,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    // When GameManager is Destroyed
+    private void OnDestroy()
     {
-        Debug.Log("norun");
-    }
-
-    private void SceneResponse(Scene scene, LoadSceneMode mode)
-    {
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        sceneChanging = false;
-        // if this is the refreshscene
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            StartCoroutine(ReturnToPrevious());
-        }
+        SceneManager.sceneLoaded -= SceneResponse;
+        VuforiaApplication.Instance.OnVuforiaStarted -= OnVuforiaStarted;
     }
 
     private void Update()
@@ -68,17 +67,30 @@ public class GameManager : MonoBehaviour
         {
             // stores current scene before load
             previousSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            // lock the function to prevent repeat calls
             sceneChanging = true;
             // loads new scene
             SceneManager.LoadScene(sceneIndex);
         }
     }
-    
-    private void OnDestroy()
-    {
-        VuforiaApplication.Instance.OnVuforiaStarted -= OnVuforiaStarted;
-    }
 
+    /// <summary>
+    /// Checks if sceneIndex has changed, runs custom code depending on result
+    /// </summary>
+    private void SceneResponse(Scene scene, LoadSceneMode mode)
+    {
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        sceneChanging = false;
+        // if this for refresh scene
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            StartCoroutine(ReturnToPrevious());
+        }
+    }
+    
+    /// <summary>
+    /// Sets framerate of the Application
+    /// </summary>
     private static void OnVuforiaStarted()
     {
         // Query Vuforia for recommended frame rate and set it in Unity
@@ -97,10 +109,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    // code waits for 3 seconds before switching the scene back to the previous scene
     private IEnumerator ReturnToPrevious()
     {
         yield return new WaitForSeconds(3f);
+
+        // no checks needed, as if sceneIndex == buildIndex, no scene change will happen
         sceneIndex = previousSceneIndex;
     }
 }
