@@ -62,6 +62,7 @@ public class IceKacangTracker : MonoBehaviour
         resetBtn.SetActive(false);
         listBtn.SetActive(false);
         listDropdown.SetActive(false);
+        FindObjectOfType<SwitchInfo>().Back();
         ToppingsReset();
 
     }
