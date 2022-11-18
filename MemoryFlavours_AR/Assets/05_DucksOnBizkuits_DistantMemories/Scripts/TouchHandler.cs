@@ -4,6 +4,7 @@
  * Description:
  */
 
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,8 +12,9 @@ public class TouchHandler : MonoBehaviour
 {
     [SerializeField] private static Camera camera;
     #region ChaoHaoVar
-    
-    
+
+    public ShelfItems shelfItems;
+    public QuizGenerator quizGenerator;
     
     #endregion
 
@@ -54,13 +56,14 @@ public class TouchHandler : MonoBehaviour
         if (hitInfo.collider)
         {
             //Do something
-            Debug.Log("TouchDetected");
+            Debug.Log("TouchDetected " + hitInfo.collider.name);
         }
     }
     
     #region ChaoHao
     
-    
+        // get sibling index, add to list, remove
+        
     
     #endregion
     

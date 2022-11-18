@@ -89,7 +89,7 @@ public class QuizGenerator : MonoBehaviour
      * Peanut Butter
      * Sesame Seed
      */
-    private readonly string[] allIngredients =
+    public string[] allIngredients =
     {
         "Butter",
         "Sugar",
@@ -147,12 +147,6 @@ public class QuizGenerator : MonoBehaviour
 
         quizOption = gameModes[gameManager.quizId];
         GenerateQuiz();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void GenerateQuiz()
