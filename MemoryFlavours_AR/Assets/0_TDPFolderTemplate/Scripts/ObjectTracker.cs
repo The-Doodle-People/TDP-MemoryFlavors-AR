@@ -14,6 +14,8 @@ public class ObjectTracker : MonoBehaviour
     public GameObject groundPlane;
     public GameObject planeFinder;
 
+    public GameObject arrowImage;
+
     // Reference UIController script
     UIController uiControllerScript;
     
@@ -46,7 +48,8 @@ public class ObjectTracker : MonoBehaviour
             if (objectToTrack == startImageTarget && uiControllerScript.canScanPostcardAgain)
             {
                 uiControllerScript.postcardScanned2 = true;
-
+                gameText.text = "TOGGLE YOUR\nCAMERA!";
+                arrowImage.SetActive(true);
             }
         }
 

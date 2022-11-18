@@ -158,6 +158,7 @@ public class UIController : MonoBehaviour
                 dimSumGame.SetActive(true);
                 startImageTarget.SetActive(false);
                 groundStage.SetActive(false);
+                mainUI.SetActive(false);
             }
         }
 

@@ -38,7 +38,7 @@ public class Spawner : MonoBehaviour
         //}
 
         // Set Instantiated object to dimSumObject
-        dimSumObject = Instantiate(dimsums, new Vector2(Random.Range(-xBound + 600, xBound + 500), yBound), Quaternion.identity);
+        dimSumObject = Instantiate(dimsums, new Vector2(Random.Range(-xBound + 600, xBound + 900), yBound), Quaternion.identity);
         // Set dimSumObject as a child of the canvas
         dimSumObject.transform.SetParent(parentCanvas.transform);
 
