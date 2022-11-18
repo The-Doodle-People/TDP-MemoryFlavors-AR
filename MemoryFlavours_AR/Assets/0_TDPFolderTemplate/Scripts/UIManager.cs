@@ -174,13 +174,13 @@ public class UIManager : MonoBehaviour
             }
             else if (objectToTrack.name == "table_model" && currentStep == 2)
             {
-                stepsText.text = "drag and drop flour, salt and sugar into yellow mixing bowl";
+                stepsText.text = "Drag and drop flour, salt and sugar into the yellow bowl";
 
 
             }
             else if (objectToTrack.name == "BlenderBase" && currentStep == 3)
             {
-                stepsText.text = "drag and drop peanut fillings to blender";
+                stepsText.text = "Drag and drop peanut fillings to blender";
                 startBtn.SetActive(false);
             }
 
@@ -207,7 +207,7 @@ public class UIManager : MonoBehaviour
             mixedLiquid.SetActive(true);
             aftKneadingEffect.Play();
             nextBtn.SetActive(true);
-            stepsText.text = "so far so good!";
+            stepsText.text = "So far so good!";
 
         }
         else if (step1.gameObject.activeSelf)
@@ -217,7 +217,7 @@ public class UIManager : MonoBehaviour
             aftKneadingEffect.Play();
             mixedLiquid.SetActive(false);
             nextBtn.SetActive(true);
-            stepsText.text = "its slowly coming together!";
+            stepsText.text = "Its slowly coming together!";
         }
 
     }
@@ -237,7 +237,7 @@ public class UIManager : MonoBehaviour
             step2.SetActive(true);
             mixedDryIngreModel.SetActive(false);
             currentStep++;
-            stepsText.text = "Drag and drop the beetrot juice into the dry ingredients";
+            stepsText.text = "Drag and drop the beetroot juice into the dry ingredients";
 
 
         }
@@ -254,7 +254,7 @@ public class UIManager : MonoBehaviour
         }
         else if (currentStep == 4)
         {
-            stepsText.text = "Scan the blender";
+            stepsText.text = "Scan the blender on the postcard";
             step3.SetActive(false);
             tableBowl.SetActive(false);
             kneadCanva.SetActive(false);
@@ -264,7 +264,7 @@ public class UIManager : MonoBehaviour
         }
         else if (currentStep == 5)
         {
-            stepsText.text = "Scan the Ang Ku Kueh mold ";
+            stepsText.text = "Scan the Ang Ku Kueh mold on the postcard ";
             step4.SetActive(false);
             currentStep++;
         }
