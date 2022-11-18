@@ -7,12 +7,17 @@ using UnityEngine.UI;
 
 public class ImgSwipe : MonoBehaviour
 {
+    [Header("Image Set")]
     public Image one;
     public Image two;
+
+    [Header("Next Button")]
     public Button next;
+
+    [Header("Audio Play Button")]
     public Button audioBTN;
 
-
+    [Header("Audio Source")]
     public AudioSource oneAudio;    
     public AudioSource twoAudio;
 
