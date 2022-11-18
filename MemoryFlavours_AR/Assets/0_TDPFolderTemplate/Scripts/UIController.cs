@@ -62,8 +62,17 @@ public class UIController : MonoBehaviour
     // Start Image Target GameObject
     public GameObject startImageTarget;
 
-    // Minigame Image Target GameObject
-    public GameObject minigameImageTarget;
+    public GameObject planeFinder;
+
+    public GameObject groundStage;
+
+    public bool gameInProgress;
+
+    public GameObject dimSumGame;
+
+    public GameObject endScreen;
+
+    public bool experienceOver;
 
     // Dictionary for Object Tracking
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
@@ -134,10 +143,22 @@ public class UIController : MonoBehaviour
             VuforiaBehaviour.Instance.VideoBackground.StopVideoBackgroundRendering();
             VuforiaBehaviour.Instance.enabled = false;
 
-            // Change game text
-            gameText.text = "OH! LOOKS LIKE THERE'S\nNOTHING HERE YET!";
-            // Turn on CameraOff Canvas.
-            cameraOff.SetActive(true);
+            if (!postcardScanned2)
+            {
+                // Change game text
+                gameText.text = "OH! LOOKS LIKE THERE'S\nNOTHING HERE YET!";
+                // Turn on CameraOff Canvas.
+                cameraOff.SetActive(true);
+            }
+
+            else if (postcardScanned2)
+            {
+                // Set game text to null
+                gameText.text = "";
+                dimSumGame.SetActive(true);
+                startImageTarget.SetActive(false);
+                groundStage.SetActive(false);
+            }
         }
 
         // If Vuforia Camera is not running
@@ -152,6 +173,14 @@ public class UIController : MonoBehaviour
             // Turn off CameraOff Canvas.
             cameraOff.SetActive(false);
         }
+    }
+
+    public void EndExperience()
+    {
+        gameInProgress = false;
+        experienceOver = true;
+        dimSumGame.SetActive(false);
+        endScreen.SetActive(true);
     }
 
     public void ToggleRestart()
@@ -169,6 +198,7 @@ public class UIController : MonoBehaviour
 
     IEnumerator PlayTableFall()
     {
+        planeFinder.SetActive(false);
         // Play TableFall animation
         tableAnimator.SetBool("TableFall", true);
 
@@ -228,9 +258,9 @@ public class UIController : MonoBehaviour
         gameText.text = "SCAN THE POSTCARD\nIMAGE AGAIN!";
 
         // Turn off Start Image Target
-        startImageTarget.SetActive(false);
+        //startImageTarget.SetActive(false);
 
         // Turn on Minigame Image Target
-        minigameImageTarget.SetActive(true);
+        //minigameMidAirStage.SetActive(true);
     }
 }

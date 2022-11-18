@@ -12,6 +12,7 @@ public class ObjectTracker : MonoBehaviour
     public GameObject startImageTarget;
     public GameObject uiController;
     public GameObject groundPlane;
+    public GameObject planeFinder;
 
     // Reference UIController script
     UIController uiControllerScript;
@@ -36,9 +37,16 @@ public class ObjectTracker : MonoBehaviour
                 Debug.Log("Change Text");
                 // Set active table ground plane
                 groundPlane.SetActive(true);
+                planeFinder.SetActive(true);
                 // Change Game text
                 gameText.text = "CLICK ANYWHERE ON THE\nSCREEN TO PLACE\nTHE TABLE!";
                 uiControllerScript.canPlaceTable = true;
+            }
+
+            if (objectToTrack == startImageTarget && uiControllerScript.canScanPostcardAgain)
+            {
+                uiControllerScript.postcardScanned2 = true;
+
             }
         }
 
