@@ -13,6 +13,7 @@ public class TouchInteraction : MonoBehaviour
 
     public Scrollbar mixingSlider;
     public GameObject mixingUI;
+    public GameObject[] mixingUIChild;
     int mixClickPos = 1;
     string currentTag;
 
@@ -53,8 +54,8 @@ public class TouchInteraction : MonoBehaviour
             if(hitInfo.collider.tag == currentTag)
             {
                 mixClickPos++;
-
-                mixingSlider.size += 0.1f;
+                hitInfo.collider.gameObject.SetActive(false);
+                mixingSlider.size += 0.25f;
                 powder.Play();
                 mixing.Play();
                 if (mixingSlider.size == 1)
@@ -63,7 +64,10 @@ public class TouchInteraction : MonoBehaviour
                     mixingSlider.gameObject.SetActive(false);
                     uiManager.HideStepOneOrTwo();
                     mixClickPos = 1;
-                    
+                    foreach(GameObject sprite in mixingUIChild)
+                    {
+                        sprite.SetActive(true);
+                    }
 
                 }
             }

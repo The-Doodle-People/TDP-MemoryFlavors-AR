@@ -56,6 +56,8 @@ public class UIManager : MonoBehaviour
 
     public AudioSource bgMusic;
 
+    bool audioIsPlaying = false;
+
     private void Update()
     {
         if (kneadCanva.activeSelf)
@@ -165,11 +167,9 @@ public class UIManager : MonoBehaviour
             Debug.Log(currentStep);
             trackedObjectStatus[objectToTrack] = true;
             Debug.Log(objectToTrack.name + "Tracked");
-            if (objectToTrack.name == "AngKuKueh_Model" && currentStep == 1)
+            if (objectToTrack.name == "AngKuKueh_Model" && currentStep == 1 && audioIsPlaying == false)
             {
-                voiceOver.Play();
-                StartCoroutine(WaitForSound(voiceOver));
-
+                playVoiceOver();
 
             }
             else if (objectToTrack.name == "table_model" && currentStep == 2)
@@ -191,7 +191,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
+    public void playVoiceOver()
+    {
+        voiceOver.Play();
+        audioIsPlaying= true;
+        StartCoroutine(WaitForSound(voiceOver));
+    }
 
 
     public void HideStepOneOrTwo()
