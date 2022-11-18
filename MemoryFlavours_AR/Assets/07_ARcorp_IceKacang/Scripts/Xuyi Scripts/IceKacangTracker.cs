@@ -245,6 +245,7 @@ public class IceKacangTracker : MonoBehaviour
         else
         {
             listDropdown.SetActive(false);
+            FindObjectOfType<SwitchInfo>().Back();
         }
     }
 }

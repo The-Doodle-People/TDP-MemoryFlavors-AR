@@ -136,6 +136,7 @@ public class SwitchInfo : MonoBehaviour
         jellyInfo.SetActive(false);
         cornInfo.SetActive(false);
         redBeanInfo.SetActive(false);
+        syrupsInfo.SetActive(false);
         milkInfo.SetActive(false);
         sugarInfo.SetActive(false);
         bckBtn.SetActive(false);
