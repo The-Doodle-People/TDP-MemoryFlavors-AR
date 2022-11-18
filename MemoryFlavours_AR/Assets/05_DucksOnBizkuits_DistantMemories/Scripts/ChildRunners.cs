@@ -36,7 +36,6 @@ public class ChildRunners : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("State Changed");
             onTarget = true;
 
             switch (aiState)
@@ -125,7 +124,6 @@ public class ChildRunners : MonoBehaviour
         // Release Chaser Method: CheckingDist
         for (var i = 0; i < checkTimes; i++)
         {
-            Debug.Log(Vector3.Distance(transform.position, currentTarget.position) + aiState);
             yield return new WaitForSeconds(timeToWait / checkTimes);
             if (Vector3.Distance(transform.position, currentTarget.position) > 0.5f)
             {
@@ -134,7 +132,6 @@ public class ChildRunners : MonoBehaviour
             }
         }
         triggerCollider.enabled = true;
-        Debug.Log("back2");
     }
 
     private IEnumerator RestoreSpeed()
@@ -152,13 +149,12 @@ public class ChildRunners : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<ChildRunners>() == null) return;
-        Debug.Log("Contact!");
+        if (other.transform != childTarget) return;
+        // Debug.Log("Contact!");
         StopCoroutine(RestoreDetectors());
         StopCoroutine(RestoreSpeed());
         triggerCollider.enabled = false;
         onTarget = false;
-        currentTarget = null;
 
         switch (aiState)
         {
@@ -171,5 +167,6 @@ public class ChildRunners : MonoBehaviour
                 break;
         }
         // ensures the calling of on trigger enter once
+        currentTarget = null;
     }
 }
