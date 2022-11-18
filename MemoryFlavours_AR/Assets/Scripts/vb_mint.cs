@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class vb_chili : MonoBehaviour
+public class vb_mint : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
