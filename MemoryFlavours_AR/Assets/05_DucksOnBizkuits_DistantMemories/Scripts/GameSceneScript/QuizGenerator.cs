@@ -12,7 +12,6 @@ public class QuizGenerator : MonoBehaviour
     // General Variables
     private GameManager gameManager;
     
-    
     // Four Foods;
     /*
      * IceGem Biscuits
@@ -124,13 +123,14 @@ public class QuizGenerator : MonoBehaviour
     #region For Game
     
     [SerializeField] private List<string> unusedIngredients = new List<string> {};
-    [SerializeField] private List<string> selectedIngredients = new List<string> {};
+    public List<string> selectedIngredients = new List<string> {};
 
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<TouchHandler>().quizGenerator = this;
         gameManager = FindObjectOfType<GameManager>();
         
         #if UNITY_EDITOR

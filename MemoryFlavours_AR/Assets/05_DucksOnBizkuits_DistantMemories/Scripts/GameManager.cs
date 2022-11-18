@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
 
     [Header("For Quiz Scene")]
     public int quizId;
-    
+    // set quizId before scene change to start
+
     private void Awake()
     {
         if (instance != null && instance != this)

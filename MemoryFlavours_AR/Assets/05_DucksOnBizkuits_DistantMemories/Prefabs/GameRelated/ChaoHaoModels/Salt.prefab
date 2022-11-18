@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7075757315447134290}
   - component: {fileID: 7520686042323465379}
   - component: {fileID: 3667206507821294531}
+  - component: {fileID: 8606023544629027443}
   m_Layer: 0
   m_Name: salt2
   m_TagString: Salt
@@ -95,9 +96,25 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866766137788864828, guid: 352107bd67f16b24db40091cb5be58c8, type: 3}
+--- !u!54 &8606023544629027443
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308288821733675002}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 3
 --- !u!1 &7948012854873312131
 GameObject:
   m_ObjectHideFlags: 0
