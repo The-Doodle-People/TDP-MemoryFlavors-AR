@@ -37,52 +37,52 @@ public class QuizManager : MonoBehaviour
         if (objectName == "DevilCurry")
         {
             StaticController.objectName = "";
-            quizQuestionText.text = "Question about Devil Curry";
-            answerOneText.text = "1. <insert answer here>";
-            answerTwoText.text = "2. <insert answer here>";
-            answerThreeText.text = "3. <insert answer here>";
+            quizQuestionText.text = "What is Devil Curry also known as?";
+            answerOneText.text = "1. Monster Curry";
+            answerTwoText.text = "2. Curry Debal";
+            answerThreeText.text = "3. Spicy Curry";
         }
         else if (objectName == "NasiPandang")
         {
             StaticController.objectName = "";
-            quizQuestionText.text = "Question about Nasi Padang";
-            answerOneText.text = "1. <insert answer here>";
-            answerTwoText.text = "2. <insert answer here>";
-            answerThreeText.text = "3. <insert answer here>";
+            quizQuestionText.text = "Where is Nasi Padang from?";
+            answerOneText.text = "1. Singapore";
+            answerTwoText.text = "2. Malaysia";
+            answerThreeText.text = "3. Indonesia";
 
         }
         else if (objectName == "HokkienMee")
         {
             StaticController.objectName = "";
-            quizQuestionText.text = "Question about Hokkien Mee";
-            answerOneText.text = "1. <insert answer here>";
-            answerTwoText.text = "2. <insert answer here>";
-            answerThreeText.text = "3. <insert answer here>";
+            quizQuestionText.text = "What is added to enhance the fragrance of hokkien mee?";
+            answerOneText.text = "1. Prawn";
+            answerTwoText.text = "2. Fried Lard";
+            answerThreeText.text = "3. Rice Noodles";
 
         }
         else if (objectName == "Thosai")
         {
             StaticController.objectName = "";
-            quizQuestionText.text = "Question about Thosai";
-            answerOneText.text = "1. <insert answer here>";
-            answerTwoText.text = "2. <insert answer here>";
-            answerThreeText.text = "3. <insert answer here>";
+            quizQuestionText.text = "Is Thosai vegetarian?";
+            answerOneText.text = "1. Yes";
+            answerTwoText.text = "2. No";
+            answerThreeText.text = "3. Mix of both";
         }
         else if (objectName == "Hawker")
         {
             StaticController.objectName = "";
-            quizQuestionText.text = "Question about Hawker";
-            answerOneText.text = "1. <insert answer here>";
-            answerTwoText.text = "2. <insert answer here>";
-            answerThreeText.text = "3. <insert answer here>";
+            quizQuestionText.text = "Why was hawker build in the first place?";
+            answerOneText.text = "1. High demand";
+            answerTwoText.text = "2. No Space";
+            answerThreeText.text = "3. Problem of unhygienic ";
         }
         else if (objectName == "PushCart")
         {
             StaticController.objectName = "";
-            quizQuestionText.text = "Question about Hawker";
-            answerOneText.text = "1. <insert answer here>";
-            answerTwoText.text = "2. <insert answer here>";
-            answerThreeText.text = "3. <insert answer here>";
+            quizQuestionText.text = "Why is there street hawking?";
+            answerOneText.text = "1. No money";
+            answerTwoText.text = "2. Free and easy";
+            answerThreeText.text = "3. Nothing do";
         }
     }
 
@@ -93,13 +93,13 @@ public class QuizManager : MonoBehaviour
             if (answer == 1)
             {
                 
-                tryAgainText.text = "correct";
+                tryAgainText.text = "wrong";
                 answer = 0;
             }
             else if (answer == 2)
             {
                
-                tryAgainText.text = "wrong";
+                tryAgainText.text = "correct";
                 answer = 0;
             }
             else if (answer == 3)
@@ -114,7 +114,7 @@ public class QuizManager : MonoBehaviour
             if (answer == 1)
             {
                 
-                tryAgainText.text = "correct";
+                tryAgainText.text = "wrong";
                 answer = 0;
             }
             else if (answer == 2)
@@ -126,7 +126,7 @@ public class QuizManager : MonoBehaviour
             else if (answer == 3)
             {
                
-                tryAgainText.text = "wrong";
+                tryAgainText.text = "correct";
                 answer = 0;
             }
 
@@ -136,13 +136,13 @@ public class QuizManager : MonoBehaviour
             if (answer == 1)
             {
                 
-                tryAgainText.text = "correct";
+                tryAgainText.text = "wrong";
                 answer = 0;
             }
             else if (answer == 2)
             {
                 
-                tryAgainText.text = "wrong";
+                tryAgainText.text = "correct";
                 answer = 0;
             }
             else if (answer == 3)
@@ -180,7 +180,7 @@ public class QuizManager : MonoBehaviour
             if (answer == 1)
             {
                 
-                tryAgainText.text = "correct";
+                tryAgainText.text = "wrong";
                 answer = 0;
             }
             else if (answer == 2)
@@ -192,7 +192,7 @@ public class QuizManager : MonoBehaviour
             else if (answer == 3)
             {
                 
-                tryAgainText.text = "wrong";
+                tryAgainText.text = "correct";
                 answer = 0;
             }
 
