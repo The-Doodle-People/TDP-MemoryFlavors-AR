@@ -31,7 +31,7 @@ public class ScoreController : MonoBehaviour
         
         if (target.tag == "DimSum")
         {
-            if(score < 5)
+            if(score < 20)
             {
                 if (gameOver == false)
                 {
