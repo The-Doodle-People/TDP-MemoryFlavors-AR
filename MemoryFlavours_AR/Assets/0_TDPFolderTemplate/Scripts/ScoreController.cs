@@ -10,7 +10,7 @@ public class ScoreController : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public bool gameOver;
     public GameObject gameOverMessage;
-
+    public SFXManager sfx;
     public Spawner spawner;
 
     public int score;
@@ -38,6 +38,7 @@ public class ScoreController : MonoBehaviour
                     Debug.Log("item collided");
                     Destroy(target.gameObject);
                     score++;
+                    sfx.CollectAudioOn();
                 }
                 
             }
