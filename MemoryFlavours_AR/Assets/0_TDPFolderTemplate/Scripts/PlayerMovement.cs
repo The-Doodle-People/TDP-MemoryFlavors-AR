@@ -51,7 +51,11 @@ public class PlayerMovement : MonoBehaviour
         {
             myBody.velocity = Vector2.left * movementSpeed;
         }
-            
+        else
+        {
+            myBody.velocity = Vector2.zero;
+        }
+
     }
 
     //if the player press the right button, the player will move right
@@ -61,16 +65,19 @@ public class PlayerMovement : MonoBehaviour
         {
             myBody.velocity = Vector2.right * movementSpeed;
         }
+        else
+        {
+            myBody.velocity = Vector2.zero;
+        }
             
     }
 
     //if the player is not pressing any button, the player will not move
     public void StopMoving()
     {
-        if (game.gameOver == false)
-        {
-            myBody.velocity = Vector2.zero;
-        }
+
+        myBody.velocity = Vector2.zero;
+
     }
 
 }
