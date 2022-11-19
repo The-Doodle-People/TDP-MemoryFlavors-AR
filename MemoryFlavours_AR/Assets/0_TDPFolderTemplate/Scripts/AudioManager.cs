@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager BgInstance;
     public static AudioSource BackgroundAudio;
+    
     public ScoreController game;
 
     private void Start()
@@ -19,7 +20,7 @@ public class AudioManager : MonoBehaviour
             BackgroundAudio.Pause();
         }
     }
-
+    
     // Update is called once per frame
 
 }

@@ -84,6 +84,8 @@ public class UIController : MonoBehaviour
     // Dictionary for Object Tracking
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
+    public static AudioSource storeAudio;
+
     void Awake()
     {
         
@@ -95,6 +97,7 @@ public class UIController : MonoBehaviour
         if (/*Input.touchCount > 0*/ Input.GetMouseButtonDown(0) && !experienceStarted)
         {
             StartCoroutine("PlayLoading");
+
         }
         
         /*if (Input.GetMouseButtonDown(0) && canPlaceTable && groundStage.activeSelf)
@@ -119,6 +122,8 @@ public class UIController : MonoBehaviour
         canPlaceTable = false;
         tablePlaced = true;
         canInteractWithDimsum = true;
+        
+
     }
 
     IEnumerator PlayLoading()
@@ -129,12 +134,17 @@ public class UIController : MonoBehaviour
         // Wait 6.5 seconds for loading screen to fade in and out
         yield return new WaitForSeconds(6.5f);
         ToggleMainUI();
+
+        storeAudio = GetComponent<AudioSource>();
+        storeAudio.Play();
+
         // Stop loading animation
         loadingScreen.SetBool("experienceStart", false);
         // Turn off start canvas
         startCanvas.SetActive(false);
         // Turn on Start Image Target
         startImageTarget.SetActive(true);
+
     }
 
     public void ToggleMainUI()
@@ -148,6 +158,7 @@ public class UIController : MonoBehaviour
         {
             mainUI.SetActive(false);
         }
+        
     }
 
     public void ToggleCamera()
