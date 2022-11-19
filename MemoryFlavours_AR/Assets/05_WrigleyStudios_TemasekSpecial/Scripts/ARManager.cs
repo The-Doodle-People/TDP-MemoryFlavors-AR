@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using AppAdvisory.SharingSystem;
 using System.Threading.Tasks;
 using Vuforia;
+using UnityEngine.Audio;
+using UnityEngine.UI;
+
 public class ARManager : MonoBehaviour
 {
     public TextMeshProUGUI descriptionText;
@@ -16,7 +19,13 @@ public class ARManager : MonoBehaviour
     public GameObject descriptionBackground;
     public GameObject descriptionTextArea;
 
-
+    //Sound Gameobject
+    public AudioSource hawkerAmbienceSound;
+    public AudioSource thosaiSound;
+    public AudioSource hokkienMeeSound;
+    public Button toggleWhiteNoise;
+    public bool playAudio = false;
+    
 
     /// <summary>
     /// This dictionary holds the tracked status of AR objects
@@ -25,6 +34,8 @@ public class ARManager : MonoBehaviour
 
     void Awake()
     {
+        playAudio = false;
+        toggleWhiteNoise.interactable = false;
         mainCanvas.SetActive(true);
         descriptionText.text = "";
         descriptionBtn.gameObject.SetActive(false);
@@ -32,6 +43,7 @@ public class ARManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Play audio update: " + playAudio);
         
     }
 
@@ -50,14 +62,14 @@ public class ARManager : MonoBehaviour
                 StaticController.objectName = objectToTrack.name;
                 descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + "<insert Description here>";
-
+                
             }
             else if (objectToTrack.name == "NasiPandang")
             {
                 StaticController.objectName = objectToTrack.name;
                 descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + " <insert Description here>";
-
+                
             }
             else if (objectToTrack.name == "HokkienMee")
             {
@@ -69,7 +81,7 @@ public class ARManager : MonoBehaviour
                     " simmered for many hours. Sambal chili and calamansi limes are served on the side for the diner" +
                     " to blend in, giving it an extra zing and tanginess. Traditionally, small cubes of fried lard are added," +
                     " and some stalls also serve the open on an opeh leaf (soft areca palm bark), which enhances the fragrance of the dish.";
-                
+                ToPlayAudio(objectToTrack.name);
             }
             else if (objectToTrack.name == "Thosai")
             {
@@ -78,21 +90,21 @@ public class ARManager : MonoBehaviour
                 descriptionText.text = objectToTrack.name + "Thosai (also spelled dosa) is a savory pancake " +
                     "served with a slew of spicy dipping sauces. Like so much of the Indian food popular at" +
                     " Singapore hawker centers, thosai are cheap, tasty and 100% vegetarian.";
-                
+                ToPlayAudio(objectToTrack.name);
             }
             else if (objectToTrack.name == "Hawker")
             {
                 StaticController.objectName = objectToTrack.name;
                 descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + " is Hawker Tracked";
-                
+                ToPlayAudio(objectToTrack.name);
             }
             else if (objectToTrack.name == "PushCart")
             {
                 StaticController.objectName = objectToTrack.name;
                 descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + " is Push Cart Tracked";
-                
+                ToPlayAudio(objectToTrack.name);
             }
             
         }
@@ -125,6 +137,59 @@ public class ARManager : MonoBehaviour
         }
     }
 
+    public void ToPlayAudio(string trackName)
+    {
+        if (trackName != null)
+        {
+            if (trackName == "DevilCurry")
+            {
+                toggleWhiteNoise.interactable = false;
+            }
+            else if (trackName == "NasiPandang")
+            {
+                toggleWhiteNoise.interactable = false;
+            }
+            else if (trackName == "HokkienMee")
+            {
+                toggleWhiteNoise.interactable = true;
+                hokkienMeeSound.Play();
+                AudioListener.volume = 0;
+
+            }
+            else if (trackName == "Thosai")
+            {
+                toggleWhiteNoise.interactable = true;
+                thosaiSound.Play();
+                AudioListener.volume = 0;
+            }
+            else if (trackName == "Hawker")
+            {
+                toggleWhiteNoise.interactable = true;
+                hawkerAmbienceSound.Play();
+                AudioListener.volume = 0;
+
+            }
+            else if (trackName == "PushCart")
+            {
+                toggleWhiteNoise.interactable = false;
+            }
+        }
+    }
+
+    public void ToggleAudio()
+    {
+        Debug.Log(" Play Audio: " + playAudio);
+        if(playAudio == false)
+        {
+            playAudio = true;
+            AudioListener.volume = 1;
+        }
+        else if (playAudio == true)
+        {
+            playAudio = false;
+            AudioListener.volume = 0;
+        }
+    }
     public async void SharingButton()
     {
         VSSHARE.DOTakeScreenShot();
