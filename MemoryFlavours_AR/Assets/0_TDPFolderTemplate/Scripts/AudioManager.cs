@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager BgInstance;
     public static AudioSource BackgroundAudio;
+    public static AudioSource tablePlaced;
     
     public ScoreController game;
 
@@ -20,7 +21,11 @@ public class AudioManager : MonoBehaviour
             BackgroundAudio.Pause();
         }
     }
-    
+    public void TablePlaced()
+    {
+        tablePlaced = GetComponent<AudioSource>();
+        tablePlaced.Play();
+    }
     // Update is called once per frame
 
 }

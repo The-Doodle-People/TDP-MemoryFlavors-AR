@@ -85,6 +85,7 @@ public class UIController : MonoBehaviour
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
     public static AudioSource storeAudio;
+    public AudioManager audioManager;
 
     void Awake()
     {
@@ -122,7 +123,7 @@ public class UIController : MonoBehaviour
         canPlaceTable = false;
         tablePlaced = true;
         canInteractWithDimsum = true;
-        
+        audioManager.TablePlaced();
 
     }
 
