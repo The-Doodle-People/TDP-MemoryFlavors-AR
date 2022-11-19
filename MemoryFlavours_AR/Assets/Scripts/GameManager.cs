@@ -107,4 +107,9 @@ public class GameManager : MonoBehaviour
         //savedPhoto.SetActive(true);
         photoIndex++;
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
