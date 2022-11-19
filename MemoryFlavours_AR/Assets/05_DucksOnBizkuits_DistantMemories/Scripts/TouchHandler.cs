@@ -113,6 +113,8 @@ public class TouchHandler : MonoBehaviour
         if (target.tag.ToLower() != "bowl" || !holdingItem) return;
         holdingItem = false;
         
+        
+        Debug.Log(gameUI.objectInHand.transform.GetChild(0));
         Rigidbody item;
         var pos = target.position;
         item = Instantiate(gameUI.objectInHand.transform.GetChild(0).GetComponent<Rigidbody>(),

@@ -5,6 +5,7 @@
  */
 
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class QuizGenerator : MonoBehaviour
@@ -125,6 +126,10 @@ public class QuizGenerator : MonoBehaviour
     [SerializeField] private List<string> unusedIngredients = new List<string> {};
     public List<string> selectedIngredients = new List<string> {};
 
+    public TextMeshProUGUI result;
+
+    public GameObject[] foods;
+    
     #endregion
 
     // Start is called before the first frame update
@@ -145,8 +150,15 @@ public class QuizGenerator : MonoBehaviour
         
         #endif
 
-        quizOption = gameModes[gameManager.quizId];
+        var quizId = gameManager.quizId;
+        quizOption = gameModes[quizId];
         GenerateQuiz();
+        foreach (var foodGrp in foods)
+        {
+            foodGrp.transform.GetChild(quizId).gameObject.SetActive(true);
+        }
+
+        result.text = gameModes[quizId];
     }
 
     private void GenerateQuiz()

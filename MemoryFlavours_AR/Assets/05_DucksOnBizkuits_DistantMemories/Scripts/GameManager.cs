@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private static readonly int FadeOut = Animator.StringToHash("fadeOut");
 
     [Header("For Quiz Scene")]
-    public int quizId;
+    public int quizId = 1;
     // set quizId before scene change to start
 
     private void Awake()
