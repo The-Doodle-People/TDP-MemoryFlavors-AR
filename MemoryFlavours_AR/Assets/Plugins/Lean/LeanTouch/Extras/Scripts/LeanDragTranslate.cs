@@ -23,7 +23,7 @@ namespace Lean.Touch
 		/// -1 = Instantly change.
 		/// 1 = Slowly change.
 		/// 10 = Quickly change.</summary>
-		public float Damping { set { damping = value; } get { return damping; } } [SerializeField] private float damping = -1.0f;
+		public float Damping { set { damping = value; } get { return damping; } } [SerializeField] protected float damping = -1.0f;
 
 		/// <summary>This allows you to control how much momentum is retained when the dragging fingers are all released.
 		/// NOTE: This requires <b>Dampening</b> to be above 0.</summary>
@@ -98,9 +98,9 @@ namespace Lean.Touch
 			// Shift this transform by the change in delta
 			transform.localPosition = oldPosition + remainingTranslation - newRemainingTranslation;
 
-			if (fingers.Count == 0 && Inertia > 0.0f && Damping > 0.0f)
+			if (fingers.Count == 0 && inertia > 0.0f && Damping > 0.0f)
 			{
-				newRemainingTranslation = Vector3.Lerp(newRemainingTranslation, remainingTranslation, Inertia);
+				newRemainingTranslation = Vector3.Lerp(newRemainingTranslation, remainingTranslation, inertia);
 			}
 
 			// Update remainingDelta with the dampened value
@@ -109,20 +109,20 @@ namespace Lean.Touch
 
 		private void TranslateUI(Vector2 screenDelta)
 		{
-			var camera = this._camera;
+			var finalCamera = _camera;
 
-			if (camera == null)
+			if (finalCamera == null)
 			{
 				var canvas = transform.GetComponentInParent<Canvas>();
 
 				if (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay)
 				{
-					camera = canvas.worldCamera;
+					finalCamera = canvas.worldCamera;
 				}
 			}
 
 			// Screen position of the transform
-			var screenPoint = RectTransformUtility.WorldToScreenPoint(camera, transform.position);
+			var screenPoint = RectTransformUtility.WorldToScreenPoint(finalCamera, transform.position);
 
 			// Add the deltaPosition
 			screenPoint += screenDelta * Sensitivity;
@@ -130,7 +130,7 @@ namespace Lean.Touch
 			// Convert back to world space
 			var worldPoint = default(Vector3);
 
-			if (RectTransformUtility.ScreenPointToWorldPointInRectangle(transform.parent as RectTransform, screenPoint, camera, out worldPoint) == true)
+			if (RectTransformUtility.ScreenPointToWorldPointInRectangle(transform.parent as RectTransform, screenPoint, finalCamera, out worldPoint) == true)
 			{
 				transform.position = worldPoint;
 			}
