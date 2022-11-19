@@ -24,7 +24,7 @@ public class TextSpawnHandler : MonoBehaviour
         Debug.Log(firebase.memoriesNum);
         int randomNum = UnityEngine.Random.Range(0,firebase.memoriesNum);
         Debug.Log(memoryList[randomNum]);
-        Debug.Log(memoryText.GetComponent<TextMesh>().text);
+       
         memoryText.text = memoryList[randomNum];
      
     }
