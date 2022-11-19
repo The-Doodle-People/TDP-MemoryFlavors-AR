@@ -4,6 +4,7 @@ using UnityEngine;
 using Vuforia;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -45,6 +46,9 @@ public class UIController : MonoBehaviour
     // Check if player has already interacted with the dimsum
     public bool interactedWithDimsum;
 
+    // GameObject for animated arrow
+    public GameObject arrowObject;
+
     // Animator for Table fall animation
     public Animator tableAnimator;
 
@@ -62,14 +66,17 @@ public class UIController : MonoBehaviour
     // Start Image Target GameObject
     public GameObject startImageTarget;
 
+    // Ground plane objects
     public GameObject planeFinder;
-
     public GameObject groundStage;
 
+    // Check if game is in progress
     public bool gameInProgress;
 
+    // Dim Sum game canvas
     public GameObject dimSumGame;
 
+    // End screen canvas
     public GameObject endScreen;
 
     public bool experienceOver;
@@ -90,19 +97,28 @@ public class UIController : MonoBehaviour
             StartCoroutine("PlayLoading");
         }
         
-        if (Input.GetMouseButtonDown(0) && canPlaceTable)
+        /*if (Input.GetMouseButtonDown(0) && canPlaceTable && groundStage.activeSelf)
         {
             gameText.text = "CLICK ON THE DIM SUM\nTO EAT IT!";
             canPlaceTable = false;
             tablePlaced = true;
             canInteractWithDimsum = true;
-        }
+        }*/
 
         if (interactedWithDimsum)
         {
             StartCoroutine("PlayTableFall");
             interactedWithDimsum = false;
+            arrowObject.SetActive(false);
         }
+    }
+
+    public void OnGroundPlanePlaced()
+    {
+        gameText.text = "CLICK ON THE DIM SUM\nTO EAT IT!";
+        canPlaceTable = false;
+        tablePlaced = true;
+        canInteractWithDimsum = true;
     }
 
     IEnumerator PlayLoading()
@@ -149,6 +165,8 @@ public class UIController : MonoBehaviour
                 gameText.text = "OH! LOOKS LIKE THERE'S\nNOTHING HERE YET!";
                 // Turn on CameraOff Canvas.
                 cameraOff.SetActive(true);
+                startImageTarget.SetActive(false);
+                groundStage.SetActive(false);
             }
 
             else if (postcardScanned2)
@@ -195,6 +213,11 @@ public class UIController : MonoBehaviour
         {
             restartConfirmation.SetActive(false);
         }
+    }
+
+    public void RestartConfirm()
+    {
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 
     IEnumerator PlayTableFall()

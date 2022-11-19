@@ -41,7 +41,7 @@ public class ObjectTracker : MonoBehaviour
                 groundPlane.SetActive(true);
                 planeFinder.SetActive(true);
                 // Change Game text
-                gameText.text = "CLICK ANYWHERE ON THE\nSCREEN TO PLACE\nTHE TABLE!";
+                gameText.text = "FIND A FLAT SURFACE\nAND CLICK ANYWHERE \nON THE SCREEN TO\nPLACE THE TABLE!";
                 uiControllerScript.canPlaceTable = true;
             }
 
