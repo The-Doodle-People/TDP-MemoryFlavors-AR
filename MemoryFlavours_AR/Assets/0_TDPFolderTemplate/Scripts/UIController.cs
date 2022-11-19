@@ -125,6 +125,7 @@ public class UIController : MonoBehaviour
         canPlaceTable = false;
         tablePlaced = true;
         canInteractWithDimsum = true;
+        //play table placed audio
         sfx.TablePlacedAudioOn();
 
     }
@@ -246,11 +247,15 @@ public class UIController : MonoBehaviour
         boy6Animator.speed = 0.7f;
         girl6Animator.speed = 0.7f;
         girl12Animator.speed = 0.7f;
+        // Play TableBreak audio
+        sfx.TableBreakAudioOn();
         yield return new WaitForSeconds(0.5f);
         boy12Animator.speed = 0.6f;
         boy6Animator.speed = 0.6f;
         girl6Animator.speed = 0.6f;
         girl12Animator.speed = 0.6f;
+        // Play shocked audio
+        sfx.ShockedAudioOn();
         yield return new WaitForSeconds(0.4f);
         boy12Animator.speed = 0.55f;
         boy6Animator.speed = 0.55f;

@@ -5,12 +5,10 @@ using UnityEngine;
 public class SFXManager : MonoBehaviour
 {
     [SerializeField] private static AudioSource SFXCollectAudio;
-    [SerializeField] private static AudioSource SFXTablePlaced;
-    private void Start()
-    {
-        SFXCollectAudio = GetComponent<AudioSource>();
-        SFXTablePlaced = GetComponent<AudioSource>();
-    }
+    public AudioSource SFXTablePlaced;
+    public AudioSource SFXTableBreak;
+    public AudioSource SFXShocked;
+    
     // Update is called once per frame
     public void CollectAudioOn()
     {
@@ -19,6 +17,14 @@ public class SFXManager : MonoBehaviour
 
     public void TablePlacedAudioOn()
     {
-        SFXTablePlaced.Play();   
+        SFXTablePlaced.Play();
+    }
+    public void TableBreakAudioOn()
+    {
+        SFXTableBreak.Play();
+    }
+    public void ShockedAudioOn()
+    {
+        SFXShocked.Play();
     }
 }
