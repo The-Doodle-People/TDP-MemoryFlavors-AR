@@ -70,10 +70,10 @@ namespace Lean.Touch
 		/// <summary>This gets fired every frame at least one finger is touching the screen (List = Fingers).</summary>
 		public static event System.Action<List<LeanFinger>> OnGesture;
 
-		/// <summary>This gets fired after a finger has been touching the screen for longer than <b>TapThreshold</b> seconds, making it ineligible for a swipe.</summary>
+		/// <summary>This gets fired after a finger has stopped touching the screen for longer than <b>TapThreshold</b> seconds, making it ineligible for any future taps. This can be used to detect when you've done a single tap instead of a double tap, etc.</summary>
 		public static event System.Action<LeanFinger> OnFingerExpired;
 
-		/// <summary>This gets fired the frame after a finger went up, </summary>
+		/// <summary>This gets fired the frame after a finger went up.</summary>
 		public static event System.Action<LeanFinger> OnFingerInactive;
 
 		/// <summary>This will be invoked when it's time to simulate fingers. You can call the <b>AddFinger</b> method to simulate them.</summary>

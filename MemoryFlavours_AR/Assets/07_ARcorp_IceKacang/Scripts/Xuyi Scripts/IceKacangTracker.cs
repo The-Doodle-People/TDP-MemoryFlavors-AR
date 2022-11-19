@@ -12,6 +12,7 @@ public class IceKacangTracker : MonoBehaviour
     public GameObject listDropdown;
     public GameObject nxtBtn;
     public GameObject picBtn;
+    public GameObject endBtn;
     public GameObject picTxt;
     public GameObject[] chendol;
     public GameObject[] grassJelly;
@@ -71,6 +72,7 @@ public class IceKacangTracker : MonoBehaviour
         resetBtn.SetActive(false);
         listBtn.SetActive(false);
         picBtn.SetActive(false);
+        endBtn.SetActive(false);
         listDropdown.SetActive(false);
         FindObjectOfType<SwitchInfo>().Back();
         ToppingsReset();
@@ -252,6 +254,11 @@ public class IceKacangTracker : MonoBehaviour
         picTxt.SetActive(true);
         await Task.Delay(2000);
         picTxt.SetActive(false);
+    }
+
+    public void ShowEnd()
+    {
+        endBtn.SetActive(true);
     }
 
     public void ShowList()
