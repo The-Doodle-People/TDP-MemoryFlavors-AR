@@ -66,6 +66,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject angKuKuehFinal;
 
+    //Sharing Padlet (last)
+    public GameObject sharingPadletUI;
 
     private void Update()
     {
@@ -155,6 +157,11 @@ public class UIManager : MonoBehaviour
                 nextBtn.SetActive(true);
             }
 
+        }
+
+        if(angKuKuehFinal.activeSelf)
+        {
+            nextBtn.SetActive(true);
         }
     }
 
@@ -312,6 +319,14 @@ public class UIManager : MonoBehaviour
         {
             step6.SetActive(false);
             angKuKuehFinal.SetActive(true);
+            currentStep++;
+        }
+        else if(currentStep == 8)
+        {
+            angKuKuehFinal.SetActive(false);
+            stepsUI.SetActive(false);
+            sharingPadletUI.SetActive(true);
+            nextBtn.SetActive(false);
         }
     }
 }
