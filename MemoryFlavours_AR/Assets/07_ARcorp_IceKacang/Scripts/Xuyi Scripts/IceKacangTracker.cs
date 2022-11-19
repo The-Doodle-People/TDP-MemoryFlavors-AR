@@ -36,6 +36,9 @@ public class IceKacangTracker : MonoBehaviour
     public ParticleSystem snow;
     public ParticleSystem stars;
     public AudioSource iceShave;
+    public AudioSource icePut;
+    public AudioSource syrAudio;
+    public AudioSource milkAudio;
     private int toppingNo;
     private int syrupNo;
     // Start is called before the first frame update
@@ -142,6 +145,7 @@ public class IceKacangTracker : MonoBehaviour
                 redBean[2].SetActive(true);
             }
         }
+        icePut.Play();
         toppingNo++;
         isChendol = false;
         isJelly = false;
@@ -182,6 +186,7 @@ public class IceKacangTracker : MonoBehaviour
                 greenSyrup[1].SetActive(true);
             }
         }
+        syrAudio.Play();
         syrupNo++;
         isRedS = false;
         isBlueS = false;
@@ -190,10 +195,12 @@ public class IceKacangTracker : MonoBehaviour
     public void Sugar()
     {
         sugar.SetActive(true);
+        milkAudio.Play();
     }
     public void Milk()
     {
         milk.SetActive(true);
+        milkAudio.Play();
     }
     public void ToppingsReset()
     {
