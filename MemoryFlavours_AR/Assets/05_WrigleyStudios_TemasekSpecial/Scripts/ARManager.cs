@@ -19,13 +19,28 @@ public class ARManager : MonoBehaviour
     public GameObject descriptionBackground;
     public GameObject descriptionTextArea;
 
-    //Sound Gameobject
+    /// <summary>
+    /// Sound: SFX - Ambience sound for the app
+    /// </summary>
     public AudioSource hawkerAmbienceSound;
     public AudioSource thosaiSound;
     public AudioSource hokkienMeeSound;
     public Button toggleWhiteNoise;
-    public bool playAudio = false;
-    
+    public bool playAmbience = false; // Toggle off and on button for the ambience sound when object is detected
+
+    /// <summary>
+    /// Sound: Narration - It narrates unique conversation based on what image that been scanned
+    /// </summary>
+    string nameOfObject;
+    public AudioSource devilCurryNar;
+    public AudioSource hawkerCenterNar;
+    public AudioSource hokkienMeeNar;
+    public AudioSource nasiPadangNar;
+    public AudioSource pushCartNar;
+    public AudioSource thosaiNar;
+    public Button toggleNarrate;
+    public bool playNarrate = false;
+
 
     /// <summary>
     /// This dictionary holds the tracked status of AR objects
@@ -34,8 +49,10 @@ public class ARManager : MonoBehaviour
 
     void Awake()
     {
-        playAudio = false;
+        playAmbience = false;
+        playNarrate = false;
         toggleWhiteNoise.interactable = false;
+        toggleNarrate.interactable = false;
         mainCanvas.SetActive(true);
         descriptionText.text = "";
         descriptionBtn.gameObject.SetActive(false);
@@ -43,7 +60,7 @@ public class ARManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Play audio update: " + playAudio);
+        Debug.Log("Play audio update: " + playAmbience);
         
     }
 
@@ -60,51 +77,57 @@ public class ARManager : MonoBehaviour
             if (objectToTrack.name == "DevilCurry")
             {
                 StaticController.objectName = objectToTrack.name;
-                descriptionBtn.gameObject.SetActive(true);
+                //descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + "<insert Description here>";
-                
+                toggleNarrate.interactable = true;
+                ToPlayAmbienceSound(objectToTrack.name);
             }
             else if (objectToTrack.name == "NasiPandang")
             {
                 StaticController.objectName = objectToTrack.name;
-                descriptionBtn.gameObject.SetActive(true);
+                //descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + " <insert Description here>";
-                
+                toggleNarrate.interactable = true;
+                ToPlayAmbienceSound(objectToTrack.name);
             }
             else if (objectToTrack.name == "HokkienMee")
             {
                 StaticController.objectName = objectToTrack.name;
-                descriptionBtn.gameObject.SetActive(true);
+               //descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + "In Singapore, Hokkien mee (???) refers to a dish of" +
                     " egg noodles and rice noodles stir-fried with egg, slices of pork, prawns, and squid. The key" +
                     " to the dish is copious quantities of an aromatic broth made from prawns and pork bones, slowly" +
                     " simmered for many hours. Sambal chili and calamansi limes are served on the side for the diner" +
                     " to blend in, giving it an extra zing and tanginess. Traditionally, small cubes of fried lard are added," +
                     " and some stalls also serve the open on an opeh leaf (soft areca palm bark), which enhances the fragrance of the dish.";
-                ToPlayAudio(objectToTrack.name);
+                toggleNarrate.interactable = true;
+                ToPlayAmbienceSound(objectToTrack.name);
             }
             else if (objectToTrack.name == "Thosai")
             {
                 StaticController.objectName = objectToTrack.name;
-                descriptionBtn.gameObject.SetActive(true);
+                //descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + "Thosai (also spelled dosa) is a savory pancake " +
                     "served with a slew of spicy dipping sauces. Like so much of the Indian food popular at" +
                     " Singapore hawker centers, thosai are cheap, tasty and 100% vegetarian.";
-                ToPlayAudio(objectToTrack.name);
+                toggleNarrate.interactable = true;
+                ToPlayAmbienceSound(objectToTrack.name);
             }
             else if (objectToTrack.name == "Hawker")
             {
                 StaticController.objectName = objectToTrack.name;
-                descriptionBtn.gameObject.SetActive(true);
+                //descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + " is Hawker Tracked";
-                ToPlayAudio(objectToTrack.name);
+                toggleNarrate.interactable = true;
+                ToPlayAmbienceSound(objectToTrack.name);
             }
             else if (objectToTrack.name == "PushCart")
             {
                 StaticController.objectName = objectToTrack.name;
-                descriptionBtn.gameObject.SetActive(true);
+                //descriptionBtn.gameObject.SetActive(true);
                 descriptionText.text = objectToTrack.name + " is Push Cart Tracked";
-                ToPlayAudio(objectToTrack.name);
+                toggleNarrate.interactable = true;
+                ToPlayAmbienceSound(objectToTrack.name);
             }
             
         }
@@ -137,7 +160,7 @@ public class ARManager : MonoBehaviour
         }
     }
 
-    public void ToPlayAudio(string trackName)
+    public void ToPlayAmbienceSound(string trackName)
     {
         if (trackName != null)
         {
@@ -152,22 +175,17 @@ public class ARManager : MonoBehaviour
             else if (trackName == "HokkienMee")
             {
                 toggleWhiteNoise.interactable = true;
-                hokkienMeeSound.Play();
-                AudioListener.volume = 0;
-
+                //hokkienMeeSound.Play();
             }
             else if (trackName == "Thosai")
             {
                 toggleWhiteNoise.interactable = true;
-                thosaiSound.Play();
-                AudioListener.volume = 0;
+               //thosaiSound.Play();
             }
             else if (trackName == "Hawker")
             {
                 toggleWhiteNoise.interactable = true;
-                hawkerAmbienceSound.Play();
-                AudioListener.volume = 0;
-
+                //hawkerAmbienceSound.Play();
             }
             else if (trackName == "PushCart")
             {
@@ -176,18 +194,50 @@ public class ARManager : MonoBehaviour
         }
     }
 
-    public void ToggleAudio()
+    public void ToggleAmbience()
     {
-        Debug.Log(" Play Audio: " + playAudio);
-        if(playAudio == false)
+        nameOfObject = StaticController.objectName;
+        Debug.Log(" Play Audio: " + playAmbience);
+        if(playAmbience == false)
         {
-            playAudio = true;
-            AudioListener.volume = 1;
+            if (nameOfObject == "HokkienMee")
+            {
+                toggleWhiteNoise.interactable = true;
+                hokkienMeeSound.Play();
+            }
+            else if (nameOfObject == "Thosai")
+            {
+                toggleWhiteNoise.interactable = true;
+                thosaiSound.Play();
+            }
+            else if (nameOfObject == "Hawker")
+            {
+                toggleWhiteNoise.interactable = true;
+                hawkerAmbienceSound.Play();
+            }
+
+            playAmbience = true;
+            //ambienceSoundGrp.SetActive(true);
         }
-        else if (playAudio == true)
+        else if (playAmbience == true)
         {
-            playAudio = false;
-            AudioListener.volume = 0;
+            if (nameOfObject == "HokkienMee")
+            {
+                toggleWhiteNoise.interactable = true;
+                hokkienMeeSound.Stop();
+            }
+            else if (nameOfObject == "Thosai")
+            {
+                toggleWhiteNoise.interactable = true;
+                thosaiSound.Stop();
+            }
+            else if (nameOfObject == "Hawker")
+            {
+                toggleWhiteNoise.interactable = true;
+                hawkerAmbienceSound.Stop();
+            }
+            playAmbience = false;
+            //ambienceSoundGrp.SetActive(false);
         }
     }
     public async void SharingButton()
@@ -198,11 +248,96 @@ public class ARManager : MonoBehaviour
         await Task.Delay(10000);
         VSSHARE.DOHideScreenshotIcon();
     }
-    
-    public void ToggleDescription()
+   
+
+    public void PlayNarration()
     {
-        descriptionBackground.gameObject.SetActive(true);
-        descriptionTextArea.gameObject.SetActive(true);
+        nameOfObject = StaticController.objectName;
+        Debug.Log("narration: " + nameOfObject);
+        if (playNarrate == false)
+        {
+            if (nameOfObject == "DevilCurry")
+            {
+                devilCurryNar.Play();
+                descriptionBackground.gameObject.SetActive(true);
+                descriptionTextArea.gameObject.SetActive(true);
+            }
+            else if (nameOfObject == "NasiPandang")
+            {
+                nasiPadangNar.Play();
+                descriptionBackground.gameObject.SetActive(true);
+                descriptionTextArea.gameObject.SetActive(true);
+            }
+            else if (nameOfObject == "HokkienMee")
+            {
+                hokkienMeeNar.Play();
+                descriptionBackground.gameObject.SetActive(true);
+                descriptionTextArea.gameObject.SetActive(true);
+
+            }
+            else if (nameOfObject == "Thosai")
+            {
+                thosaiNar.Play();
+                descriptionBackground.gameObject.SetActive(true);
+                descriptionTextArea.gameObject.SetActive(true);
+            }
+            else if (nameOfObject == "Hawker")
+            {
+                hawkerCenterNar.Play();
+                descriptionBackground.gameObject.SetActive(true);
+                descriptionTextArea.gameObject.SetActive(true);
+
+            }
+            else if (nameOfObject == "PushCart")
+            {
+                pushCartNar.Play();
+                descriptionBackground.gameObject.SetActive(true);
+                descriptionTextArea.gameObject.SetActive(true);
+            }
+            playNarrate = true;
+        }
+        else if (playNarrate == true)
+        {
+            if (nameOfObject == "DevilCurry")
+            {
+                devilCurryNar.Stop();
+                descriptionBackground.gameObject.SetActive(false);
+                descriptionTextArea.gameObject.SetActive(false);
+            }
+            else if (nameOfObject == "NasiPandang")
+            {
+                nasiPadangNar.Stop();
+                descriptionBackground.gameObject.SetActive(false);
+                descriptionTextArea.gameObject.SetActive(false);
+            }
+            else if (nameOfObject == "HokkienMee")
+            {
+                hokkienMeeNar.Stop();
+                descriptionBackground.gameObject.SetActive(false);
+                descriptionTextArea.gameObject.SetActive(false);
+
+            }
+            else if (nameOfObject == "Thosai")
+            {
+                thosaiNar.Stop();
+                descriptionBackground.gameObject.SetActive(false);
+                descriptionTextArea.gameObject.SetActive(false);
+            }
+            else if (nameOfObject == "Hawker")
+            {
+                hawkerCenterNar.Stop();
+                descriptionBackground.gameObject.SetActive(false);
+                descriptionTextArea.gameObject.SetActive(false);
+
+            }
+            else if (nameOfObject == "PushCart")
+            {
+                pushCartNar.Stop();
+                descriptionBackground.gameObject.SetActive(false);
+                descriptionTextArea.gameObject.SetActive(false);
+            }
+            playNarrate = false;
+        }
     }
 
     public void LoadQuizScene()
@@ -210,7 +345,6 @@ public class ARManager : MonoBehaviour
         Debug.Log(isTracked);
         if (isTracked == true)
         {
-            
             SceneManager.LoadScene(2);
             isTracked = false;
         }

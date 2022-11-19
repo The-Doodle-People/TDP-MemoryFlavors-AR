@@ -75,7 +75,7 @@ namespace Lean.Touch
 			LeanTouch.OnFingerTap -= HandleFingerTap;
 		}
 
-		private void HandleFingerTap(LeanFinger finger)
+		protected void HandleFingerTap(LeanFinger finger)
 		{
 			// Ignore?
 			if (ignoreStartedOverGui == true && finger.StartedOverGui == true)

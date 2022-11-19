@@ -29,8 +29,18 @@ namespace Lean.Touch
 		/// NOTE: This requires <b>Damping</b> to be above 0.</summary>
 		public float Inertia { set { inertia = value; } get { return inertia; } } [SerializeField] [Range(0.0f, 1.0f)] private float inertia;
 
+		/// <summary>This allows you to set the target position value when calling the <b>ResetPosition</b> method.</summary>
+		public Vector3 DefaultPosition { set { defaultPosition = value; } get { return defaultPosition; } } [SerializeField] private Vector3 defaultPosition;
+
 		[SerializeField]
 		private Vector3 remainingDelta;
+
+		/// <summary>This method resets the target position value to the <b>DefaultPosition</b> value.</summary>
+		[ContextMenu("Reset Position")]
+		public virtual void ResetRotation()
+		{
+			remainingDelta = defaultPosition - transform.position;
+		}
 
 		/// <summary>This method moves the current GameObject to the center point of all selected objects.</summary>
 		[ContextMenu("Move To Selection")]
@@ -150,6 +160,7 @@ namespace Lean.Touch.Editor
 			Draw("sensitivity", "The movement speed will be multiplied by this.\n\n-1 = Inverted Controls.");
 			Draw("damping", "If you want this component to change smoothly over time, then this allows you to control how quick the changes reach their target value.\n\n-1 = Instantly change.\n\n1 = Slowly change.\n\n10 = Quickly change.");
 			Draw("inertia", "This allows you to control how much momentum is retained when the dragging fingers are all released.\n\nNOTE: This requires <b>Damping</b> to be above 0.");
+			Draw("defaultPosition", "This allows you to set the target position value when calling the <b>ResetPosition</b> method.");
 		}
 	}
 }
