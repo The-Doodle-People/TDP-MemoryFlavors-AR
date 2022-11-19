@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Vuforia;
 
 public class QuizManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class QuizManager : MonoBehaviour
     public TextMeshProUGUI answerOneText;
     public TextMeshProUGUI answerTwoText;
     public TextMeshProUGUI answerThreeText;
+
+    public GameObject toggleImageTarget;
     public GameObject CompleteBtn;
     string objectName;
     int answer = 0;
@@ -255,8 +258,25 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    public void ToggleCamera()
+    {
+        if (VuforiaBehaviour.Instance.enabled)
+        {
+            VuforiaBehaviour.Instance.VideoBackground.StopVideoBackgroundRendering();
+            VuforiaBehaviour.Instance.enabled = false;
+            toggleImageTarget.SetActive(false);
+
+        }
+        else
+        {
+            VuforiaBehaviour.Instance.VideoBackground.StartVideoBackgroundRendering();
+            VuforiaBehaviour.Instance.enabled = true;
+            toggleImageTarget.SetActive(true);
+        }
+    }
+
     public void GoBackToMain()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
