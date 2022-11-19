@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 public class TakeScreenshot : MonoBehaviour
 {
     public GameObject timeTxt;
+    public AudioSource cam;
     public void TakeAPic()
     {
+        cam.Play();
         StartCoroutine("Capture");
     }
 

@@ -34,9 +34,9 @@ public class TouchHandler : MonoBehaviour
                 ice.touchTxt.SetActive(false);
                 ice.resetBtn.SetActive(true);
                 ice.listBtn.SetActive(true);
-                await Task.Delay(1000);
+                await Task.Delay(1500);
                 infoTxt.SetActive(true);
-                await Task.Delay(2500);
+                await Task.Delay(3000);
                 infoTxt.SetActive(false);
                 ///Touch is detected
                 Debug.Log("Touch is detected");

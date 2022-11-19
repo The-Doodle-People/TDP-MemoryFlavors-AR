@@ -65,6 +65,7 @@ public class IceKacangTracker : MonoBehaviour
     public AudioSource icePut;
     public AudioSource syrAudio;
     public AudioSource milkAudio;
+    public AudioSource btnAudio;
     /// <summary>
     /// Values to use
     /// </summary>
@@ -88,7 +89,7 @@ public class IceKacangTracker : MonoBehaviour
         iceAnim.SetBool("isIce", true);
         snow.Play();
         iceShave.Play();
-        await Task.Delay(1500);
+        await Task.Delay(2500);
         if(touchHandle.ingredients.GetBool("isIngre") != true)
         {
             touchTxt.SetActive(true);
@@ -285,11 +286,16 @@ public class IceKacangTracker : MonoBehaviour
         picBtn.SetActive(true);
         stars.Play();
         picTxt.SetActive(true);
+        FindObjectOfType<SwitchInfo>().Back();
         await Task.Delay(2000);
         picTxt.SetActive(false);
-        FindObjectOfType<SwitchInfo>().Back();
+        
     }
 
+    public void BtnSound()
+    {
+        btnAudio.Play();
+    }
     public void ShowEnd()
     {
         endBtn.SetActive(true);
