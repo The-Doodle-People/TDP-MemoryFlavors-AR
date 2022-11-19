@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class IceKacangTracker : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class IceKacangTracker : MonoBehaviour
     public GameObject listDropdown;
     public GameObject nxtBtn;
     public GameObject picBtn;
+    public GameObject picTxt;
     public GameObject[] chendol;
     public GameObject[] grassJelly;
     public GameObject[] seed;
@@ -236,7 +238,7 @@ public class IceKacangTracker : MonoBehaviour
             nxtBtn.SetActive(false);
         }
     }
-    public void NextEvent()
+    async public void NextEvent()
     {
         table.SetBool("isTable", true);
         kacangAnim.SetBool("isFull", true);
@@ -247,6 +249,9 @@ public class IceKacangTracker : MonoBehaviour
         listDropdown.SetActive(false);
         picBtn.SetActive(true);
         stars.Play();
+        picTxt.SetActive(true);
+        await Task.Delay(2000);
+        picTxt.SetActive(false);
     }
 
     public void ShowList()
