@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchInfo : MonoBehaviour
 {
-
+    public StarParticles star;
     public GameObject chendolInfo;
     public GameObject jellyInfo;
     public GameObject seedInfo;
@@ -19,13 +19,14 @@ public class SwitchInfo : MonoBehaviour
     {
         if (chendolInfo.activeSelf !=true)
         {
+            Back();
             chendolInfo.SetActive(true);
             bckBtn.SetActive(true);
+            star.starParticles[0].Play();
         }
         else
         {
-            chendolInfo.SetActive(false);
-            bckBtn.SetActive(false);
+            Back();
         }
     }
 
@@ -33,13 +34,14 @@ public class SwitchInfo : MonoBehaviour
     {
         if (jellyInfo.activeSelf != true)
         {
+            Back();
             jellyInfo.SetActive(true);
             bckBtn.SetActive(true);
+            star.starParticles[1].Play();
         }
         else
         {
-            jellyInfo.SetActive(false);
-            bckBtn.SetActive(false);
+            Back();
         }
     }
 
@@ -47,13 +49,14 @@ public class SwitchInfo : MonoBehaviour
     {
         if (seedInfo.activeSelf != true)
         {
+            Back();
             seedInfo.SetActive(true);
             bckBtn.SetActive(true);
+            star.starParticles[2].Play();
         }
         else
         {
-            seedInfo.SetActive(false);
-            bckBtn.SetActive(false);
+            Back();
         }
     }
 
@@ -61,13 +64,14 @@ public class SwitchInfo : MonoBehaviour
     {
         if (cornInfo.activeSelf != true)
         {
+            Back();
             cornInfo.SetActive(true);
             bckBtn.SetActive(true);
+            star.starParticles[3].Play();
         }
         else
         {
-            cornInfo.SetActive(false);
-            bckBtn.SetActive(false);
+            Back();
         }
     }
 
@@ -75,13 +79,14 @@ public class SwitchInfo : MonoBehaviour
     {
         if (redBeanInfo.activeSelf != true)
         {
+            Back();
             redBeanInfo.SetActive(true);
             bckBtn.SetActive(true);
+            star.starParticles[4].Play();
         }
         else
         {
-            redBeanInfo.SetActive(false);
-            bckBtn.SetActive(false);
+            Back();
         }
     }
 
@@ -89,13 +94,14 @@ public class SwitchInfo : MonoBehaviour
     {
         if (syrupsInfo.activeSelf != true)
         {
+            Back();
             syrupsInfo.SetActive(true);
             bckBtn.SetActive(true);
+            star.starParticles[5].Play();
         }
         else
         {
-            syrupsInfo.SetActive(false);
-            bckBtn.SetActive(false);
+            Back();
         }
     }
 
@@ -103,13 +109,14 @@ public class SwitchInfo : MonoBehaviour
     {
         if (milkInfo.activeSelf != true)
         {
+            Back();
             milkInfo.SetActive(true);
             bckBtn.SetActive(true);
+            star.starParticles[6].Play();
         }
         else
         {
-            milkInfo.SetActive(false);
-            bckBtn.SetActive(false);
+            Back();
         }
         
     }
@@ -118,13 +125,14 @@ public class SwitchInfo : MonoBehaviour
     {
         if (sugarInfo.activeSelf != true)
         {
+            Back();
             sugarInfo.SetActive(true);
             bckBtn.SetActive(true);
+            star.starParticles[7].Play();
         }
         else
         {
-            sugarInfo.SetActive(false);
-            bckBtn.SetActive(false);
+            Back();
         }
         
     }
@@ -140,5 +148,6 @@ public class SwitchInfo : MonoBehaviour
         milkInfo.SetActive(false);
         sugarInfo.SetActive(false);
         bckBtn.SetActive(false);
+        star.StopParticles();
     }
 }
