@@ -55,7 +55,7 @@ public class TriggerCheck : MonoBehaviour
     public Transform steamerCapPos;
     public UIManager uiMgr;
 
-
+    public GameObject coverLabel;
 
 
     public void OnTriggerEnter(Collider other)
@@ -147,6 +147,7 @@ public class TriggerCheck : MonoBehaviour
             {
                 fillingInMold = true;
                 moldingUI.SetActive(true);
+                steps.text = "Tap the circles in the correct order to shape the Ang Ku Kueh";
                 gameObject.transform.position = fillingPosition.position;
                 adjustComponents();
             }
@@ -165,7 +166,8 @@ public class TriggerCheck : MonoBehaviour
                 gameObject.transform.position = steamerCapPos.position;
                 adjustComponents();
                 steamerCapOn = true;
-
+                steps.text = "Steaming in process!";
+                coverLabel.SetActive(false);
             }
         }
 

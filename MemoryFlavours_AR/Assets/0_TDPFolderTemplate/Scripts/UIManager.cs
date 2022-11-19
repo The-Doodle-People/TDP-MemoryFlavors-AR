@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     public GameObject step1;
     public GameObject step3;
     public GameObject step4;
+    public GameObject step5;
+    public GameObject step6;
     public GameObject tableBowl;
     public GameObject stepsUI;
 
@@ -62,11 +64,7 @@ public class UIManager : MonoBehaviour
 
     bool audioIsPlaying = false;
 
-    //Step 5 
-    public GameObject moldArrow;
-    public Slider moldSlider;
-    //public Scrollbar mixingScrollbar;
-    public GameObject moldedKueh;
+    public GameObject angKuKuehFinal;
 
 
     private void Update()
@@ -129,6 +127,7 @@ public class UIManager : MonoBehaviour
                 else if (mixingSlider.size == 1f)
                 {
                     blendingEffect.Stop();
+
                     if (blendingSound.isPlaying)
                     {
                         blendingSound.Stop();
@@ -139,7 +138,9 @@ public class UIManager : MonoBehaviour
                     notBlendedPeanuts.SetActive(false);
                     blendedPeanuts.SetActive(true);
                     mixingSlider.gameObject.SetActive(false);
+                    mixingSlider.size = 0f;
                     finishBlend = true;
+                    triggerCheck.readyToBlend = false;
                 }
             }
 
@@ -155,7 +156,6 @@ public class UIManager : MonoBehaviour
             }
 
         }
-
     }
 
     public void ValueChangeCheck() // a callback function to check if slider value has change, if yes means user is using the slider
@@ -185,24 +185,37 @@ public class UIManager : MonoBehaviour
                 playVoiceOver();
 
             }
-            else if (objectToTrack.name == "table_model" && currentStep == 2)
+
+            if (objectToTrack.name == "table_model" && currentStep == 2)
             {
                 stepsText.text = "Drag and drop flour, salt and sugar into the yellow bowl";                
-
             }
-            else if (objectToTrack.name == "BlenderBase" && currentStep == 3)
+
+            if (objectToTrack.name == "table_model" && currentStep == 5)
             {
                 stepsText.text = "Drag and drop peanut fillings to blender";
-                startBtn.SetActive(false);
             }
 
+            if (objectToTrack.name == "table_model" && currentStep == 6)
+            {
+                stepsText.text = "Drag dough and peanut fillings to the Ang Ku Kueh mold";
+            }
+
+            if (objectToTrack.name == "table_model" && currentStep == 7)
+            {
+                stepsText.text = "Drag and drop Ang Ku Kueh to steamer before placing the lid on";
+            }
+
+            if (objectToTrack.name == "table_model" && currentStep == 8)
+            {
+                stepsText.text = "Congrats";
+            }
         }
         else
         {
             return;
         }
     }
-
     public void playVoiceOver()
     {
         voiceOver.Play();
@@ -259,7 +272,6 @@ public class UIManager : MonoBehaviour
             currentStep++;
             stepsText.text = "Drag and drop the beetroot juice into the dry ingredients";
 
-
         }
         else if (currentStep == 3)
         {
@@ -274,7 +286,7 @@ public class UIManager : MonoBehaviour
         }
         else if (currentStep == 4)
         {
-            stepsText.text = "Scan the blender on the postcard";
+            stepsText.text = "Scan the Blender on the postcard";
             step3.SetActive(false);
             tableBowl.SetActive(false);
             kneadCanva.SetActive(false);
@@ -286,13 +298,20 @@ public class UIManager : MonoBehaviour
         {
             stepsText.text = "Scan the Ang Ku Kueh mold on the postcard ";
             step4.SetActive(false);
+            step5.SetActive(true);
             currentStep++;
         }
-        //else if (currentStep == 6)
-        //{
-        //    stepsText.text = "Scan the Steamer";
-        //    step5.SetActive(false);
-        //    currentStep++;
-        //}
+        else if (currentStep == 6)
+        {
+            stepsText.text = "Scan the Steamer on the postcard";
+            step5.SetActive(false);
+            step6.SetActive(true);
+            currentStep++;
+        }
+        else if (currentStep == 7)
+        {
+            step6.SetActive(false);
+            angKuKuehFinal.SetActive(true);
+        }
     }
 }

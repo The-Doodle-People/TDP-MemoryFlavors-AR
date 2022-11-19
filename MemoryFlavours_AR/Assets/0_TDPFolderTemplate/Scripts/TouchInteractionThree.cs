@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -28,11 +29,7 @@ public class TouchInteractionThree : MonoBehaviour
     public ParticleSystem steam;
 
     public AudioSource moldingSound;
-    public AudioSource steaming;
-
-
-
-
+    public AudioSource steaming;    
 
     private void Update()
     {
@@ -40,14 +37,31 @@ public class TouchInteractionThree : MonoBehaviour
        
         if(trigger.steamerCapOn == true)
         {
+            mixingSlider.gameObject.SetActive(true);
             if (mixingSlider.size < 1f)
             {
+                if(!steam.isPlaying)
+                {
+                    steam.Play();
+                }
+
+                if(!steaming.isPlaying)
+                {
+                    steaming.Play();
+                }
+
                 mixingSlider.size += 0.2f * Time.deltaTime;
             }
             else if(mixingSlider.size ==1f)
             {
                 steam.Stop();
                 steaming.Stop();
+                mixingSlider.gameObject.SetActive(false);
+                mixingSlider.size = 0f;
+                managerUI.TicksUI();
+                managerUI.stepsText.text = "Ready to serve, Enjoy!";
+                managerUI.nextBtn.SetActive(true);
+                trigger.steamerCapOn = false;                
             }
         }
        
@@ -83,15 +97,12 @@ public class TouchInteractionThree : MonoBehaviour
 
 
             moldTag = "moldCircle" + moldClickPos.ToString();
-            //Debug.Log(moldTag);
 
             if (hitInfo.collider.tag == moldTag)
             {
-                Debug.Log(moldTag);
                 moldClickPos++;
                 hitInfo.collider.gameObject.SetActive(false);
                 mixingSlider.size += 0.5f;
-                Debug.Log("clicked");
                 moldingPowder.Play();
                 moldingSound.Play();
 
@@ -101,17 +112,20 @@ public class TouchInteractionThree : MonoBehaviour
                     moldClickPos = 1;
                     moldUI.SetActive(false);
                     mixingSlider.gameObject.SetActive(false);
+                    mixingSlider.size = 0f;
                     dough.gameObject.SetActive(false);
                     peanutFilling.gameObject.SetActive(false);
                     akkModel.gameObject.SetActive(true);
                     finishMolding.Play();
-
+                    managerUI.TicksUI();
+                    managerUI.nextBtn.SetActive(true);
+                    managerUI.stepsText.text = "So far so good!";
                 }
             }
            
         }
 
-        trigger=kueh.GetComponent<TriggerCheck>();
+        trigger = kueh.GetComponent<TriggerCheck>();
         if (Physics.Raycast(ray, out hitInfo))
         {
             if (hitInfo.collider.tag == "kueh")
@@ -121,27 +135,8 @@ public class TouchInteractionThree : MonoBehaviour
             if (hitInfo.collider.tag == "steamerCap" && trigger.kuehInSteamer == true)
             {
                 steamerCap.AddComponent<Lean.Touch.LeanDragTranslate>();
-                Debug.Log("steamer cap move");
             }
-
-
-            if (hitInfo.collider.tag == "steamerCap")
-            {
-                if (mixingSlider.size < 1f)
-                {
-                    //mixingSlider.size += 0.5f * Time.deltaTime;
-                    //Debug.Log("steaming");
-                    steam.Play();
-                    steaming.Play();
-
-                }
-                else if (mixingSlider.size == 1)
-                {
-                    steamerCap.AddComponent<Lean.Touch.LeanDragTranslate>();
-                    //steam.Stop();
-                    //steaming.Stop();
-                }
-            }
+            
         }
 
     }
