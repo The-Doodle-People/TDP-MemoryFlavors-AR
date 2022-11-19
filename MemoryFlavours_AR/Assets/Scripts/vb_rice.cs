@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
-public class vb_mint : MonoBehaviour
+public class vb_rice : MonoBehaviour
 {
-    public GameObject vbBtnMint;
-    public Animator mintAnim;
+    public GameObject vbBtnRice;
+    public Animator riceAnim;
 
     // Start is called before the first frame update
     void Start()
     {
-        vbBtnMint = GameObject.Find("mintBtn");
-        vbBtnMint.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
-        vbBtnMint.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
-        mintAnim.GetComponent<Animator>();
+        vbBtnRice = GameObject.Find("riceBtn");
+        vbBtnRice.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
+        vbBtnRice.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
+        riceAnim.GetComponent<Animator>();
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
-        mintAnim.Play("mintAnim");
+        riceAnim.Play("riceAnim");
         Debug.Log("Button Pressed");
 
     }
 
     public void OnButtonReleased(VirtualButtonBehaviour vb)
     {
-        mintAnim.Play("none");
+        riceAnim.Play("none");
         Debug.Log("Button Released");
     }
 

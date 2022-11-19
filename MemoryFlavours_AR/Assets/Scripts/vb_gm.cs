@@ -1,33 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Vuforia; 
+using Vuforia;
 
-public class vb_gg : MonoBehaviour
+public class vb_gm : MonoBehaviour
 {
-
-    public GameObject vbBtnGG;
-    public Animator ggAnim;
+    public GameObject vbBtnGM;
+    public Animator gmAnim;
 
     // Start is called before the first frame update
     void Start()
     {
-        vbBtnGG = GameObject.Find("ggBtn");
-        vbBtnGG.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
-        vbBtnGG.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
-        ggAnim.GetComponent<Animator>();
+        vbBtnGM = GameObject.Find("gmBtn");
+        vbBtnGM.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(OnButtonPressed);
+        vbBtnGM.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(OnButtonReleased);
+        gmAnim.GetComponent<Animator>();
     }
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
-        ggAnim.Play("ggAnim");
+        gmAnim.Play("gmAnim");
         Debug.Log("Button Pressed");
 
     }
 
     public void OnButtonReleased(VirtualButtonBehaviour vb)
     {
-        ggAnim.Play("none");
+        gmAnim.Play("none");
         Debug.Log("Button Released");
     }
 
