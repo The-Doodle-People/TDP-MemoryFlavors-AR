@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
+using System.Threading.Tasks;
 
 public class TouchHandler : MonoBehaviour
 {
     public Animator ingredients;
     public IceKacangTracker ice;
-    void OnTouchPress()
+    public GameObject infoTxt;
+    async void OnTouchPress()
     {
         ///Get the position of the touch input, which is the primaryTouch
         Vector3 rayPosition = Touchscreen.current.primaryTouch.position.ReadValue();
@@ -30,8 +31,13 @@ public class TouchHandler : MonoBehaviour
             if (hitInfo.collider.tag=="Ice" && ice.table.GetBool("isTable")!=true && ingredients.GetBool("isIngre")!=true)
             {
                 ingredients.SetBool("isIngre", true);
+                ice.touchTxt.SetActive(false);
                 ice.resetBtn.SetActive(true);
                 ice.listBtn.SetActive(true);
+                await Task.Delay(1000);
+                infoTxt.SetActive(true);
+                await Task.Delay(2500);
+                infoTxt.SetActive(false);
                 ///Touch is detected
                 Debug.Log("Touch is detected");
             }

@@ -5,8 +5,13 @@ using System.Threading.Tasks;
 
 public class IceKacangTracker : MonoBehaviour
 {
+    /// <summary>
+    /// Touch script
+    /// </summary>
     public TouchHandler touchHandle;
-    public GameObject iceKacang;
+    /// <summary>
+    /// UIs
+    /// </summary>
     public GameObject resetBtn;
     public GameObject listBtn;
     public GameObject listDropdown;
@@ -14,6 +19,12 @@ public class IceKacangTracker : MonoBehaviour
     public GameObject picBtn;
     public GameObject endBtn;
     public GameObject picTxt;
+    public GameObject touchTxt;
+    public GameObject scanTxt;
+    /// <summary>
+    /// 3D models
+    /// </summary>
+    public GameObject iceKacang;
     public GameObject[] chendol;
     public GameObject[] grassJelly;
     public GameObject[] seed;
@@ -24,6 +35,9 @@ public class IceKacangTracker : MonoBehaviour
     public GameObject[] greenSyrup;
     public GameObject sugar;
     public GameObject milk;
+    /// <summary>
+    /// Booleans
+    /// </summary>
     public bool isChendol;
     public bool isJelly;
     public bool isSeed;
@@ -32,16 +46,28 @@ public class IceKacangTracker : MonoBehaviour
     public bool isRedS;
     public bool isBlueS;
     public bool isGreenS;
+    /// <summary>
+    /// Animations
+    /// </summary>
     public Animator iceAnim;
     public Animator ingreAnim;
     public Animator kacangAnim;
     public Animator table;
+    /// <summary>
+    /// Particles
+    /// </summary>
     public ParticleSystem snow;
     public ParticleSystem stars;
+    /// <summary>
+    /// Audios
+    /// </summary>
     public AudioSource iceShave;
     public AudioSource icePut;
     public AudioSource syrAudio;
     public AudioSource milkAudio;
+    /// <summary>
+    /// Values to use
+    /// </summary>
     private int toppingNo;
     private int syrupNo;
     // Start is called before the first frame update
@@ -56,19 +82,26 @@ public class IceKacangTracker : MonoBehaviour
     {
         ShowBtn();
     }
-    public void ShowFood()
+    async public void ShowFood()
     {
+        scanTxt.SetActive(false);
         iceAnim.SetBool("isIce", true);
         snow.Play();
         iceShave.Play();
-
+        await Task.Delay(1500);
+        if(touchHandle.ingredients.GetBool("isIngre") != true)
+        {
+            touchTxt.SetActive(true);
+        }
     }
     public void HideFood()
     {
+        scanTxt.SetActive(true);
         iceAnim.SetBool("isIce", false);
         touchHandle.ingredients.SetBool("isIngre", false);
         table.SetBool("isTable", false);
         kacangAnim.SetBool("isFull", false);
+        touchTxt.SetActive(false);
         resetBtn.SetActive(false);
         listBtn.SetActive(false);
         picBtn.SetActive(false);
@@ -254,6 +287,7 @@ public class IceKacangTracker : MonoBehaviour
         picTxt.SetActive(true);
         await Task.Delay(2000);
         picTxt.SetActive(false);
+        FindObjectOfType<SwitchInfo>().Back();
     }
 
     public void ShowEnd()
