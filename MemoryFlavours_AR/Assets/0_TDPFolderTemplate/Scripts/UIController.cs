@@ -17,6 +17,9 @@ public class UIController : MonoBehaviour
     // MainUI canvas
     public GameObject mainUI;
 
+    //check if MainUI is active
+    public bool uiActive;
+
     // Start Screen canvas
     public GameObject startCanvas;
 
@@ -84,8 +87,7 @@ public class UIController : MonoBehaviour
     // Dictionary for Object Tracking
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
-    public static AudioSource storeAudio;
-    public AudioManager audioManager;
+    public SFXManager sfx;
 
     void Awake()
     {
@@ -123,7 +125,7 @@ public class UIController : MonoBehaviour
         canPlaceTable = false;
         tablePlaced = true;
         canInteractWithDimsum = true;
-        audioManager.TablePlaced();
+        sfx.TablePlacedAudioOn();
 
     }
 
@@ -135,10 +137,6 @@ public class UIController : MonoBehaviour
         // Wait 6.5 seconds for loading screen to fade in and out
         yield return new WaitForSeconds(6.5f);
         ToggleMainUI();
-
-        storeAudio = GetComponent<AudioSource>();
-        storeAudio.Play();
-
         // Stop loading animation
         loadingScreen.SetBool("experienceStart", false);
         // Turn off start canvas
@@ -153,11 +151,15 @@ public class UIController : MonoBehaviour
         if (!mainUI.activeSelf)
         {
             mainUI.SetActive(true);
+            uiActive = true;
+            Debug.Log("ui active");
         }
         
         else if (mainUI.activeSelf)
         {
             mainUI.SetActive(false);
+            uiActive = false;
+            Debug.Log("ui inactive");
         }
         
     }
