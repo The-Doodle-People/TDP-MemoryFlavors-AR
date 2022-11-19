@@ -69,6 +69,7 @@ public class TouchHandler : MonoBehaviour
     {
         var targetTag = hitInfo.collider.transform.tag;
 
+        // remember to comment out for dev build
         if (gameManager.sceneIndex != 2) return;
         
         // if the tag of the item is within the array of "all ingredients", continue with code)
@@ -90,6 +91,7 @@ public class TouchHandler : MonoBehaviour
                 var child = handObject.GetChild(i).gameObject;
                 var active = child.CompareTag(targetTag);
                 child.SetActive(active);
+                if (active) Debug.Log(child.name);
             }
             gameUI.SetCurrentObject(handObject);
             gameUI.BtnActive();
@@ -103,6 +105,7 @@ public class TouchHandler : MonoBehaviour
 
     private void PlaceItem(RaycastHit hitInfo)
     {
+        // remember to comment out for dev build
         if (gameManager.sceneIndex != 2) return;
         
         // if its not a bowl and if not holding anything, stop

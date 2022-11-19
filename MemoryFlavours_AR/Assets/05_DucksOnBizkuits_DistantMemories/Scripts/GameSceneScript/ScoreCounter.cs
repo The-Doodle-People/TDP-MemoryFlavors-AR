@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ public class ScoreCounter : MonoBehaviour
             //calculate score + end game
             EndGame();
             timerTxt.text = "0.0";
+            timerStart = false;
         }
 
         if (timerStart && countdown > 0)
@@ -46,13 +48,29 @@ public class ScoreCounter : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        turn++;
         var targetTag = other.tag;
-        if (!quizGenerator.selectedIngredients.Contains(targetTag)) return;
+        // check if valid obj
         if (other.transform.parent) return;
+        turn++;
+        // check if ans correct
+        if (!quizGenerator.selectedIngredients.Contains(targetTag)) return;
 
         score++;
         scoreTxt.text = "Score: " + score + " / 5";
+        
+        // prevent score dup
+        var chosen = new List<string>();
+        foreach (string ingredients in quizGenerator.selectedIngredients)
+        {
+            if (ingredients == targetTag)
+            {
+                // add line to add ingredients to list to check for duplicates
+                continue;
+            }
+            chosen.Add(ingredients);
+        }
+
+        quizGenerator.selectedIngredients = chosen;
     }
 
     public void EndGame()
