@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Vuforia;
 
 public class MenuUI : MonoBehaviour
@@ -10,6 +11,8 @@ public class MenuUI : MonoBehaviour
     // to toggle AR cam
     private AnchorBehaviour[] groundPlane;
     private ImageTargetBehaviour imageTarget;
+
+    
     
     public void OnPause()
     {
@@ -29,6 +32,7 @@ public class MenuUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         audio.Play();
+        
         foreach (var plane in groundPlane)
         {
             plane.gameObject.SetActive(true);
@@ -39,6 +43,20 @@ public class MenuUI : MonoBehaviour
     public void OnReturnGame()
     {
         OnResume();
-        FindObjectOfType<GameManager>().sceneIndex = 0;
+        var gameManager = FindObjectOfType<GameManager>();
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            FindObjectOfType<GameManager>().sceneIndex = 0;
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
+
+    public void StartGame()
+    {
+        FindObjectOfType<GameManager>().sceneIndex = 2;
+    }
+
 }

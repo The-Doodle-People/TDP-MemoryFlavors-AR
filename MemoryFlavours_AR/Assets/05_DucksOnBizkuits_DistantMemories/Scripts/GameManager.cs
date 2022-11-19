@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        
+        
     }
 
     private void Start()

@@ -5,6 +5,7 @@
  */
 
 using System;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +19,8 @@ public class TouchHandler : MonoBehaviour
     [HideInInspector] public ShelfItems shelfItems;
     [HideInInspector] public QuizGenerator quizGenerator;
     [HideInInspector] public GameManager gameManager;
+    [HideInInspector] public MenuUI menuUI;
+    
     public bool holdingItem;
 
     private bool firstCall = true;
@@ -34,6 +37,7 @@ public class TouchHandler : MonoBehaviour
         // because of this line, DO NOT put it under DoNotDestroy
         camera = Camera.main;
         gameManager = FindObjectOfType<GameManager>();
+        menuUI = FindObjectOfType<MenuUI>();
     }
 
     private void OnTouchPress()
@@ -59,6 +63,7 @@ public class TouchHandler : MonoBehaviour
             Debug.Log("TouchDetected " + hitInfo.collider.name);
             EditItem(hitInfo);
             PlaceItem(hitInfo);
+            ChildTouched(hitInfo);
         }
     }
 
@@ -124,6 +129,21 @@ public class TouchHandler : MonoBehaviour
         gameUI.BtnDeactive();
     }
 
+    private void ChildTouched(RaycastHit hitInfo)
+    {
+
+        if (gameManager.sceneIndex != 0) return;
+
+        var target = hitInfo.transform;
+        if (!target.CompareTag("Child")) return;
+
+        Debug.Log("clickkkkk");
+
+        var tScript = target.GetComponent<ChildCollider>();
+        gameManager.quizId = tScript.quizId;
+        tScript.ChangeChat();
+    }
+    
     #endregion
 
     #region Lucas

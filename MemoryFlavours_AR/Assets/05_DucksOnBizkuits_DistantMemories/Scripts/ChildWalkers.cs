@@ -16,7 +16,7 @@ public class ChildWalkers : MonoBehaviour
     //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
     
     private readonly string[] allStates = {"Move", "Idle"};
-
+    
     #if UNITY_EDITOR
 
     private void OnDrawGizmos()

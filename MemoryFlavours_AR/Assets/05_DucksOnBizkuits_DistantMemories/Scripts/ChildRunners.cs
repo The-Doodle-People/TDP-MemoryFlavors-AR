@@ -149,7 +149,8 @@ public class ChildRunners : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform != childTarget) return;
+        // if prevent child colliders game object from interfering
+        if (other.transform != childTarget || other.transform.CompareTag("Child")) return;
         // Debug.Log("Contact!");
         StopCoroutine(RestoreDetectors());
         StopCoroutine(RestoreSpeed());
