@@ -29817,8 +29817,12 @@ struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6  : public MonoBehav
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___UserDialogue5_13;
 	// System.Int32 GameManager::dialogueNum
 	int32_t ___dialogueNum_14;
+	// UnityEngine.GameObject GameManager::arImageTarget
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___arImageTarget_15;
+	// UnityEngine.GameObject GameManager::takePhotoButton
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___takePhotoButton_16;
 	// System.Int32 GameManager::photoIndex
-	int32_t ___photoIndex_15;
+	int32_t ___photoIndex_17;
 };
 
 // GaugeValueDisplay
@@ -38880,9 +38884,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7742[12] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7744[4] = 
 {
 	static_cast<int32_t>(offsetof(AugmentationStateMachineBehaviour_t431E42BA6A2990B624B928C22AC957DD14E1EBEE, ___OnEnterMethodName_4)),static_cast<int32_t>(offsetof(AugmentationStateMachineBehaviour_t431E42BA6A2990B624B928C22AC957DD14E1EBEE, ___OnUpdateMethodName_5)),static_cast<int32_t>(offsetof(AugmentationStateMachineBehaviour_t431E42BA6A2990B624B928C22AC957DD14E1EBEE, ___OnExitMethodName_6)),static_cast<int32_t>(offsetof(AugmentationStateMachineBehaviour_t431E42BA6A2990B624B928C22AC957DD14E1EBEE, ___cachedDelegates_7)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7745[12] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7745[14] = 
 {
-	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___dialogues_4)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___NextButton_5)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___PlayAR_Button_6)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___ReplayButton_7)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue_8)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue1_9)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue2_10)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue3_11)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue4_12)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue5_13)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___dialogueNum_14)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___photoIndex_15)),};
+	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___dialogues_4)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___NextButton_5)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___PlayAR_Button_6)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___ReplayButton_7)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue_8)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue1_9)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue2_10)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue3_11)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue4_12)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___UserDialogue5_13)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___dialogueNum_14)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___arImageTarget_15)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___takePhotoButton_16)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___photoIndex_17)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7746[3] = 
 {
 	static_cast<int32_t>(offsetof(U3CCapturePhotoU3Ed__7_tDF521337FD208E1E05D686EB159291B79A96FC30, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CCapturePhotoU3Ed__7_tDF521337FD208E1E05D686EB159291B79A96FC30, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CCapturePhotoU3Ed__7_tDF521337FD208E1E05D686EB159291B79A96FC30, ___U3CU3E4__this_2)),};

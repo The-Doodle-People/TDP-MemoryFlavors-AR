@@ -42212,8 +42212,12 @@ struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6  : public MonoBehav
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___UserDialogue5_13;
 	// System.Int32 GameManager::dialogueNum
 	int32_t ___dialogueNum_14;
+	// UnityEngine.GameObject GameManager::arImageTarget
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___arImageTarget_15;
+	// UnityEngine.GameObject GameManager::takePhotoButton
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___takePhotoButton_16;
 	// System.Int32 GameManager::photoIndex
-	int32_t ___photoIndex_15;
+	int32_t ___photoIndex_17;
 };
 
 // BitStrap.Examples.GameObjectExtensionsExample

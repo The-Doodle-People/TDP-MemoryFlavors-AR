@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Vuforia;
 
 public class GameManager : MonoBehaviour
 {
+    //UI for Conversation
     public GameObject [] dialogues;
     public GameObject NextButton;
     public GameObject PlayAR_Button;
@@ -17,6 +19,9 @@ public class GameManager : MonoBehaviour
     public GameObject UserDialogue4;
     public GameObject UserDialogue5;
     public int dialogueNum = 0;
+
+    public GameObject arImageTarget;
+    public GameObject takePhotoButton;
 
     private int photoIndex;
 
@@ -111,5 +116,28 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void ToggleCamera()
+    {
+        // Check if Vuforia is running
+        if (VuforiaBehaviour.Instance.enabled)
+        {
+            VuforiaBehaviour.Instance.VideoBackground.StopVideoBackgroundRendering();
+            VuforiaBehaviour.Instance.enabled = !VuforiaBehaviour.Instance.enabled;
+            arImageTarget.SetActive(false);
+            takePhotoButton.SetActive(true);
+        }
+
+        else
+        {
+            if (!VuforiaBehaviour.Instance.enabled)
+            {
+                VuforiaBehaviour.Instance.VideoBackground.StartVideoBackgroundRendering();
+                VuforiaBehaviour.Instance.enabled = !VuforiaBehaviour.Instance.enabled;
+                arImageTarget.SetActive(true);
+                takePhotoButton.SetActive(true);
+            }
+        }
     }
 }
