@@ -59,10 +59,11 @@ public class UIManager : MonoBehaviour
     public AudioSource kneadSound;
     public AudioSource blendingSound;
     public AudioSource voiceOver;
-
+    public AudioSource voiceOverEnding;
     public AudioSource bgMusic;
 
     bool audioIsPlaying = false;
+    bool audioEndingIsPlaying = false;
 
     public GameObject angKuKuehFinal;
     public GameObject titleSprite;
@@ -159,11 +160,6 @@ public class UIManager : MonoBehaviour
             }
 
         }
-
-        if(angKuKuehFinal.activeSelf)
-        {
-            nextBtn.SetActive(true);
-        }
     }
 
     public void ValueChangeCheck() // a callback function to check if slider value has change, if yes means user is using the slider
@@ -179,6 +175,14 @@ public class UIManager : MonoBehaviour
         // or yield return new WaitWhile(() => audiosource.isPlaying == true);
         Destroy(voiceOver);
         startBtn.SetActive(true); //Do something
+    }
+
+    public IEnumerator WaitForAudioEnding(AudioSource Sound)
+    {
+        yield return new WaitUntil(() => voiceOverEnding.isPlaying == false);
+
+        Destroy(voiceOverEnding);
+        nextBtn.SetActive(true); 
     }
 
     public void ObjectTracked(GameObject objectToTrack)
@@ -231,6 +235,12 @@ public class UIManager : MonoBehaviour
         StartCoroutine(WaitForSound(voiceOver));
     }
 
+    public void playVoiceOverEnding()
+    {
+        voiceOverEnding.Play();
+        audioEndingIsPlaying = true;
+        StartCoroutine(WaitForAudioEnding(voiceOverEnding));
+    }
 
     public void HideStepOneOrTwo()
     {
@@ -320,6 +330,7 @@ public class UIManager : MonoBehaviour
         {
             step6.SetActive(false);
             angKuKuehFinal.SetActive(true);
+            playVoiceOverEnding();
             currentStep++;
         }
         else if(currentStep == 8)

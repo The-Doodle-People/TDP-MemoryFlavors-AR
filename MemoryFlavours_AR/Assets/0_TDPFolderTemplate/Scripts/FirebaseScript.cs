@@ -14,8 +14,6 @@ public class FirebaseScript : MonoBehaviour
 
     public TMP_InputField answerInput;
     public TMP_InputField usernameInput;
-
-    public TextMeshProUGUI reminder;
     public int memoriesNum;
     public TextSpawnHandler textSpawnHandler;
     public GameObject sharingPadlet;
