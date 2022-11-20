@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
+using UnityEngine.UI;
+using TMPro;
 
 public class vb_rice : MonoBehaviour
 {
     public GameObject vbBtnRice;
     public Animator riceAnim;
+    public AudioSource collectSound;
+    public TextMeshProUGUI scoreText;
+    public int playerScore;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +25,10 @@ public class vb_rice : MonoBehaviour
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
         riceAnim.Play("riceAnim");
+        riceAnim.Play("riceDoneAnim");
+        collectSound.Play();
+        playerScore += 1;
+        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }

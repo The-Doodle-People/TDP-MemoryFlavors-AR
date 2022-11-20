@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
+using UnityEngine.UI;
+using TMPro;
 
 public class vb_onion : MonoBehaviour
 {
     public GameObject vbBtnOnion;
     public Animator onionAnim;
+    public AudioSource collectSound;
+    public TextMeshProUGUI scoreText;
+    public int playerScore;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +24,11 @@ public class vb_onion : MonoBehaviour
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
+        collectSound.Play();
         onionAnim.Play("onionAnim");
+        onionAnim.Play("onionDoneAnim");
+        playerScore += 1;
+        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }

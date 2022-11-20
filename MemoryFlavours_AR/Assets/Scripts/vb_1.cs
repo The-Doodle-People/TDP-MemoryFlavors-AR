@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
+using UnityEngine.UI;
+using TMPro;
 
 public class vb_1 : MonoBehaviour
 {
     public GameObject vbBtnChicken;
     public Animator chickenAnim;
+    public AudioSource collectSound;
+    public TextMeshProUGUI scoreText;
+    public int playerScore;
 
 
     // Start is called before the first frame update
@@ -20,7 +25,11 @@ public class vb_1 : MonoBehaviour
 
     public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
+        collectSound.Play();
         chickenAnim.Play("chickAnim");
+        chickenAnim.Play("chickDoneAnim");
+        playerScore += 1;
+        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }
