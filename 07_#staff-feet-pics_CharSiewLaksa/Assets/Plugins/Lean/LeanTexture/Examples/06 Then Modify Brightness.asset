@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b02745bbaa67384f96b839662346fba, type: 3}
+  m_Name: 06 Then Modify Brightness
+  m_EditorClassIdentifier: 
+  data:
+    preset: 10
+    settingsFrom: {fileID: 2800000, guid: c81f113d76a73ee4a85693550ae1a6c9, type: 3}
+    wrapModeU: 0
+    wrapModeV: 0
+    mipmapEnabled: 0
+    create:
+      id: 0
+    filters:
+    - id: 1
+  references:
+    version: 1
+    00000000:
+      type: {class: LeanCreateTexture, ns: Lean.Texture, asm: LeanTexture}
+      data:
+        texture: {fileID: 2800000, guid: c81f113d76a73ee4a85693550ae1a6c9, type: 3}
+        overrideSize:
+          x: -1
+          y: -1
+    00000001:
+      type: {class: LeanFilterBrightness, ns: Lean.Texture, asm: LeanTexture}
+      data:
+        multiplier: 2
