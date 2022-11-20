@@ -1,3 +1,9 @@
+/*
+* Author: Wong Qing Wei, Jasmine Giam
+* Date: 20/11/2022
+* Description: Firebase script to store inputs to database
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,17 +16,36 @@ using Firebase.Extensions;
 
 public class FirebaseScript : MonoBehaviour
 {
+    /// <summary>
+    /// Stores the database references
+    /// </summary>
     DatabaseReference mDatabaseRef;
 
+    /// <summary>
+    /// Stores all inputfields
+    /// </summary>
     public TMP_InputField answerInput;
     public TMP_InputField usernameInput;
-    public int memoriesNum;
+
+    /// <summary>
+    /// Stores the text spawn handler
+    /// </summary>
     public TextSpawnHandler textSpawnHandler;
+
+    /// <summary>
+    /// Stores the gameobjects
+    /// </summary>
     public GameObject sharingPadlet;
     public GameObject sharingMemoryUI;
     public GameObject errorMsg;
     public GameObject titleSprite;
     public GameObject viewMemory;
+
+    /// <summary>
+    /// A int object
+    /// </summary>
+    public int memoriesNum;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +85,7 @@ public class FirebaseScript : MonoBehaviour
         }
     }
 
+    //Get the inputfields data to set a random ID node to it and push to firebase
     private void Memory(string memory, string username)
     {
         MemoriesPadlet mp = new MemoriesPadlet(memory, username);

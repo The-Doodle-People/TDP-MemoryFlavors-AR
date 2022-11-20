@@ -1,3 +1,9 @@
+/*
+* Author: Wong Qing Wei, Jasmine Giam, Janel Lim
+* Date: 20/11/2022
+* Description: trigger check script to check for user inputs
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -26,15 +32,46 @@ public class TriggerCheck : MonoBehaviour
     public AudioSource pouring;
 
 
-    //step 4
+    /// <summary>
+    /// Transform position of empty game object
+    /// </summary>
     public Transform peanutArea;
+
+    /// <summary>
+    /// to store text
+    /// </summary>
     public TMP_Text emptyText;
+
+    /// <summary>
+    /// game object to store empty bowl
+    /// </summary>
     public GameObject noFillingsBowl;
+
+    /// <summary>
+    /// game object to contain bowl with fillings inside 
+    /// </summary>
     public GameObject bowlBlendedFillings;
+
+    /// <summary>
+    /// game object of blender cap
+    /// </summary>
     public GameObject blenderCap;
+
+    /// <summary>
+    /// game object to store done up peanut area 
+    /// </summary>
     public GameObject blendedPeanutArea;
+
+    /// <summary>
+    /// boolean to check if blender is ready to blend
+    /// </summary>
     public bool readyToBlend = false;
+
+    /// <summary>
+    /// particle system for effects of putting fillings to blender sound 
+    /// </summary>
     public ParticleSystem peanutToBlenderEffect;
+
 
     //step 5
     public bool doughInMold = false;
@@ -98,9 +135,11 @@ public class TriggerCheck : MonoBehaviour
             }
         }
 
+        // once fillings has interacted with blender trigger
         if(other.gameObject.tag == "blenderTrigger")
         {
-            if(gameObject.tag == "peanutFillings")
+            // once peanut fillings detected
+            if(gameObject.tag == "peanutFillings")             
             {
                 adjustComponents();
                 gameObject.transform.position = peanutArea.position;
@@ -110,6 +149,7 @@ public class TriggerCheck : MonoBehaviour
                 peanutToBlenderEffect.Play();
             }
 
+            // once blender acp is placed
             if(gameObject.tag == "blenderCap")
             {
                 gameObject.SetActive(false);

@@ -1,3 +1,9 @@
+/*
+* Author: Wong Qing Wei, Jasmine Giam, Janel Lim
+* Date: 20/11/2022
+* Description: UI Manager script
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,8 +13,14 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    /// <summary>
+    /// A dictionary 
+    /// </summary>
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
+    /// <summary>
+    /// Store the gameobjects of each steps
+    /// </summary>
     public GameObject startBtn;
     public GameObject angKuKueh;
     public TMP_Text stepsText;
@@ -28,53 +40,111 @@ public class UIManager : MonoBehaviour
     public GameObject mixedLiquid;
     public int currentStep = 1;
 
-    //step 3
+    /// <summary>
+    /// Store the slider to get value
+    /// </summary>
     public Slider kneadSlider;
+
+    /// <summary>
+    /// Stores the scroll bar to get the slider size value
+    /// </summary>
     public Scrollbar mixingSlider;
+
+    /// <summary>
+    /// Stores the canva object 
+    /// </summary>
     public GameObject kneadCanva;
+
+    /// <summary>
+    /// stores gameobject 
+    /// </summary>
     public GameObject kneadedDough;
+
+    /// <summary>
+    /// Stores the UI element slider
+    /// </summary>
     public GameObject guideArrow;
+
+    /// <summary>
+    /// A int object
+    /// </summary>
     int targetKnead = 10;
     int currentKnead;
+
+    /// <summary>
+    /// Boolean object
+    /// </summary>
     bool targetTF;
 
-    //step4
+    /// <summary>
+    /// Recall triggercheck script 
+    /// </summary>
     TriggerCheck triggerCheck;
-    public GameObject blenderCap; // recall script bool 
+
+    /// <summary>
+    /// Stores the 3D gameObjects
+    /// </summary>
+    public GameObject blenderCap;
     public GameObject aftBlenderCap;
     public GameObject blendedPeanuts;
     public GameObject notBlendedPeanuts;
     public GameObject aftBlendedPeanuts;
     public GameObject blendedCapUi;
+
+    /// <summary>
+    /// Stores the boolean
+    /// </summary>
     public bool finishBlend;
 
+    /// <summary>
+    /// Stores the UI game objects
+    /// </summary>
     public GameObject[] stepsTickUI;
+
+    /// <summary>
+    /// A int value
+    /// </summary>
     int q = 0;
 
+    /// <summary>
+    /// Stores the particle systems
+    /// </summary>
     public ParticleSystem kneadParticles;
     public ParticleSystem blendingEffect;
     public ParticleSystem peanutBlendedEffect;
     public ParticleSystem aftKneadingEffect;
 
+    /// <summary>
+    /// Stores the audio sources
+    /// </summary>
     public AudioSource kneadSound;
     public AudioSource blendingSound;
     public AudioSource voiceOver;
     public AudioSource voiceOverEnding;
     public AudioSource bgMusic;
 
+    /// <summary>
+    /// Boolean to check audio active or not
+    /// </summary>
     bool audioIsPlaying = false;
     bool audioEndingIsPlaying = false;
 
+    /// <summary>
+    /// Stores the game object of AngKuKueh
+    /// </summary>
     public GameObject angKuKuehFinal;
     public GameObject titleSprite;
 
-    //Sharing Padlet (last)
+    /// <summary>
+    /// Stores the canva game object
+    /// </summary>
     public GameObject sharingPadletUI;
 
     private void Update()
     {
         if (kneadCanva.activeSelf)
         {
+            // slider returns back to 0 once user has use it
             kneadSlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
 
             if (kneadSlider.value == kneadSlider.maxValue) // complete one round of kneading
@@ -82,6 +152,8 @@ public class UIManager : MonoBehaviour
                 var input = EventSystem.current.GetComponent<StandaloneInputModule>(); // deactivate constant drag slider
                 targetTF = true; //means it has rch the max point
                 input.DeactivateModule();
+
+                // add value every time slider has reached max 
                 if (targetTF)
                 {
                     currentKnead += 2;
@@ -108,14 +180,17 @@ public class UIManager : MonoBehaviour
             };
         }
 
+        // if step4 is active
         if (step4.activeSelf)
         {
             triggerCheck = blenderCap.GetComponent<TriggerCheck>();
 
+            //get boolean from another script to check if it is true
             if (triggerCheck.readyToBlend == true)
             {
                 blendedCapUi.SetActive(false);
 
+                // slider have not reach max 
                 if (mixingSlider.size < 1f)
                 {
                     if (!blendingEffect.isPlaying)
@@ -128,6 +203,7 @@ public class UIManager : MonoBehaviour
                     }
                     mixingSlider.size += 0.2f * Time.deltaTime;
                 }
+                // once slider has reach max
                 else if (mixingSlider.size == 1f)
                 {
                     blendingEffect.Stop();
@@ -148,6 +224,7 @@ public class UIManager : MonoBehaviour
                 }
             }
 
+            // check if game object is active on bowl, if yes, means moving to next step
             if (aftBlendedPeanuts.activeSelf)
             {
                 blendedPeanuts.SetActive(false);
@@ -169,6 +246,7 @@ public class UIManager : MonoBehaviour
         kneadSound.Play();
     }
 
+    // to wait for audio to be false, before removing it
     public IEnumerator WaitForSound(AudioSource Sound)
     {
         yield return new WaitUntil(() => voiceOver.isPlaying == false);
@@ -177,6 +255,7 @@ public class UIManager : MonoBehaviour
         startBtn.SetActive(true); //Do something
     }
 
+    // to wait for audio to be false, before removing it
     public IEnumerator WaitForAudioEnding(AudioSource Sound)
     {
         yield return new WaitUntil(() => voiceOverEnding.isPlaying == false);
@@ -185,6 +264,7 @@ public class UIManager : MonoBehaviour
         nextBtn.SetActive(true); 
     }
 
+    // to track specific object on image targets
     public void ObjectTracked(GameObject objectToTrack)
     {
         if (objectToTrack != null)
@@ -228,6 +308,8 @@ public class UIManager : MonoBehaviour
             return;
         }
     }
+
+    // play the startign audio when recalled
     public void playVoiceOver()
     {
         voiceOver.Play();
@@ -235,6 +317,7 @@ public class UIManager : MonoBehaviour
         StartCoroutine(WaitForSound(voiceOver));
     }
 
+    // play the ending audio when recalled
     public void playVoiceOverEnding()
     {
         voiceOverEnding.Play();
@@ -272,6 +355,7 @@ public class UIManager : MonoBehaviour
         q++;
     }
 
+    //once next btn is pressed
     public void NextBtnFunctions()
     {
         if (currentStep == 1)

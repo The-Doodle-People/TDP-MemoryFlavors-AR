@@ -1,3 +1,9 @@
+/*
+* Author: Wong Qing Wei, Jasmine Giam
+* Date: 20/11/2022
+* Description: Game Manager Script
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +15,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager instance;
 
+    /// <summary>
+    /// boolean
+    /// </summary>
+    
     public bool enterMemories = false;
     private void Awake()
     {
@@ -28,6 +38,7 @@ public class GameManager : MonoBehaviour
         
     }
 
+    //quit application
     public void Quit()
     {
         Application.Quit();

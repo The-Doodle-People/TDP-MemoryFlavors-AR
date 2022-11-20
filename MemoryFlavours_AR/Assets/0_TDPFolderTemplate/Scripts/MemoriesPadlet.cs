@@ -1,3 +1,9 @@
+/*
+* Author: Wong Qing Wei, Jasmine Giam
+* Date: 20/11/2022
+* Description: Empty Class to store memories
+*/
+
 using UnityEngine;
 
 public class MemoriesPadlet
