@@ -32,17 +32,33 @@ public class FirebaseScript : MonoBehaviour
     /// </summary>
     public TextSpawnHandler textSpawnHandler;
 
+    //stores the game objects
     /// <summary>
-    /// Stores the gameobjects
+    /// game object that stores ui for player input
     /// </summary>
     public GameObject sharingPadlet;
+
+    /// <summary>
+    /// text that instructs the player what to do when wanting viewing other peoples responses
+    /// </summary>
     public GameObject sharingMemoryUI;
+    /// <summary>
+    /// error msg when user inputs an invalid input when answering the qn
+    /// </summary>
     public GameObject errorMsg;
+
+    /// <summary>
+    /// sprite that is the background of player response
+    /// </summary>
     public GameObject titleSprite;
+
+    /// <summary>
+    /// mid air positioner & mid air stage/ portion to view the memories
+    /// </summary>
     public GameObject viewMemory;
 
     /// <summary>
-    /// A int object
+    /// A int object to count how many entries are in the databse
     /// </summary>
     public int memoriesNum;
 
@@ -52,6 +68,9 @@ public class FirebaseScript : MonoBehaviour
         mDatabaseRef = FirebaseDatabase.DefaultInstance.GetReference("MemoriesPadlet"); // get root reference location of the database
     }
 
+    /// <summary>
+    /// getting and checking user input
+    /// </summary>
     public void getUserInput()
     {
         if((answerInput.text != null && answerInput.text !="" )&& (usernameInput != null && usernameInput.text != ""))
@@ -59,12 +78,12 @@ public class FirebaseScript : MonoBehaviour
             string newInput = answerInput.text.Trim();
             string newUsername = usernameInput.text.Trim();
             Debug.Log(newInput.Length);
-            if (newInput.Length <= 255 && newUsername.Length <=16)
+            if (newInput.Length <= 255 && newUsername.Length <=16) //checking if the player input is more than a certain num of char
             {
-                GameManager.instance.enterMemories = true;
+                GameManager.instance.enterMemories = true; // letting code know player is viewing response
                 Memory(newInput, newUsername);
-                Debug.Log("eter");
-                sharingPadlet.SetActive(false);
+              
+                sharingPadlet.SetActive(false); 
                 titleSprite.SetActive(false);
                 sharingMemoryUI.SetActive(true);
                 errorMsg.SetActive(false);
@@ -93,10 +112,13 @@ public class FirebaseScript : MonoBehaviour
         mDatabaseRef.Push().SetRawJsonValueAsync(JsonUtility.ToJson(mp)); // push to firebase
     }
 
+    /// <summary>
+    /// getting the db entries
+    /// </summary>
     public void GetMemory()
     {
        
-        List<MemoriesPadlet> memoryList = new List<MemoriesPadlet>();
+        List<MemoriesPadlet> memoryList = new List<MemoriesPadlet>(); //list to store entries
 
         mDatabaseRef.GetValueAsync().ContinueWithOnMainThread(task =>
         {

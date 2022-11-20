@@ -13,24 +13,50 @@ using UnityEngine.UI;
 
 public class TouchInteraction : MonoBehaviour
 {
+    //3d models
     public GameObject flour;
     public GameObject saltnSugar;
+
+    /// <summary>
+    /// refering to triggerCheck sript
+    /// </summary>
     TriggerCheck trigger;
 
+    //UI elements
     public Scrollbar mixingSlider;
     public GameObject mixingUI;
     public GameObject[] mixingUIChild;
+
+    /// <summary>
+    /// counter to increase the number of the tag name
+    /// </summary>
     int mixClickPos = 1;
+
+    /// <summary>
+    /// string to store current tag of game object;
+    /// </summary>
     string currentTag;
 
+    /// <summary>
+    /// refering to ui manager script
+    /// </summary>
     public UIManager uiManager;
 
+    /// <summary>
+    /// powder particle system
+    /// </summary>
     public ParticleSystem powder;
+
+    /// <summary>
+    /// mixing sfx
+    /// </summary>
     public AudioSource mixing;
 
-    public int spawnCounter = 0;
-
+    
+    //referring to firebase script
     public FirebaseScript firebaseScript;
+
+
 
     void OnTouchPress()
     {
@@ -58,14 +84,14 @@ public class TouchInteraction : MonoBehaviour
                 saltnSugar.AddComponent<Lean.Touch.LeanDragTranslate>();
             }
 
-
+            //tag of gameobject player should click
             currentTag = "mixingBtn" + mixClickPos.ToString();
 
-            if (hitInfo.collider.tag == currentTag)
+            if (hitInfo.collider.tag == currentTag) //checking if lpayer is clicking on the correct tag
             {
                 mixClickPos++;
                 hitInfo.collider.gameObject.SetActive(false);
-                mixingSlider.size += 0.25f;
+                mixingSlider.size += 0.25f; 
                 powder.Play();
                 mixing.Play();
 
@@ -77,22 +103,22 @@ public class TouchInteraction : MonoBehaviour
                     mixClickPos = 1;
                     foreach (GameObject sprite in mixingUIChild)
                     {
-                        sprite.SetActive(true);
+                        sprite.SetActive(true); //show ui for next mising interaction
                     }
 
                 }
             }
             if (mixClickPos > 4)
             {
-                mixClickPos = 1;
+                mixClickPos = 1; //if player clicked 4 times set it back to one
             }
 
         }
 
-        if (GameManager.instance.enterMemories == true)
+        if (GameManager.instance.enterMemories == true) //when player is viewing responses and they tap on the screen => get data from db
         {
 
-            firebaseScript.GetMemory();
+            firebaseScript.GetMemory(); 
 
         }
     }

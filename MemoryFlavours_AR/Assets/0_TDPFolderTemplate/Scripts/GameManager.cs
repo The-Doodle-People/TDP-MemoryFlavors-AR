@@ -16,9 +16,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     /// <summary>
-    /// boolean
+    /// bool to check if player is viewing the responses
     /// </summary>
-    
     public bool enterMemories = false;
     private void Awake()
     {

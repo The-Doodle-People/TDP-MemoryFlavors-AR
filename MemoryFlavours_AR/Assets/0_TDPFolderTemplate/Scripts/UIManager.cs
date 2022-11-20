@@ -342,7 +342,10 @@ public class UIManager : MonoBehaviour
         StartCoroutine(WaitForAudioEnding(voiceOverEnding));
     }
 
-    public void HideStepOneOrTwo()
+    /// <summary>
+    /// to show or hide step 1 / 2
+    /// </summary>
+    public void HideStepOneOrTwo() 
     {
         if (step2.gameObject.activeSelf)
         {

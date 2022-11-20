@@ -13,20 +13,51 @@ using UnityEngine.UI;
 
 public class TriggerCheck : MonoBehaviour
 {
+    /// <summary>
+    /// checking if the flour has entered the bowl
+    /// </summary>
     public bool flourEnteredBowl = false;
 
     
     Rigidbody rb;
+    /// <summary>
+    /// position for flour to be
+    /// </summary>
     public Transform flourHoldArea;
+
+    /// <summary>
+    /// position for salt&sugar to be
+    /// </summary>
     public Transform saltSugarHoldArea;
+    /// <summary>
+    /// position for beet root juice to be
+    /// </summary>
     public Transform btJuiceHoldArea;
+    
+    /// <summary>
+    /// ui that shows the steps player needs to take
+    /// </summary>
     public TMP_Text steps;
     
+    /// <summary>
+    /// ui to show where the player shld click to mix
+    /// </summary>
     public GameObject mixingUI;
+    /// <summary>
+    /// gameobject that stores the mixing scrollbar that shows progress of mixing
+    /// </summary>
     public GameObject mixingSlider;
+
+    /// <summary>
+    /// powder pparticle system
+    /// </summary>
     public ParticleSystem powder;
+    /// <summary>
+    /// splash particle system
+    /// </summary>
     public ParticleSystem splash;
 
+    //sound effects
     public AudioSource puff;
     public AudioSource waterDrop;
     public AudioSource pouring;
@@ -99,22 +130,22 @@ public class TriggerCheck : MonoBehaviour
     {
         if (other.gameObject.tag == "bowlTrigger" )
         {
-            if (gameObject.tag == "flour")
+            if (gameObject.tag == "flour") //once flour is inside the bowl
             {
                 flourEnteredBowl = true;
                 adjustComponents();
-                gameObject.transform.position = flourHoldArea.position;
+                gameObject.transform.position = flourHoldArea.position; //setting position of model
                 powder.Play();
                 puff.Play();
                 
             }
            
-            if(gameObject.tag == "saltnSugar")
+            if(gameObject.tag == "saltnSugar") //once salt n sugar is inside bowl
             {
                 
                 adjustComponents();
                
-                gameObject.transform.position = saltSugarHoldArea.position;
+                gameObject.transform.position = saltSugarHoldArea.position; //setting position of model
                 steps.text = "Tap the circles in the correct order to mix the ingredients";
                 pouring.Play();
 
@@ -122,10 +153,10 @@ public class TriggerCheck : MonoBehaviour
                 mixingSlider.SetActive(true);
             }
 
-            if(gameObject.tag == "btJuice")
+            if(gameObject.tag == "btJuice") //once beet root juice is inside bowl;
             {
                 adjustComponents();
-                gameObject.transform.position= btJuiceHoldArea.position;
+                gameObject.transform.position= btJuiceHoldArea.position; //setting position of model
                 steps.text = "Tap the circles in the correct order to mix the ingredients";
                 mixingUI.SetActive(true);
                 mixingSlider.GetComponent<Scrollbar>().size= 0;
@@ -213,9 +244,12 @@ public class TriggerCheck : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// make model not moveable
+    /// </summary>
     void adjustComponents()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        rb = gameObject.GetComponent<Rigidbody>(); 
         rb.drag = 10;
         Destroy(gameObject.GetComponent<Lean.Touch.LeanDragTranslate>());
         Destroy(rb);
