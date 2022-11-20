@@ -204,6 +204,7 @@ public class UIController : MonoBehaviour
                 startImageTarget.SetActive(false);
                 groundStage.SetActive(false);
                 mainUI.SetActive(false);
+                sfx.SadViolinBGMOff();
             }
         }
 
@@ -368,6 +369,7 @@ public class UIController : MonoBehaviour
         transitionAnimator.SetBool("CanTransition", false);
         canScanPostcardAgain = true;
         gameText.text = "SCAN THE POSTCARD\nIMAGE AGAIN!";
+        sfx.SadViolinBGMOn();
 
         // Turn off Start Image Target
         //startImageTarget.SetActive(false);
