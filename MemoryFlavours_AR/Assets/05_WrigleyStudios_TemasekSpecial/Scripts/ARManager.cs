@@ -64,6 +64,12 @@ public class ARManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// This code allows us to to be able to scan our image plane 
+    /// For this project our image plane is the postcard we designed
+    /// </summary>
+    /// <param name="objectToTrack"></param>
+
     public void ObjectTracked(GameObject objectToTrack)
     {
         
@@ -78,7 +84,9 @@ public class ARManager : MonoBehaviour
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = objectToTrack.name + "<insert Description here>";
+                descriptionText.text = objectToTrack.name + "Devil curry also known as curry Debal in Kristang is a very spicy curry flavoured with candlenuts, galangal, mustard seed and vinegar from the Eurasian Kristang (Cristão) culinary tradition in Malacca, " +
+                    "Malaysia, Indonesia and the Indo-Dutch diaspora (where it is known as Ayam ore Daging Setan). It was historically served one or two days after Christmas and on other special occasions. " +
+                    "Kristang cuisine blends the cuisines of Southeast Asia with a western-style cuisine inherited from Portuguese colonial rulers";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
@@ -86,7 +94,9 @@ public class ARManager : MonoBehaviour
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = objectToTrack.name + " <insert Description here>";
+                descriptionText.text = " Nasi Padang is literally translated as ‘rice’ from Padang city in Indonesia. It’s a style of eating where the diner is presented with a number of dishes to choose from. " +
+                    "In Singapore, the selection often showcases the diversity of dishes from all over Indonesia and Malaysia.But don’t be fooled for, despite the sheer number of dishes on display, ordering is a straightforward affair." +
+                    "Choose between having it two ways: as mixed rice(nasi campur) where all the different dishes are served on your own plate or served family - style(hidang) where each selection is placed on individual plates";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
@@ -117,7 +127,8 @@ public class ARManager : MonoBehaviour
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = objectToTrack.name + " is Hawker Tracked";
+                descriptionText.text = " Hawker centers sprang up in urban areas following the rapid urbanization in the 1950s and 1960s. In many cases, they were built partly to address the problem of unhygienic food preparation by unlicensed street hawkers. " +
+                    "More recently, they have become less ubiquitous due to growing affluence in the urban populations of Malaysia and Singapore. Particularly in Singapore, they are increasingly being replaced by food courts, which are indoor, air-conditioned versions of hawker centers located in shopping malls and other commercial venues.";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
@@ -125,7 +136,9 @@ public class ARManager : MonoBehaviour
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = objectToTrack.name + " is Push Cart Tracked";
+                descriptionText.text = " Traveling hawkers or itinerant hawkers were a common sight in Singapore from the 19th century to the mid-20th century. " +
+                    "They were frequently found along busy streets and intersections, peddling food, drinks, vegetables, poultry, and sundries. Street hawking was a popular occupation for many new immigrants to Singapore as it gave the unemployed and the unskilled a way to make a living with little cost. " +
+                    "Though there were many issues associated with street hawking, such as traffic obstruction and hygiene, street hawkers played an important role in providing the working classes with easy access to affordable meals.";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
@@ -159,7 +172,9 @@ public class ARManager : MonoBehaviour
             return;
         }
     }
-
+    /// <summary>
+    /// This function disables the toggle button for ambient sound for AR objects that doesnt include the ambient sound feature.
+    /// </summary>
     public void ToPlayAmbienceSound(string trackName)
     {
         if (trackName != null)
@@ -193,7 +208,10 @@ public class ARManager : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// This function allows users to toggle on and off our AR feature called 'ambient sound' 
+    /// where we record surroudning sound at hawker centers with our mobile devices
+    /// </summary>
     public void ToggleAmbience()
     {
         nameOfObject = StaticController.objectName;
@@ -240,6 +258,11 @@ public class ARManager : MonoBehaviour
             //ambienceSoundGrp.SetActive(false);
         }
     }
+
+    /// <summary>
+    /// Onclick it takes a screenshot of the AR scene and enable social media sharing 
+    /// (Due to android version issue we are unable to get social sharing to work but screenshot features is working) 
+    /// </summary>
     public async void SharingButton()
     {
         VSSHARE.DOTakeScreenShot();
@@ -249,7 +272,9 @@ public class ARManager : MonoBehaviour
         VSSHARE.DOHideScreenshotIcon();
     }
    
-
+    /// <summary>
+    /// This part of the code handles our narration of individual AR objects using a text to speech audio clip
+    /// </summary>
     public void PlayNarration()
     {
         nameOfObject = StaticController.objectName;
@@ -340,6 +365,9 @@ public class ARManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads the pop quiz
+    /// </summary>
     public void LoadQuizScene()
     {
         Debug.Log(isTracked);
@@ -353,13 +381,17 @@ public class ARManager : MonoBehaviour
             return;
         }
     }
-
+    /// <summary>
+    /// This function restarts the whole screen clearing all screeshots and bugs seen on screen.
+    /// </summary>
     public void RefreshCurrentScene()
     {
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
+    /// <summary>
+    /// Navigaton back to home scene
+    /// </summary>
     public void HomeButton()
     {
         SceneManager.LoadScene(0);
