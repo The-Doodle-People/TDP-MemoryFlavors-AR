@@ -65,6 +65,7 @@ public class UIManager : MonoBehaviour
     bool audioIsPlaying = false;
 
     public GameObject angKuKuehFinal;
+    public GameObject titleSprite;
 
     //Sharing Padlet (last)
     public GameObject sharingPadletUI;
@@ -327,6 +328,8 @@ public class UIManager : MonoBehaviour
             stepsUI.SetActive(false);
             sharingPadletUI.SetActive(true);
             nextBtn.SetActive(false);
+            titleSprite.SetActive(true);
+
         }
     }
 }

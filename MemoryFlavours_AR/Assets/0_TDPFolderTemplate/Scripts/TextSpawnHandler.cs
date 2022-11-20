@@ -12,22 +12,22 @@ public class TextSpawnHandler : MonoBehaviour
     public TextMeshProUGUI memoryText;
     public FirebaseScript firebase;
     public string memoryTextUI;
-   
-    public void SpawnText(List <string> memoryList)
+    public TextMeshProUGUI usernameText;
+    public string usernameTextUI;
+    public void SpawnText(List<MemoriesPadlet> memoryList)
     {
-      
 
-        Debug.Log(firebase.memoriesNum);
-        int randomNum = UnityEngine.Random.Range(0,firebase.memoriesNum);
+        //Debug.Log("textspawn");
+        //Debug.Log(firebase.memoriesNum);
+        int randomNum = UnityEngine.Random.Range(0, firebase.memoriesNum);
         Debug.Log(memoryList[randomNum]);
-       
-        memoryTextUI = memoryList[randomNum];
-        
-     
+
+        memoryTextUI = memoryList[randomNum].memory;
+        usernameTextUI = memoryList[randomNum].username;
+        Debug.Log(memoryTextUI);
+        memoryText.text = memoryTextUI;
+        usernameText.text = "By: " + usernameTextUI;
     }
 
-    public void ShowText()
-    {
-        memoryText.text = memoryTextUI;
-    }
+    
 }

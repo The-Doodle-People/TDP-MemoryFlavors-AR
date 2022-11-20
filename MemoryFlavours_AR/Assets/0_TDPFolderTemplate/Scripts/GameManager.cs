@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager instance;
 
-    public bool enterMemories = true;
+    public bool enterMemories = false;
     private void Awake()
     {
         // Check whether instance is null. If null, means no GameManager
@@ -31,6 +31,6 @@ public class GameManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        Debug.Log("quit");
     }
 }

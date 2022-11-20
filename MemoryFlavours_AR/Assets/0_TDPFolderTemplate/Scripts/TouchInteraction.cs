@@ -83,7 +83,7 @@ public class TouchInteraction : MonoBehaviour
 
         }
 
-        if (GameManager.instance.enterMemories)
+        if (GameManager.instance.enterMemories == true)
         {
 
             firebaseScript.GetMemory();

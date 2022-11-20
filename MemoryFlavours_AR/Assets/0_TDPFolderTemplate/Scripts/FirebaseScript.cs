@@ -13,10 +13,15 @@ public class FirebaseScript : MonoBehaviour
     DatabaseReference mDatabaseRef;
 
     public TMP_InputField answerInput;
+    public TMP_InputField usernameInput;
+
     public TextMeshProUGUI reminder;
     public int memoriesNum;
     public TextSpawnHandler textSpawnHandler;
-
+    public GameObject sharingPadlet;
+    public GameObject sharingMemoryUI;
+    public GameObject errorMsg;
+    public GameObject titleSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +30,28 @@ public class FirebaseScript : MonoBehaviour
 
     public void getUserInput()
     {
-        if(answerInput.text != null && answerInput.text !="")
+        if((answerInput.text != null && answerInput.text !="" )&& (usernameInput != null && usernameInput.text != ""))
         {
             string newInput = answerInput.text.Trim();
-            Memory(newInput);
-            Debug.Log("eter");
+            string newUsername = usernameInput.text.Trim();
+            Debug.Log(newInput.Length);
+            if (newInput.Length <= 255 && newUsername.Length <=16)
+            {
+                GameManager.instance.enterMemories = true;
+                Memory(newInput, newUsername);
+                Debug.Log("eter");
+                sharingPadlet.SetActive(false);
+                titleSprite.SetActive(false);
+                sharingMemoryUI.SetActive(true);
+                errorMsg.SetActive(false);
+                GetMemory();
+
+            } else
+            {
+                errorMsg.SetActive(true);
+            }
+          
+           
         }
         else
         {
@@ -38,16 +60,17 @@ public class FirebaseScript : MonoBehaviour
         }
     }
 
-    private void Memory(string memory)
+    private void Memory(string memory, string username)
     {
-        MemoriesPadlet mp = new MemoriesPadlet(memory);
+        MemoriesPadlet mp = new MemoriesPadlet(memory, username);
         var playerPath = mDatabaseRef.Push(); //generate random key each time
         mDatabaseRef.Push().SetRawJsonValueAsync(JsonUtility.ToJson(mp)); // push to firebase
     }
 
     public void GetMemory()
     {
-        List<string> memoryList = new List<string>();
+       
+        List<MemoriesPadlet> memoryList = new List<MemoriesPadlet>();
 
         mDatabaseRef.GetValueAsync().ContinueWithOnMainThread(task =>
         {
@@ -68,7 +91,7 @@ public class FirebaseScript : MonoBehaviour
                         MemoriesPadlet mP = JsonUtility.FromJson<MemoriesPadlet>(d.GetRawJsonValue());
                        
 
-                        memoryList.Add(mP.memory);
+                        memoryList.Add(mP);
                         
                     }
 
