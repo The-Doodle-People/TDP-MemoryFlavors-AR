@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SwitchInfo : MonoBehaviour
 {
+    /// <summary>
+    /// Particle effect
+    /// </summary>
     public StarParticles star;
+    /// <summary>
+    /// Vaious ingredient information panel
+    /// </summary>
     public GameObject chendolInfo;
     public GameObject jellyInfo;
     public GameObject seedInfo;
@@ -15,6 +21,9 @@ public class SwitchInfo : MonoBehaviour
     public GameObject sugarInfo;
     public GameObject bckBtn;
 
+    /// <summary>
+    /// Show Chendol information
+    /// </summary>
     public void ShowChendol()
     {
         if (chendolInfo.activeSelf !=true)
@@ -29,7 +38,9 @@ public class SwitchInfo : MonoBehaviour
             Back();
         }
     }
-
+    /// <summary>
+    /// Show Grass Jelly information
+    /// </summary>
     public void ShowJelly()
     {
         if (jellyInfo.activeSelf != true)
@@ -44,7 +55,9 @@ public class SwitchInfo : MonoBehaviour
             Back();
         }
     }
-
+    /// <summary>
+    /// Show Attap Chee seed information
+    /// </summary>
     public void ShowSeed()
     {
         if (seedInfo.activeSelf != true)
@@ -59,7 +72,9 @@ public class SwitchInfo : MonoBehaviour
             Back();
         }
     }
-
+    /// <summary>
+    /// Show Cream Corn information
+    /// </summary>
     public void ShowCorn()
     {
         if (cornInfo.activeSelf != true)
@@ -74,7 +89,9 @@ public class SwitchInfo : MonoBehaviour
             Back();
         }
     }
-
+    /// <summary>
+    /// Show Red Bean Paste information
+    /// </summary>
     public void ShowRed()
     {
         if (redBeanInfo.activeSelf != true)
@@ -89,7 +106,9 @@ public class SwitchInfo : MonoBehaviour
             Back();
         }
     }
-
+    /// <summary>
+    /// Show Syrups information
+    /// </summary>
     public void ShowSyrup()
     {
         if (syrupsInfo.activeSelf != true)
@@ -104,7 +123,9 @@ public class SwitchInfo : MonoBehaviour
             Back();
         }
     }
-
+    /// <summary>
+    /// Show Condensed Milk information
+    /// </summary>
     public void ShowMilk()
     {
         if (milkInfo.activeSelf != true)
@@ -120,7 +141,9 @@ public class SwitchInfo : MonoBehaviour
         }
         
     }
-
+    /// <summary>
+    /// Show Sugar Syrup information
+    /// </summary>
     public void ShowSugar()
     {
         if (sugarInfo.activeSelf != true)
@@ -136,7 +159,9 @@ public class SwitchInfo : MonoBehaviour
         }
         
     }
-
+    /// <summary>
+    /// Called to close all information panels
+    /// </summary>
     public void Back()
     {
         chendolInfo.SetActive(false);

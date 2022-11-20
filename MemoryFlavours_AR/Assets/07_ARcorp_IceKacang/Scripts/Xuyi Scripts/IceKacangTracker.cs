@@ -83,6 +83,9 @@ public class IceKacangTracker : MonoBehaviour
     {
         ShowBtn();
     }
+    /// <summary>
+    /// Called on target found
+    /// </summary>
     async public void ShowFood()
     {
         scanTxt.SetActive(false);
@@ -95,6 +98,9 @@ public class IceKacangTracker : MonoBehaviour
             touchTxt.SetActive(true);
         }
     }
+    /// <summary>
+    /// Called on target lost
+    /// </summary>
     public void HideFood()
     {
         scanTxt.SetActive(true);
@@ -112,6 +118,9 @@ public class IceKacangTracker : MonoBehaviour
         ToppingsReset();
 
     }
+    /// <summary>
+    /// Controls the adding of different toppings to the ice kacang
+    /// </summary>
     public void Toppings()
     {
         if (toppingNo == 0 && toppingNo<=2)
@@ -191,7 +200,9 @@ public class IceKacangTracker : MonoBehaviour
         isCorn = false;
         isBean = false;
     }
-
+    /// <summary>
+    /// Controls the adding of syrups to the ice kacang
+    /// </summary>
     public void Syrups()
     {
         if(syrupNo==0 && syrupNo <= 1)
@@ -230,16 +241,25 @@ public class IceKacangTracker : MonoBehaviour
         isBlueS = false;
         isGreenS = false;
     }
+    /// <summary>
+    /// Controls the adding of sugar to the ice kacang
+    /// </summary>
     public void Sugar()
     {
         sugar.SetActive(true);
         milkAudio.Play();
     }
+    /// <summary>
+    /// Controls the adding of condensed milk to the ice kacang
+    /// </summary>
     public void Milk()
     {
         milk.SetActive(true);
         milkAudio.Play();
     }
+    /// <summary>
+    /// Removes all toppings from ice kacang
+    /// </summary>
     public void ToppingsReset()
     {
         toppingNo = 0;
@@ -261,7 +281,9 @@ public class IceKacangTracker : MonoBehaviour
             greenSyrup[i].SetActive(false);
         }
     }
-
+    /// <summary>
+    /// Show "next" button when finish making ice kacang
+    /// </summary>
     public void ShowBtn()
     {
         if(toppingNo>2 && syrupNo>1 && sugar.activeSelf==true && 
@@ -274,6 +296,10 @@ public class IceKacangTracker : MonoBehaviour
             nxtBtn.SetActive(false);
         }
     }
+
+    /// <summary>
+    /// Called when moving to the picture taking part of the experience  
+    /// </summary>
     async public void NextEvent()
     {
         table.SetBool("isTable", true);
@@ -292,15 +318,24 @@ public class IceKacangTracker : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Button press SFX
+    /// </summary>
     public void BtnSound()
     {
         btnAudio.Play();
     }
+    /// <summary>
+    /// Show button to end the experience
+    /// </summary>
     public void ShowEnd()
     {
         endBtn.SetActive(true);
     }
 
+    /// <summary>
+    /// Ingredient information dropdown list UI
+    /// </summary>
     public void ShowList()
     {
         if (listDropdown.activeSelf != true)
