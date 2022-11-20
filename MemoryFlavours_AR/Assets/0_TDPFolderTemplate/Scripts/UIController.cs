@@ -14,6 +14,12 @@ public class UIController : MonoBehaviour
     // Quit Confirmation tab
     public GameObject quitConfirmation;
 
+    // Game Restart Confirmation Tab
+    public GameObject gameRestartConfirmation;
+
+    // Game Quit Confirmation tab
+    public GameObject gameQuitConfirmation;
+
     // End Restart confirmation tab 
     public GameObject endRestartConfirmation;
 
@@ -49,6 +55,12 @@ public class UIController : MonoBehaviour
     public Animator girl6Animator;
     public Animator girl12Animator;
 
+    // Check if can scan postcard
+    public bool canScanPostcard;
+
+    // Check if postcard is scanned
+    public bool postcardScanned;
+
     // Check if table is placed
     public bool tablePlaced;
 
@@ -82,6 +94,11 @@ public class UIController : MonoBehaviour
     public GameObject planeFinder;
     public GameObject groundStage;
 
+    public bool animationInProgress;
+
+    // Arrow UI Image
+    public GameObject arrowImage;
+
     // Check if game is in progress
     public bool gameInProgress;
 
@@ -109,7 +126,7 @@ public class UIController : MonoBehaviour
         if (/*Input.touchCount > 0*/ Input.GetMouseButtonDown(0) && !experienceStarted)
         {
             StartCoroutine("PlayLoading");
-
+            sfx.SplashPageAudioOn();
         }
         
         /*if (Input.GetMouseButtonDown(0) && canPlaceTable && groundStage.activeSelf)
@@ -122,8 +139,8 @@ public class UIController : MonoBehaviour
 
         if (interactedWithDimsum)
         {
-            StartCoroutine("PlayTableFall");
             interactedWithDimsum = false;
+            StartCoroutine("PlayTableFall");
             arrowObject.SetActive(false);
         }
     }
@@ -194,6 +211,7 @@ public class UIController : MonoBehaviour
                 cameraOff.SetActive(true);
                 startImageTarget.SetActive(false);
                 groundStage.SetActive(false);
+                sfx.StoreNoiseOff();
             }
 
             else if (postcardScanned2)
@@ -204,7 +222,7 @@ public class UIController : MonoBehaviour
                 startImageTarget.SetActive(false);
                 groundStage.SetActive(false);
                 mainUI.SetActive(false);
-                sfx.SadViolinBGMOff();
+                sfx.SadViolinBGMPause();
             }
         }
 
@@ -212,13 +230,83 @@ public class UIController : MonoBehaviour
         else if(!VuforiaBehaviour.Instance.enabled)
         {
             // Start rendering video
-            VuforiaBehaviour.Instance.VideoBackground.StartVideoBackgroundRendering(); 
+            VuforiaBehaviour.Instance.VideoBackground.StartVideoBackgroundRendering();
             VuforiaBehaviour.Instance.enabled = true;
 
-            // Change game text
-            gameText.text = "CLICK ANYWHERE ON THE\nSCREEN TO PLACE\nTHE TABLE!";
-            // Turn off CameraOff Canvas.
-            cameraOff.SetActive(false);
+            if (!postcardScanned)
+            {
+                Debug.Log("Change Text");
+                // turn off table ground plane
+                groundStage.SetActive(false);
+                startImageTarget.SetActive(true);
+                // Change Game text
+                gameText.text = "SCAN THE\nPOSTCARD IMAGE!";
+                canPlaceTable = false;
+                // Turn off CameraOff Canvas.
+                cameraOff.SetActive(false);
+            }
+
+            else if (postcardScanned && canPlaceTable)
+            {
+                // Set active table ground plane
+                groundStage.SetActive(true);
+                planeFinder.SetActive(true);
+                startImageTarget.SetActive(true);
+                // Change Game text
+                gameText.text = "FIND A FLAT SURFACE\nAND CLICK ANYWHERE \nON THE SCREEN TO\nPLACE THE TABLE!";
+                // Turn off CameraOff Canvas.
+                cameraOff.SetActive(false);
+            }
+
+            else if (tablePlaced && canInteractWithDimsum)
+            {
+                // Set active table ground plane
+                groundStage.SetActive(true);
+                gameText.text = "CLICK ON THE DIM SUM\nTO EAT IT!";
+                canPlaceTable = false;
+                tablePlaced = true;
+                canInteractWithDimsum = true;
+                startImageTarget.SetActive(true);
+                // Play Store noise audio
+                sfx.StoreNoiseOn();
+                // Turn off CameraOff Canvas.
+                cameraOff.SetActive(false);
+            }
+
+            else if (animationInProgress && !canScanPostcardAgain)
+            {
+                // Set active table ground plane
+                groundStage.SetActive(true);
+                startImageTarget.SetActive(true);
+                gameText.text = "SCAN THE POSTCARD\nIMAGE AGAIN!";
+                // Turn off CameraOff Canvas.
+                cameraOff.SetActive(false);
+            }
+
+            else if (canScanPostcardAgain)
+            {
+                // Set active table ground plane
+                groundStage.SetActive(true);
+                startImageTarget.SetActive(true);
+                canScanPostcardAgain = true;
+                gameText.text = "SCAN THE POSTCARD\nIMAGE AGAIN!";
+                sfx.SadViolinBGMUnPause();
+                // Turn off CameraOff Canvas.
+                cameraOff.SetActive(false);
+            }
+
+            else if (postcardScanned2)
+            {
+                // Set active table ground plane
+                groundStage.SetActive(true);
+                startImageTarget.SetActive(true);
+                postcardScanned2 = true;
+                gameText.text = "TOGGLE YOUR\nCAMERA!";
+                arrowImage.SetActive(true);
+                sfx.SadViolinBGMUnPause();
+                // Turn off CameraOff Canvas.
+                cameraOff.SetActive(false);
+            }
         }
     }
 
@@ -256,6 +344,19 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void ToggleGameRestart()
+    {
+        if (!gameRestartConfirmation.activeSelf)
+        {
+            gameRestartConfirmation.SetActive(true);
+        }
+
+        else if (gameRestartConfirmation.activeSelf)
+        {
+            gameRestartConfirmation.SetActive(false);
+        }
+    }
+
     public void RestartConfirm()
     {
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
@@ -274,6 +375,19 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void ToggleGameQuit()
+    {
+        if (!gameQuitConfirmation.activeSelf)
+        {
+            gameQuitConfirmation.SetActive(true);
+        }
+
+        else if (gameQuitConfirmation.activeSelf)
+        {
+            gameQuitConfirmation.SetActive(false);
+        }
+    }
+
     public void ToggleEndQuit()
     {
         if (!endQuitConfirmation.activeSelf)
@@ -287,6 +401,7 @@ public class UIController : MonoBehaviour
         }
     }
 
+
     public void QuitConfirm()
     {
         Application.Quit();
@@ -294,6 +409,8 @@ public class UIController : MonoBehaviour
 
     IEnumerator PlayTableFall()
     {
+        animationInProgress = true;
+
         planeFinder.SetActive(false);
         // Play TableFall animation
         tableAnimator.SetBool("TableFall", true);
@@ -370,6 +487,7 @@ public class UIController : MonoBehaviour
         canScanPostcardAgain = true;
         gameText.text = "SCAN THE POSTCARD\nIMAGE AGAIN!";
         sfx.SadViolinBGMOn();
+        animationInProgress = false;
 
         // Turn off Start Image Target
         //startImageTarget.SetActive(false);

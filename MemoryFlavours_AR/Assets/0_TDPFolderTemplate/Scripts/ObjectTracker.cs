@@ -43,6 +43,8 @@ public class ObjectTracker : MonoBehaviour
                 // Change Game text
                 gameText.text = "FIND A FLAT SURFACE\nAND CLICK ANYWHERE \nON THE SCREEN TO\nPLACE THE TABLE!";
                 uiControllerScript.canPlaceTable = true;
+                uiControllerScript.canScanPostcard = false;
+                uiControllerScript.postcardScanned = true;
             }
 
             if (objectToTrack == startImageTarget && uiControllerScript.canScanPostcardAgain)
@@ -73,6 +75,8 @@ public class ObjectTracker : MonoBehaviour
                 // Change Game text
                 gameText.text = "SCAN THE\nPOSTCARD IMAGE!";
                 uiControllerScript.canPlaceTable = false;
+                uiControllerScript.canScanPostcard = true;
+                uiControllerScript.postcardScanned = false;
             }
         }
 

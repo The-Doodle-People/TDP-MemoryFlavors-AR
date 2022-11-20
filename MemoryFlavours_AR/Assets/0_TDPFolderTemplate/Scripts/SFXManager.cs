@@ -11,8 +11,13 @@ public class SFXManager : MonoBehaviour
     public AudioSource storeNoiseAudio;
     public AudioSource sadViolinBGM;
     public AudioSource buttonAudio;
+    public AudioSource splashPageAudio;
     
-    // Update is called once per frame
+    public void SplashPageAudioOn()
+    {
+        splashPageAudio.Play();
+    }
+
     public void CollectAudioOn()
     {
         SFXCollectAudio.Play();
@@ -46,9 +51,14 @@ public class SFXManager : MonoBehaviour
         sadViolinBGM.Play();
     }
 
-    public void SadViolinBGMOff()
+    public void SadViolinBGMPause()
     {
-        sadViolinBGM.Stop();
+        sadViolinBGM.Pause();
+    }
+
+    public void SadViolinBGMUnPause()
+    {
+        sadViolinBGM.UnPause();
     }
 
     public void ButtonClickOn()
