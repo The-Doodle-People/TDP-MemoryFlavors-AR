@@ -475,7 +475,7 @@ MonoBehaviour:
   mTrackableName: 
   mInitializedInEditor: 0
   mName: onionBtn
-  mSensitivity: 1
+  mSensitivity: 0
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 0.0792
@@ -505,9 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 96985537}
-  - component: {fileID: 96985536}
   - component: {fileID: 96985538}
-  - component: {fileID: 96985539}
   m_Layer: 0
   m_Name: ScoreSystem
   m_TagString: Untagged
@@ -515,21 +513,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &96985536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96985535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fb39f6554b3a4d43ac6112951642a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 868442844}
-  playerScore: 0
-  collectSound: {fileID: 1629525484}
 --- !u!4 &96985537
 Transform:
   m_ObjectHideFlags: 0
@@ -545,35 +528,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &96985538
-BoxCollider:
+--- !u!114 &96985538
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96985535}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &96985539
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 96985535}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e718d86153f8b41b5418122f18e1a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 868442846}
 --- !u!1 &161380545
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +655,7 @@ MonoBehaviour:
   mTrackableName: 
   mInitializedInEditor: 0
   mName: cinBtn
-  mSensitivity: 1
+  mSensitivity: 0
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 0.0676
@@ -958,7 +925,7 @@ MonoBehaviour:
   mTrackableName: 
   mInitializedInEditor: 0
   mName: mintBtn
-  mSensitivity: 1
+  mSensitivity: 0
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 0.063999996
@@ -1438,7 +1405,7 @@ MonoBehaviour:
   mTrackableName: 
   mInitializedInEditor: 0
   mName: cardaBtn
-  mSensitivity: 1
+  mSensitivity: 0
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 0.058799997
@@ -1489,7 +1456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559082003}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 1.448, y: 0, z: -0.006}
+  m_LocalPosition: {x: 0.018, y: 0, z: 0.9648}
   m_LocalScale: {x: 0.066, y: 0.12065, z: 0.045}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2237,7 +2204,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853114654}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4.57, y: 3.22, z: 0.20000005}
@@ -2316,7 +2283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'INGREDIENTS: 0'
+  m_text: 'INGREDIENTS:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3618,7 +3585,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1157009933}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4.2, y: 2.54, z: 0.20000005}
@@ -4356,7 +4323,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232206175}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.43, y: 2.41, z: 0.20000005}
@@ -5037,7 +5004,7 @@ MonoBehaviour:
   mTrackableName: 
   mInitializedInEditor: 0
   mName: gmBtn
-  mSensitivity: 1
+  mSensitivity: 0
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 0.063599996
@@ -5357,7 +5324,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f0118f45c6ad0840b4e3f40ed730035, type: 3}
   m_Name: 
@@ -5365,8 +5332,7 @@ MonoBehaviour:
   vbBtnChicken: {fileID: 1956110170}
   chickenAnim: {fileID: 1120990883}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
+  totalScore: {fileID: 0}
 --- !u!114 &1451899000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5374,7 +5340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c142c97eb9d9f849820c153994a7f26, type: 3}
   m_Name: 
@@ -5382,8 +5348,6 @@ MonoBehaviour:
   vbBtnOnion: {fileID: 45101426}
   onionAnim: {fileID: 2141850903}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
 --- !u!114 &1451899002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5391,7 +5355,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71447a8b74a7801408620559b96ebf67, type: 3}
   m_Name: 
@@ -5399,8 +5363,6 @@ MonoBehaviour:
   vbBtnGG: {fileID: 1998348938}
   ggAnim: {fileID: 630179397}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
 --- !u!114 &1451899003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5408,7 +5370,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bca2ca33659be74a9eaef5266d8f588, type: 3}
   m_Name: 
@@ -5416,8 +5378,6 @@ MonoBehaviour:
   vbBtnChilli: {fileID: 212642828}
   chilliAnim: {fileID: 1588606492}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
 --- !u!114 &1451899004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5425,7 +5385,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04c953c1e54e1584796a170f7484b12e, type: 3}
   m_Name: 
@@ -5433,8 +5393,6 @@ MonoBehaviour:
   vbBtnCin: {fileID: 161380545}
   cinAnim: {fileID: 1157009936}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
 --- !u!114 &1451899006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5442,7 +5400,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 146cd205aade23b468d5092b8c679b10, type: 3}
   m_Name: 
@@ -5450,8 +5408,6 @@ MonoBehaviour:
   vbBtnGM: {fileID: 1427408210}
   gmAnim: {fileID: 1517779364}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
 --- !u!114 &1451899007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5459,7 +5415,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 516a0b79100a33f45ab18ca3d551035f, type: 3}
   m_Name: 
@@ -5467,8 +5423,6 @@ MonoBehaviour:
   vbBtnMint: {fileID: 309096018}
   mintAnim: {fileID: 853114657}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
 --- !u!114 &1451899008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5476,7 +5430,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df17b5a3d8fd4024bb09e486aa029579, type: 3}
   m_Name: 
@@ -5484,8 +5438,7 @@ MonoBehaviour:
   vbBtnRice: {fileID: 1546107514}
   riceAnim: {fileID: 1232206178}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
+  totalScore: {fileID: 96985535}
 --- !u!114 &1451899009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5493,7 +5446,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451898992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b36b79513a319ce45b761190a55e8f86, type: 3}
   m_Name: 
@@ -5501,8 +5454,6 @@ MonoBehaviour:
   vbBtnCarda: {fileID: 525610025}
   cardaAnim: {fileID: 1180702565}
   collectSound: {fileID: 1629525484}
-  scoreText: {fileID: 868442846}
-  playerScore: 0
 --- !u!114 &1451899010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5888,7 +5839,7 @@ MonoBehaviour:
   mTrackableName: 
   mInitializedInEditor: 0
   mName: riceBtn
-  mSensitivity: 1
+  mSensitivity: 0
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 0.1548
@@ -6155,7 +6106,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588606489}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.63, y: 2.36, z: 0.20000005}
@@ -6976,6 +6927,7 @@ GameObject:
   - component: {fileID: 1956110175}
   - component: {fileID: 1956110174}
   - component: {fileID: 1956110173}
+  - component: {fileID: 1956110176}
   - component: {fileID: 1956110172}
   m_Layer: 0
   m_Name: chickenBtn
@@ -7080,7 +7032,7 @@ MonoBehaviour:
   mTrackableName: 
   mInitializedInEditor: 0
   mName: chickenBtn
-  mSensitivity: 1
+  mSensitivity: 0
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 0.1284
@@ -7101,6 +7053,22 @@ MonoBehaviour:
     e33: 1
   mPrevParent: {fileID: 1451898992}
   mPreviousVirtualSceneScaleFactor: 1
+--- !u!114 &1956110176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956110170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0118f45c6ad0840b4e3f40ed730035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnChicken: {fileID: 1956110170}
+  chickenAnim: {fileID: 1120990883}
+  collectSound: {fileID: 1629525484}
+  totalScore: {fileID: 96985535}
 --- !u!1 &1998348938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7215,7 +7183,7 @@ MonoBehaviour:
   mTrackableName: 
   mInitializedInEditor: 0
   mName: ggBtn
-  mSensitivity: 1
+  mSensitivity: 0
   mHasUpdatedPose: 1
   mPrevTransform:
     e00: 0.076799996

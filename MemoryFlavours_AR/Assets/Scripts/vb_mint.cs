@@ -10,8 +10,9 @@ public class vb_mint : MonoBehaviour
     public GameObject vbBtnMint;
     public Animator mintAnim;
     public AudioSource collectSound;
-    public TextMeshProUGUI scoreText;
-    public int playerScore;
+    //public GameObject totalScore;
+    //public TextMeshProUGUI scoreText;
+    //public int mintScore;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,8 @@ public class vb_mint : MonoBehaviour
         collectSound.Play();
         mintAnim.Play("mintAnim");
         mintAnim.Play("mintDoneAnim");
-        playerScore += 1;
-        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
+        TotalScore.totalScore += 1;
+        //scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }

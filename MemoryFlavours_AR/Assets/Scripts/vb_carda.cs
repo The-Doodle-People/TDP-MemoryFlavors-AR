@@ -10,8 +10,9 @@ public class vb_carda : MonoBehaviour
     public GameObject vbBtnCarda;
     public Animator cardaAnim;
     public AudioSource collectSound;
-    public TextMeshProUGUI scoreText;
-    public int playerScore;
+    //public GameObject totalScore;
+    //public TextMeshProUGUI scoreText;
+    //public static int cardaScore;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,8 @@ public class vb_carda : MonoBehaviour
         collectSound.Play();
         cardaAnim.Play("cardaAnim");
         cardaAnim.Play("cardaDoneAnim");
-        playerScore += 1;
-        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
+        TotalScore.totalScore += 1;
+        //scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }

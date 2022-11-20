@@ -11,8 +11,9 @@ public class vb_gg : MonoBehaviour
     public GameObject vbBtnGG;
     public Animator ggAnim;
     public AudioSource collectSound;
-    public TextMeshProUGUI scoreText;
-    public int playerScore;
+    //public GameObject totalScore;
+    //public TextMeshProUGUI scoreText;
+    //public int ggScore;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,8 @@ public class vb_gg : MonoBehaviour
         collectSound.Play();
         ggAnim.Play("ggAnim");
         ggAnim.Play("ggDoneAnim");
-        playerScore += 1;
-        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
+        TotalScore.totalScore += 1;
+        //scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }

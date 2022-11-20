@@ -10,8 +10,9 @@ public class vb_1 : MonoBehaviour
     public GameObject vbBtnChicken;
     public Animator chickenAnim;
     public AudioSource collectSound;
-    public TextMeshProUGUI scoreText;
-    public int playerScore;
+    public GameObject totalScore;
+    //public TextMeshProUGUI scoreText;
+    //public int chickScore;
 
 
     // Start is called before the first frame update
@@ -28,8 +29,8 @@ public class vb_1 : MonoBehaviour
         collectSound.Play();
         chickenAnim.Play("chickAnim");
         chickenAnim.Play("chickDoneAnim");
-        playerScore += 1;
-        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
+        TotalScore.totalScore += 1;
+        //scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }
@@ -38,10 +39,5 @@ public class vb_1 : MonoBehaviour
     {
         chickenAnim.Play("none");
         Debug.Log("Button Released");
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -10,8 +10,9 @@ public class vb_onion : MonoBehaviour
     public GameObject vbBtnOnion;
     public Animator onionAnim;
     public AudioSource collectSound;
-    public TextMeshProUGUI scoreText;
-    public int playerScore;
+    //public GameObject totalScore;
+    //public TextMeshProUGUI scoreText;
+    //public int onionScore;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +28,8 @@ public class vb_onion : MonoBehaviour
         collectSound.Play();
         onionAnim.Play("onionAnim");
         onionAnim.Play("onionDoneAnim");
-        playerScore += 1;
-        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
+        TotalScore.totalScore += 1;
+        //scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }

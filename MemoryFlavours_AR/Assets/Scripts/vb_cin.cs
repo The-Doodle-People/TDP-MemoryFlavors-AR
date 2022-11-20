@@ -11,8 +11,9 @@ public class vb_cin : MonoBehaviour
     public GameObject vbBtnCin;
     public Animator cinAnim;
     public AudioSource collectSound;
-    public TextMeshProUGUI scoreText;
-    public int playerScore;
+    //public GameObject totalScore;
+    //public TextMeshProUGUI scoreText;
+    //public int cinScore;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +29,8 @@ public class vb_cin : MonoBehaviour
         collectSound.Play();
         cinAnim.Play("cinAnim");
         cinAnim.Play("cinDoneAnim");
-        playerScore += 1;
-        scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
+        TotalScore.totalScore += 1;
+        //scoreText.GetComponent<Text>().text = "INGREDIENTS: " + playerScore;
         Debug.Log("Button Pressed");
 
     }
