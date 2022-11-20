@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<QCARInfo>
+    <TargetSet version="33.0" toolVersion="v5.1.0-24-g2795492">
+        <ModelTarget name="Vuforia_MarsLander" targetId="73f4959803254ae6980e806ef0253f48" bbox="-0.076974 0.000075 -0.054268 0.073280 0.110221 0.076523" version="11.1" toolVersion="v5.1.0-24-g2795492" trackingMode="default" upVector="0.0 1.0 0.0" realisticTextures="no"/>
+        <ModelTarget name="Vuforia_RZR_Toy" targetId="314d3d9ebd4845b483a5569d78c85543" bbox="-0.044932 0.017605 -0.082495 0.042234 0.103702 0.081011" version="11.1" toolVersion="v5.1.0-24-g2795492" trackingMode="car" upVector="0.0 1.0 0.0" realisticTextures="no"/>
+    </TargetSet>
+    <Assembly name="Vuforia_MarsLander" assemblyId="668736f0d1cf4b4e86b49951b5a64299">
+        <Part name="Vuforia_MarsLander" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint image="Dome.png" rotation="AD: -0.9327466756918392 -0.09008579274270886 0.3490962459433513 152.93277540020856" translation="0.005913075249816181 0.04361378674498996 0.42734418141747804" name="Dome" trained="yes" />
+    </Assembly>
+    <Assembly name="Vuforia_RZR_Toy" assemblyId="1a2be78ce3a34211bf6f81548e54154e">
+        <Part name="Vuforia_RZR_Toy" translation="0 0 0" rotation="AD: 0 0 1 0" />
+        <EntryPoint image="Dome.png" rotation="AD: -0.8519570698115602 -0.1129846297507095 0.5112764659537886 158.6754551998147" translation="-0.0012890232129627063 0.05465050788712795 0.6012040956464689" name="Dome" trained="yes" />
+    </Assembly>
+    <ModelTargetDatabase mtDBid="99c61201c2c143b5910687838ecfc946" name="Vuforia_Marslander_RZR_Toy_Advanced" toolVersion="v5.1.0-24-g2795492" version="33.0">
+        <RecognitionResult assemblyId="668736f0d1cf4b4e86b49951b5a64299" assemblyName="Vuforia_MarsLander" entryPoint="Dome" />
+        <RecognitionResult assemblyId="1a2be78ce3a34211bf6f81548e54154e" assemblyName="Vuforia_RZR_Toy" entryPoint="Dome" />
+    </ModelTargetDatabase>
+</QCARInfo>

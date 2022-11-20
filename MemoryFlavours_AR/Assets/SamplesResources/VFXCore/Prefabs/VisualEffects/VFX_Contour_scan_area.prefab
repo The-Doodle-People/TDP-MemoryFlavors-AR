@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5093172961916591822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5093172961916591821}
+  - component: {fileID: 5093172961916591820}
+  m_Layer: 0
+  m_Name: VFX_Contour_scan_area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5093172961916591821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5093172961916591822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5093172961916591820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5093172961916591822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589f1d7bc83744d79973f2a6f8ae4156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetObject: {fileID: 0}
+  EffectMaterial: {fileID: 2100000, guid: cf09f5c6712d64a71ac01ebe9ebe2d47, type: 2}
+  PlayOnAwake: 0
+  Loop: 0
+  AnimationAutoRewind: 1
+  TransitionMode: 0
+  StaticScalarProperties:
+  - name: _AxialClip
+    value: 0
+  - name: _RadialClip
+    value: 1
+  - name: _MinRadius
+    value: 0
+  - name: _DepthThreshold
+    value: 0.02
+  - name: _ClipLineWidth
+    value: 0.05
+  - name: _DistanceFade
+    value: 1
+  StaticVectorProperties: []
+  StaticColors:
+  - name: _ContourColor
+    color: {r: 1, g: 1, b: 1, a: 1}
+  DynamicScalarProperties:
+  - name: _MaxRadius
+    startValue: 0
+    endValue: 1
+    delay: 0
+    duration: 4
+  DynamicVectorProperties: []
+  DynamicColors:
+  - name: _SurfaceColor
+    startColor: {r: 0.34117648, g: 0.69803923, b: 0.26666668, a: 0.50980395}
+    endColor: {r: 1, g: 1, b: 1, a: 0}
+    delay: 2
+    duration: 2
+  - name: _ContourColor
+    startColor: {r: 1, g: 1, b: 1, a: 1}
+    endColor: {r: 1, g: 1, b: 1, a: 0}
+    delay: 3
+    duration: 1
+  OnEffectStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReachedEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  Observer: {fileID: 0}
+  IsTargetShownOnTargetFound: 1
+  ShowDelay: 0
+  ShaderCenter: _Center
+  ShaderAxisX: _AxisX
+  ShaderAxisY: _AxisY
+  ShaderAxisZ: _AxisZ
+  ShaderScale: _Scale
+  Center: {x: 0, y: 0, z: 0}
+  CenterMode: 1

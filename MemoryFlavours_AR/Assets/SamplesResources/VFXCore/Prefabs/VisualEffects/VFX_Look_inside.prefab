@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6024607157412915672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6024607157412915675}
+  - component: {fileID: 3530181146511035629}
+  m_Layer: 9
+  m_Name: VFX_Look_inside
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6024607157412915675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024607157412915672}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3530181146511035629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024607157412915672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589f1d7bc83744d79973f2a6f8ae4156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetObject: {fileID: 0}
+  EffectMaterial: {fileID: 2100000, guid: 1fe562e8dfa2ce144adb03868ffbef6f, type: 2}
+  PlayOnAwake: 0
+  Loop: 0
+  AnimationAutoRewind: 1
+  TransitionMode: 0
+  StaticScalarProperties: []
+  StaticVectorProperties: []
+  StaticColors: []
+  DynamicScalarProperties:
+  - name: _Radius
+    startValue: 0
+    endValue: 0.08
+    delay: 0
+    duration: 1.5
+  DynamicVectorProperties: []
+  DynamicColors: []
+  OnEffectStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReachedEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  Observer: {fileID: 0}
+  IsTargetShownOnTargetFound: 1
+  ShowDelay: 0
+  ShaderCenter: _Center
+  ShaderAxisX: _AxisX
+  ShaderAxisY: _AxisY
+  ShaderAxisZ: _AxisZ
+  ShaderScale: _Scale
+  Center: {x: 0, y: 0, z: 0}
+  CenterMode: 0
