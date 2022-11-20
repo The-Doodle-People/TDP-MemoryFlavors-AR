@@ -10,6 +10,7 @@ public class SFXManager : MonoBehaviour
     public AudioSource SFXShocked;
     public AudioSource storeNoiseAudio;
     public AudioSource sadViolinBGM;
+    public AudioSource buttonAudio;
     
     // Update is called once per frame
     public void CollectAudioOn()
@@ -48,5 +49,10 @@ public class SFXManager : MonoBehaviour
     public void SadViolinBGMOff()
     {
         sadViolinBGM.Stop();
+    }
+
+    public void ButtonClickOn()
+    {
+        buttonAudio.Play();
     }
 }
