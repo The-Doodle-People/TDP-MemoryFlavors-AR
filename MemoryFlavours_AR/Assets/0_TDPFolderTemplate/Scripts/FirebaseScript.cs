@@ -22,6 +22,7 @@ public class FirebaseScript : MonoBehaviour
     public GameObject sharingMemoryUI;
     public GameObject errorMsg;
     public GameObject titleSprite;
+    public GameObject viewMemory;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,7 @@ public class FirebaseScript : MonoBehaviour
                 titleSprite.SetActive(false);
                 sharingMemoryUI.SetActive(true);
                 errorMsg.SetActive(false);
+                viewMemory.SetActive(true);
                 GetMemory();
 
             } else
