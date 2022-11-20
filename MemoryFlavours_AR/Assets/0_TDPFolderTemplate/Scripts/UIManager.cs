@@ -19,6 +19,16 @@ public class UIManager : MonoBehaviour
     Dictionary<GameObject, bool> trackedObjectStatus = new Dictionary<GameObject, bool>();
 
     /// <summary>
+    /// Stores the UI element at the start
+    /// </summary>
+    public GameObject startGuide;
+
+    /// <summary>
+    /// Stores the UI element starting of app
+    /// </summary>
+    public GameObject welcomeBar;
+
+    /// <summary>
     /// Store the gameobjects of each steps
     /// </summary>
     public GameObject startBtn;
@@ -139,6 +149,12 @@ public class UIManager : MonoBehaviour
     /// Stores the canva game object
     /// </summary>
     public GameObject sharingPadletUI;
+
+    private void Start()
+    {
+        startGuide.SetActive(true);
+    }
+
 
     private void Update()
     {
@@ -275,7 +291,8 @@ public class UIManager : MonoBehaviour
             if (objectToTrack.name == "AngKuKueh_Model" && currentStep == 1 && audioIsPlaying == false)
             {
                 playVoiceOver();
-
+                welcomeBar.SetActive(true);
+                startGuide.SetActive(false);
             }
 
             if (objectToTrack.name == "table_model" && currentStep == 2)
