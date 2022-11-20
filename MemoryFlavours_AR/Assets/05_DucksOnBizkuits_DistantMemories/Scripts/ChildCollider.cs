@@ -4,8 +4,6 @@
  * Description: Sets the childs ethnicity and sends the childs responses upon user click
  */
 
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 

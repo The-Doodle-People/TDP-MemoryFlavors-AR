@@ -4,9 +4,6 @@
  * Description: Script to apply onto the pause menu UI such as audio mute, pause and resume functions
  */
 
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Vuforia;

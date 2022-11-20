@@ -4,8 +4,6 @@
  * Description: Handles the raycasting to allow the user to click on the children prefabs
  */
 
-using System;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -60,7 +58,7 @@ public class TouchHandler : MonoBehaviour
         if (hitInfo.collider)
         {
             //Do something
-            Debug.Log("TouchDetected " + hitInfo.collider.name);
+            // Debug.Log("TouchDetected " + hitInfo.collider.name);
             EditItem(hitInfo);
             PlaceItem(hitInfo);
             ChildTouched(hitInfo);
@@ -85,7 +83,7 @@ public class TouchHandler : MonoBehaviour
             if (!hitInfo.collider.transform.parent) return;
             holdingItem = true;
             var handObject = camera.transform.GetChild(1);
-            Debug.Log("TouchDetected " + hitInfo.collider.tag);
+            // Debug.Log("TouchDetected " + hitInfo.collider.tag);
             // future code? If UI function to change position of the shelf, might need this!
             shelfItems.itemIndex.Add(hitInfo.collider.transform.parent.GetSiblingIndex());
             Destroy(hitInfo.collider.gameObject);
@@ -96,7 +94,7 @@ public class TouchHandler : MonoBehaviour
                 var child = handObject.GetChild(i).gameObject;
                 var active = child.CompareTag(targetTag);
                 child.SetActive(active);
-                if (active) Debug.Log(child.name);
+                // if (active) Debug.Log(child.name);
             }
             gameUI.SetCurrentObject(handObject);
             gameUI.BtnActive();
@@ -119,7 +117,7 @@ public class TouchHandler : MonoBehaviour
         holdingItem = false;
         
         
-        Debug.Log(gameUI.objectInHand.transform.GetChild(0));
+        // Debug.Log(gameUI.objectInHand.transform.GetChild(0));
         Rigidbody item;
         var pos = target.position;
         item = Instantiate(gameUI.objectInHand.transform.GetChild(0).GetComponent<Rigidbody>(),
@@ -137,8 +135,7 @@ public class TouchHandler : MonoBehaviour
         var target = hitInfo.collider.transform;
         if (!target.CompareTag("Child")) return;
 
-        Debug.Log(target.name);
-
+        // Debug.Log(target.name);
         var tScript = target.GetComponent<ChildCollider>();
         gameManager.quizId = tScript.quizId;
         tScript.ChangeChat();

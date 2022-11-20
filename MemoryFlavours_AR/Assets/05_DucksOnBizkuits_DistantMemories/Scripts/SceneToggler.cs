@@ -4,9 +4,6 @@
  * Description: Script to fade back into game scene after refreshing
  */
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SceneToggler : MonoBehaviour
@@ -16,13 +13,13 @@ public class SceneToggler : MonoBehaviour
     
     private void Start()
     {
-        Debug.Log("startttt");
+        // Debug.Log("startttt");
         gameManager = FindObjectOfType<GameManager>();
     }
 
     public void InsertScene()
     {
-        Debug.Log("issue");
+        // Debug.Log("issue");
         gameManager.sceneIndex = nextScene;
     }
 
