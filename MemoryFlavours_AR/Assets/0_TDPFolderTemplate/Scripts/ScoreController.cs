@@ -40,7 +40,6 @@ public class ScoreController : MonoBehaviour
                     score++;
                     sfx.CollectAudioOn();
                 }
-                
             }
             else
             {
@@ -50,10 +49,7 @@ public class ScoreController : MonoBehaviour
                 Debug.Log("Game ended " + gameOver);
                 GameOver();
             }
-
-
-        }
-        
+        }  
     }
     public void GameOver()
     {

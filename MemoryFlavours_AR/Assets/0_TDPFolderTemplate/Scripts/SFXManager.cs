@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SFXManager : MonoBehaviour
 {
-    [SerializeField] private static AudioSource SFXCollectAudio;
+    public AudioSource SFXCollectAudio;
     public AudioSource SFXTablePlaced;
     public AudioSource SFXTableBreak;
     public AudioSource SFXShocked;
+    public AudioSource storeNoiseAudio;
     
     // Update is called once per frame
     public void CollectAudioOn()
@@ -26,5 +27,15 @@ public class SFXManager : MonoBehaviour
     public void ShockedAudioOn()
     {
         SFXShocked.Play();
+    }
+
+    public void StoreNoiseOn()
+    {
+        storeNoiseAudio.Play();
+    }
+
+    public void StoreNoiseOff()
+    {
+        storeNoiseAudio.Stop();
     }
 }

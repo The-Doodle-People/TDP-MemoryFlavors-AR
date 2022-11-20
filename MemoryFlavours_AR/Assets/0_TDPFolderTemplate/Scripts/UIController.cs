@@ -11,6 +11,15 @@ public class UIController : MonoBehaviour
     // Restart confirmation tab 
     public GameObject restartConfirmation;
 
+    // Quit Confirmation tab
+    public GameObject quitConfirmation;
+
+    // End Restart confirmation tab 
+    public GameObject endRestartConfirmation;
+
+    // End Quit Confirmation tab
+    public GameObject endQuitConfirmation;
+
     // Animator for loading screen
     public Animator loadingScreen;
 
@@ -125,6 +134,8 @@ public class UIController : MonoBehaviour
         canPlaceTable = false;
         tablePlaced = true;
         canInteractWithDimsum = true;
+        // Play Store noise audio
+        sfx.StoreNoiseOn();
         //play table placed audio
         sfx.TablePlacedAudioOn();
 
@@ -135,7 +146,8 @@ public class UIController : MonoBehaviour
         experienceStarted = true;
         // Play loading animation
         loadingScreen.SetBool("experienceStart", true);
-        // Wait 6.5 seconds for loading screen to fade in and out
+        
+        // Wait 6.5 seconds for loading screen to fade in
         yield return new WaitForSeconds(6.5f);
         ToggleMainUI();
         // Stop loading animation
@@ -230,9 +242,53 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void ToggleEndRestart()
+    {
+        if (!endRestartConfirmation.activeSelf)
+        {
+            endRestartConfirmation.SetActive(true);
+        }
+
+        else if (endRestartConfirmation.activeSelf)
+        {
+            endRestartConfirmation.SetActive(false);
+        }
+    }
+
     public void RestartConfirm()
     {
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+    }
+
+    public void ToggleQuit()
+    {
+        if (!quitConfirmation.activeSelf)
+        {
+            quitConfirmation.SetActive(true);
+        }
+
+        else if (quitConfirmation.activeSelf)
+        {
+            quitConfirmation.SetActive(false);
+        }
+    }
+
+    public void ToggleEndQuit()
+    {
+        if (!endQuitConfirmation.activeSelf)
+        {
+            endQuitConfirmation.SetActive(true);
+        }
+
+        else if (endQuitConfirmation.activeSelf)
+        {
+            endQuitConfirmation.SetActive(false);
+        }
+    }
+
+    public void QuitConfirm()
+    {
+        Application.Quit();
     }
 
     IEnumerator PlayTableFall()
@@ -241,51 +297,64 @@ public class UIController : MonoBehaviour
         // Play TableFall animation
         tableAnimator.SetBool("TableFall", true);
 
+        yield return new WaitForSeconds(0.3f);
+        // Play shocked audio
+        sfx.ShockedAudioOn();
+
+        yield return new WaitForSeconds(0.4f);
+        // Play TableBreak audio
+        sfx.TableBreakAudioOn();
+
         // Changing character animation speed according to speed of table animation
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.3f);
         boy12Animator.speed = 0.7f;
         boy6Animator.speed = 0.7f;
         girl6Animator.speed = 0.7f;
         girl12Animator.speed = 0.7f;
-        // Play TableBreak audio
-        sfx.TableBreakAudioOn();
+        sfx.storeNoiseAudio.pitch = 0.7f;
+        
         yield return new WaitForSeconds(0.5f);
         boy12Animator.speed = 0.6f;
         boy6Animator.speed = 0.6f;
         girl6Animator.speed = 0.6f;
         girl12Animator.speed = 0.6f;
-        // Play shocked audio
-        sfx.ShockedAudioOn();
+        sfx.storeNoiseAudio.pitch = 0.6f;
         yield return new WaitForSeconds(0.4f);
         boy12Animator.speed = 0.55f;
         boy6Animator.speed = 0.55f;
         girl6Animator.speed = 0.55f;
         girl12Animator.speed = 0.55f;
+        sfx.storeNoiseAudio.pitch = 0.55f;
         yield return new WaitForSeconds(0.4f);
         boy12Animator.speed = 0.45f;
         boy6Animator.speed = 0.45f;
         girl6Animator.speed = 0.45f;
         girl12Animator.speed = 0.45f;
+        sfx.storeNoiseAudio.pitch = 0.45f;
         yield return new WaitForSeconds(0.3f);
         boy12Animator.speed = 0.35f;
         boy6Animator.speed = 0.35f;
         girl6Animator.speed = 0.35f;
         girl12Animator.speed = 0.35f;
+        sfx.storeNoiseAudio.pitch = 0.35f;
         yield return new WaitForSeconds(0.3f);
         boy12Animator.speed = 0.25f;
         boy6Animator.speed = 0.25f;
         girl6Animator.speed = 0.25f;
         girl12Animator.speed = 0.25f;
+        sfx.storeNoiseAudio.pitch = 0.25f;
         yield return new WaitForSeconds(0.3f);
         boy12Animator.speed = 0.15f;
         boy6Animator.speed = 0.15f;
         girl6Animator.speed = 0.15f;
         girl12Animator.speed = 0.15f;
+        sfx.storeNoiseAudio.pitch = 0.15f;
         yield return new WaitForSeconds(0.3f);
         boy12Animator.speed = 0f;
         boy6Animator.speed = 0f;
         girl6Animator.speed = 0f;
         girl12Animator.speed = 0f;
+        sfx.StoreNoiseOff();
         //yield return new WaitForSeconds(3.5f);
 
         yield return new WaitForSeconds(2f);
