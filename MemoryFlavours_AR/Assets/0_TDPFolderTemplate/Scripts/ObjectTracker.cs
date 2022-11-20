@@ -67,11 +67,12 @@ public class ObjectTracker : MonoBehaviour
         {
             Debug.Log((objectToTrack.name) + " is no longer being tracked.");
             trackedObjectStatus[objectToTrack] = false;
-            if (objectToTrack == startImageTarget && !uiControllerScript.tablePlaced)
+            if (objectToTrack == startImageTarget && !uiControllerScript.tablePlaced && VuforiaBehaviour.Instance.enabled)
             {
                 Debug.Log("Change Text");
                 // turn off table ground plane
                 groundPlane.SetActive(false);
+                planeFinder.SetActive(false);
                 // Change Game text
                 gameText.text = "SCAN THE\nPOSTCARD IMAGE!";
                 uiControllerScript.canPlaceTable = false;
