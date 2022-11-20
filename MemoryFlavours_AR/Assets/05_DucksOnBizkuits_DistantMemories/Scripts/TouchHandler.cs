@@ -1,7 +1,7 @@
 /*
  * Author: Chao Hao
  * Last Updated: 18/11/2022 
- * Description:
+ * Description: Handles the raycasting to allow the user to click on the children prefabs
  */
 
 using System;

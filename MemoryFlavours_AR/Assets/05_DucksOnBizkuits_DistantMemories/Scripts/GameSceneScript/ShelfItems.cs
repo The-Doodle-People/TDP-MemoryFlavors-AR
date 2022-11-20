@@ -1,3 +1,9 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Manages the items on the shelf and makes them disappear when picked up
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

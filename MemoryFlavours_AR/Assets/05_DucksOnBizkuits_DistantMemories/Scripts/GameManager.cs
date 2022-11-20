@@ -1,7 +1,7 @@
 /*
  * Author: Chao Hao
  * Last Updated: 18/11/2022 
- * Description:
+ * Description: Manages the scenes switch states and runs codes depending on scene switches 
  */
 
 using System.Collections;

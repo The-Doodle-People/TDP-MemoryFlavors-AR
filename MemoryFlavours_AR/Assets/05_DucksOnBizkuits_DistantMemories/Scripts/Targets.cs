@@ -1,3 +1,9 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Spawns the targets for the runner children
+ */
+
 using UnityEngine;
 
 public class Targets : MonoBehaviour

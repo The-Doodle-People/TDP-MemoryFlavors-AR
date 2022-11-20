@@ -1,3 +1,10 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Within a certain radius, a random point will be spawned and the child 
+ *              will decide whether they walk to the point or wait
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

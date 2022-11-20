@@ -1,7 +1,7 @@
 /*
  * Author: Chao Hao
  * Last Updated: 18/11/2022 
- * Description:
+ * Description: Generates the "quiz" that allows players to place in ingredients to create the snacks
  */
 
 using System.Collections.Generic;
