@@ -211,6 +211,7 @@ public class UIController : MonoBehaviour
                 cameraOff.SetActive(true);
                 startImageTarget.SetActive(false);
                 groundStage.SetActive(false);
+                planeFinder.SetActive(false);
                 sfx.StoreNoiseOff();
             }
 

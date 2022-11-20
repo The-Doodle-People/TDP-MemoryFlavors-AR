@@ -79,6 +79,13 @@ public class ObjectTracker : MonoBehaviour
                 uiControllerScript.canScanPostcard = true;
                 uiControllerScript.postcardScanned = false;
             }
+
+            if (objectToTrack == startImageTarget && uiControllerScript.canScanPostcardAgain)
+            {
+                uiControllerScript.postcardScanned2 = true;
+                gameText.text = "SCAN THE POSTCARD\nIMAGE AGAIN!";
+                arrowImage.SetActive(false);
+            }
         }
 
         else
