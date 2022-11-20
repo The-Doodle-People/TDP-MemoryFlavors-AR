@@ -1,3 +1,10 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: AI script that sets one child to a runner and one to a chaser
+ *              Runner will run based on target points and chaser will chase after runner
+ */
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;

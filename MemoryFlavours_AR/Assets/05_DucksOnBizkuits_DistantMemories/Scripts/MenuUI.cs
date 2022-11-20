@@ -1,3 +1,9 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Script to apply onto the pause menu UI such as audio mute, pause and resume functions
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

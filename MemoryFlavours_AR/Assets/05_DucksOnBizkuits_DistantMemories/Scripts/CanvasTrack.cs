@@ -1,3 +1,9 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Gets world space canvas to always face player 
+ */
+
 using UnityEngine;
 
 /// <summary>

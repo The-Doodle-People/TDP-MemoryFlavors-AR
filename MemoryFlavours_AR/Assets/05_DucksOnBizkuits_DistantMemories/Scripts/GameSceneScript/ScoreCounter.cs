@@ -1,3 +1,9 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Manages the score and timer and UI of game over popup
+ */
+
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;

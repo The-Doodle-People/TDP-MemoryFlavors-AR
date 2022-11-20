@@ -1,3 +1,9 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Script to fade back into game scene after refreshing
+ */
+
 using System;
 using System.Collections;
 using System.Collections.Generic;

@@ -1,3 +1,9 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Script to fade into the cmera refresh scene
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;

@@ -1,3 +1,9 @@
+/*
+ * Author: Chao Hao
+ * Last Updated: 18/11/2022 
+ * Description: Allows players to pick up and drop ingredients
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
