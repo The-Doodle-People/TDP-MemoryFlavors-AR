@@ -66,6 +66,8 @@ public class IceKacangTracker : MonoBehaviour
     public AudioSource syrAudio;
     public AudioSource milkAudio;
     public AudioSource btnAudio;
+    public AudioSource cheerAudio;
+    public AudioSource finishAudio;
     /// <summary>
     /// Values to use
     /// </summary>
@@ -311,6 +313,8 @@ public class IceKacangTracker : MonoBehaviour
         listDropdown.SetActive(false);
         picBtn.SetActive(true);
         stars.Play();
+        cheerAudio.Play();
+        finishAudio.Play();
         picTxt.SetActive(true);
         FindObjectOfType<SwitchInfo>().Back();
         await Task.Delay(2000);
