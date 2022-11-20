@@ -9,6 +9,7 @@ public class TouchHandler : MonoBehaviour
     public GameObject uiController;
     // Reference UIController script
     UIController uiControllerScript;
+    public SFXManager sfx;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class TouchHandler : MonoBehaviour
                 Debug.Log("Touch detected");
                 uiControllerScript.canInteractWithDimsum = false;
                 uiControllerScript.interactedWithDimsum = true;
+                sfx.ButtonClickOn();
             }
         }
     }
