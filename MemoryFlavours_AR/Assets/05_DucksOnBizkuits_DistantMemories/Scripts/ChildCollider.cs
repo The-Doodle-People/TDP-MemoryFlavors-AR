@@ -33,8 +33,10 @@ public class ChildCollider : MonoBehaviour
         /*
          * "IceGemBiscuits", "BiscuitPiring", "Murukku", "ChocolateEggs"
          */
-        prompt.SetActive(false);
-        speech.transform.parent.gameObject.SetActive(true);
+        prompt.transform.parent.gameObject.SetActive(false);
+        speech.transform.parent.parent.gameObject.SetActive(true);
+        FindObjectOfType<PlaygroundUI>().StartFade();
+        
         var type = quizId switch
         {
             0 => "Ice Gem Biscuits",
@@ -43,7 +45,7 @@ public class ChildCollider : MonoBehaviour
             3 => "Chocolate Eggs",
             _ => ""
         };
-
+        
         speech.text = "I love " + type + ". Can you make me some?";
     }
 }

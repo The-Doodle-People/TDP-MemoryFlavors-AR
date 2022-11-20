@@ -6,6 +6,7 @@ using UnityEngine;
 public class CanvasTrack : MonoBehaviour
 {
     public Camera playerCamera;
+    public GameObject responseChat;
 
     // code to set the player's camera as the default camera
     private void Start()

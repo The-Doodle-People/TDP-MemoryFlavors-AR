@@ -51,7 +51,7 @@ public class TouchHandler : MonoBehaviour
         Ray ray = camera.ScreenPointToRay(rayPosition);
         // prep out data
         RaycastHit hitInfo;
-        var layerMasking = LayerMask.GetMask("Ignore Raycast");
+        var layerMasking = LayerMask.GetMask("Ignore Raycast", "AIController");
         
         // Guard clause. If the raycast doesnt hit anything, it does do anything
         if (!(Physics.Raycast(ray, out hitInfo, layerMasking))) return;
@@ -134,10 +134,10 @@ public class TouchHandler : MonoBehaviour
 
         if (gameManager.sceneIndex != 0) return;
 
-        var target = hitInfo.transform;
+        var target = hitInfo.collider.transform;
         if (!target.CompareTag("Child")) return;
 
-        Debug.Log("clickkkkk");
+        Debug.Log(target.name);
 
         var tScript = target.GetComponent<ChildCollider>();
         gameManager.quizId = tScript.quizId;
