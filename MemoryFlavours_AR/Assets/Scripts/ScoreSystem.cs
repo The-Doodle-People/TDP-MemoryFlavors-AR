@@ -1,3 +1,9 @@
+/*
+ * Author: Nurul Iffah Binte Mohammad Jailani, Nien-En Josephine Ng, Nomitha Velmurugan
+ * Date: 29 Oct 2022    
+ * Description: Unused script to do score system
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

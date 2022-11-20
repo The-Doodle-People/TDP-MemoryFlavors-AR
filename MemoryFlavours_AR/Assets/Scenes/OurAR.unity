@@ -541,6 +541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 868442846}
+  videoSource: {fileID: 559082003}
+  firstDescription: {fileID: 1197075996}
+  secondDescription: {fileID: 1454380952}
 --- !u!1 &161380545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,7 +1450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &559082004
 Transform:
   m_ObjectHideFlags: 0
@@ -1457,7 +1460,7 @@ Transform:
   m_GameObject: {fileID: 559082003}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   m_LocalPosition: {x: 0.018, y: 0, z: 0.9648}
-  m_LocalScale: {x: 0.066, y: 0.12065, z: 0.045}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.065}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 916531267}
@@ -1686,6 +1689,7 @@ GameObject:
   - component: {fileID: 630179397}
   - component: {fileID: 630179398}
   - component: {fileID: 630179399}
+  - component: {fileID: 630179400}
   m_Layer: 0
   m_Name: ginger garlic paste
   m_TagString: Ingredients
@@ -1809,6 +1813,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &630179400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630179394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71447a8b74a7801408620559b96ebf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnGG: {fileID: 1998348938}
+  ggAnim: {fileID: 630179397}
+  collectSound: {fileID: 1629525484}
 --- !u!1 &750369405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2102,6 +2121,7 @@ GameObject:
   - component: {fileID: 853114657}
   - component: {fileID: 853114658}
   - component: {fileID: 853114659}
+  - component: {fileID: 853114660}
   m_Layer: 0
   m_Name: mint leaves
   m_TagString: Ingredients
@@ -2225,6 +2245,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &853114660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853114654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516a0b79100a33f45ab18ca3d551035f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnMint: {fileID: 309096018}
+  mintAnim: {fileID: 853114657}
+  collectSound: {fileID: 1629525484}
 --- !u!1 &868442844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +3024,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1197075997}
+  - {fileID: 1454380953}
   m_Father: {fileID: 498173545}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3347,6 +3383,7 @@ GameObject:
   - component: {fileID: 1120990883}
   - component: {fileID: 1120990884}
   - component: {fileID: 1120990885}
+  - component: {fileID: 1120990886}
   m_Layer: 0
   m_Name: chicken
   m_TagString: Ingredients
@@ -3470,6 +3507,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1120990886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120990880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0118f45c6ad0840b4e3f40ed730035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnChicken: {fileID: 1956110170}
+  chickenAnim: {fileID: 1120990883}
+  collectSound: {fileID: 1629525484}
+  totalScore: {fileID: 96985535}
 --- !u!1 &1157009933
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,6 +3536,7 @@ GameObject:
   - component: {fileID: 1157009936}
   - component: {fileID: 1157009937}
   - component: {fileID: 1157009938}
+  - component: {fileID: 1157009939}
   m_Layer: 0
   m_Name: Cinnamon
   m_TagString: Ingredients
@@ -3606,6 +3660,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1157009939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157009933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c953c1e54e1584796a170f7484b12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnCin: {fileID: 161380545}
+  cinAnim: {fileID: 1157009936}
+  collectSound: {fileID: 1629525484}
 --- !u!1 &1180702562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,6 +3688,7 @@ GameObject:
   - component: {fileID: 1180702565}
   - component: {fileID: 1180702566}
   - component: {fileID: 1180702568}
+  - component: {fileID: 1180702569}
   m_Layer: 0
   m_Name: cardamom
   m_TagString: Ingredients
@@ -3742,6 +3812,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1180702569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180702562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b36b79513a319ce45b761190a55e8f86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnCarda: {fileID: 525610025}
+  cardaAnim: {fileID: 1180702565}
+  collectSound: {fileID: 1629525484}
 --- !u!1 &1197075996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3754,7 +3839,7 @@ GameObject:
   - component: {fileID: 1197075999}
   - component: {fileID: 1197075998}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: FirstDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3801,7 +3886,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Collect each of the ingredients needed to make chicken biryani. \n\nTo
-    collect: Cover the bowl of ingredient on the postcard"
+    collect: Cover the bowl of the ingredient on the postcard"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -4353,12 +4438,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1232206175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce36d78c4189ba347aeb28f0ab10be6a, type: 3}
+  m_Script: {fileID: 11500000, guid: df17b5a3d8fd4024bb09e486aa029579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 36443162}
-  myAnimator: {fileID: 1232206178}
+  vbBtnRice: {fileID: 1546107514}
+  riceAnim: {fileID: 1232206178}
   collectSound: {fileID: 1629525484}
+  totalScore: {fileID: 96985535}
 --- !u!1 &1239984502
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,16 +5257,7 @@ GameObject:
   - component: {fileID: 1451898996}
   - component: {fileID: 1451898995}
   - component: {fileID: 1451898994}
-  - component: {fileID: 1451898998}
-  - component: {fileID: 1451899000}
-  - component: {fileID: 1451899003}
-  - component: {fileID: 1451899002}
-  - component: {fileID: 1451899004}
-  - component: {fileID: 1451899007}
-  - component: {fileID: 1451899006}
-  - component: {fileID: 1451899008}
-  - component: {fileID: 1451899009}
-  - component: {fileID: 1451899010}
+  - component: {fileID: 1451898997}
   m_Layer: 0
   m_Name: ImageTarget
   m_TagString: Untagged
@@ -5281,7 +5358,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 1451899010}
+  mPreview: {fileID: 1451898997}
 --- !u!4 &1451898996
 Transform:
   m_ObjectHideFlags: 0
@@ -5317,144 +5394,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1451898998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0118f45c6ad0840b4e3f40ed730035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnChicken: {fileID: 1956110170}
-  chickenAnim: {fileID: 1120990883}
-  collectSound: {fileID: 1629525484}
-  totalScore: {fileID: 0}
---- !u!114 &1451899000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c142c97eb9d9f849820c153994a7f26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnOnion: {fileID: 45101426}
-  onionAnim: {fileID: 2141850903}
-  collectSound: {fileID: 1629525484}
---- !u!114 &1451899002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71447a8b74a7801408620559b96ebf67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnGG: {fileID: 1998348938}
-  ggAnim: {fileID: 630179397}
-  collectSound: {fileID: 1629525484}
---- !u!114 &1451899003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bca2ca33659be74a9eaef5266d8f588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnChilli: {fileID: 212642828}
-  chilliAnim: {fileID: 1588606492}
-  collectSound: {fileID: 1629525484}
---- !u!114 &1451899004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c953c1e54e1584796a170f7484b12e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnCin: {fileID: 161380545}
-  cinAnim: {fileID: 1157009936}
-  collectSound: {fileID: 1629525484}
---- !u!114 &1451899006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 146cd205aade23b468d5092b8c679b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnGM: {fileID: 1427408210}
-  gmAnim: {fileID: 1517779364}
-  collectSound: {fileID: 1629525484}
---- !u!114 &1451899007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 516a0b79100a33f45ab18ca3d551035f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnMint: {fileID: 309096018}
-  mintAnim: {fileID: 853114657}
-  collectSound: {fileID: 1629525484}
---- !u!114 &1451899008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df17b5a3d8fd4024bb09e486aa029579, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnRice: {fileID: 1546107514}
-  riceAnim: {fileID: 1232206178}
-  collectSound: {fileID: 1629525484}
-  totalScore: {fileID: 96985535}
---- !u!114 &1451899009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451898992}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36b79513a319ce45b761190a55e8f86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnCarda: {fileID: 525610025}
-  cardaAnim: {fileID: 1180702565}
-  collectSound: {fileID: 1629525484}
---- !u!114 &1451899010
+--- !u!114 &1451898997
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5473,6 +5413,142 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 1451898995}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!1 &1454380952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454380953}
+  - component: {fileID: 1454380955}
+  - component: {fileID: 1454380954}
+  m_Layer: 5
+  m_Name: SecondDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1454380953
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454380952}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1031752069}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.0349, y: -3.4137}
+  m_SizeDelta: {x: 804.9872, y: 294.8275}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1454380954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454380952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Well Done! \n\nWatch the short video above and walk through the memory
+    lane. "
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1454380955
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454380952}
+  m_CullTransparentMesh: 1
 --- !u!1 &1517779361
 GameObject:
   m_ObjectHideFlags: 0
@@ -5486,6 +5562,7 @@ GameObject:
   - component: {fileID: 1517779364}
   - component: {fileID: 1517779365}
   - component: {fileID: 1517779366}
+  - component: {fileID: 1517779367}
   m_Layer: 0
   m_Name: garam masala
   m_TagString: Ingredients
@@ -5609,6 +5686,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1517779367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517779361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146cd205aade23b468d5092b8c679b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnGM: {fileID: 1427408210}
+  gmAnim: {fileID: 1517779364}
+  collectSound: {fileID: 1629525484}
 --- !u!1 &1531375156
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,6 +6096,7 @@ GameObject:
   - component: {fileID: 1588606492}
   - component: {fileID: 1588606493}
   - component: {fileID: 1588606494}
+  - component: {fileID: 1588606495}
   m_Layer: 0
   m_Name: chilli powder
   m_TagString: Ingredients
@@ -6127,6 +6220,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1588606495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588606489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bca2ca33659be74a9eaef5266d8f588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnChilli: {fileID: 212642828}
+  chilliAnim: {fileID: 1588606492}
+  collectSound: {fileID: 1629525484}
 --- !u!1 &1593085849
 GameObject:
   m_ObjectHideFlags: 0
@@ -6927,7 +7035,6 @@ GameObject:
   - component: {fileID: 1956110175}
   - component: {fileID: 1956110174}
   - component: {fileID: 1956110173}
-  - component: {fileID: 1956110176}
   - component: {fileID: 1956110172}
   m_Layer: 0
   m_Name: chickenBtn
@@ -7053,22 +7160,6 @@ MonoBehaviour:
     e33: 1
   mPrevParent: {fileID: 1451898992}
   mPreviousVirtualSceneScaleFactor: 1
---- !u!114 &1956110176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1956110170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f0118f45c6ad0840b4e3f40ed730035, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vbBtnChicken: {fileID: 1956110170}
-  chickenAnim: {fileID: 1120990883}
-  collectSound: {fileID: 1629525484}
-  totalScore: {fileID: 96985535}
 --- !u!1 &1998348938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7969,6 +8060,7 @@ GameObject:
   - component: {fileID: 2141850903}
   - component: {fileID: 2141850904}
   - component: {fileID: 2141850905}
+  - component: {fileID: 2141850906}
   m_Layer: 0
   m_Name: onion
   m_TagString: Ingredients
@@ -8092,3 +8184,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2141850906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141850900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c142c97eb9d9f849820c153994a7f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vbBtnOnion: {fileID: 45101426}
+  onionAnim: {fileID: 2141850903}
+  collectSound: {fileID: 1629525484}
