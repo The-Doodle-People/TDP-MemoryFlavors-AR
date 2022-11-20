@@ -105,22 +105,46 @@ public class TriggerCheck : MonoBehaviour
 
 
     //step 5
+
+    /// <summary>
+    /// bool to check if the dough and the filling is in the mold
+    /// </summary>
     public bool doughInMold = false;
     public bool fillingInMold = false;
 
+    /// <summary>
+    /// fixed positions for the dough and filling
+    /// </summary>
     public Transform doughPosition;
     public Transform fillingPosition;
 
+    /// <summary>
+    /// call UI for the molding process
+    /// </summary>
     public GameObject moldingUI;
 
+    /// <summary>
+    /// particle system for molding process 
+    /// </summary>
     public ParticleSystem moldingPower;
 
     //Step 6
+
+    /// <summary>
+    /// bool to check if kueh is in steamer and if the steamer's cover is on 
+    /// </summary>
     public bool kuehInSteamer = false;
     public bool steamerCapOn = false;
 
+    /// <summary>
+    /// posiitons for the angkukueh in the steamer, position for the steamer cap
+    /// </summary>
     public Transform angkkPos;
     public Transform steamerCapPos;
+
+    /// <summary>
+    /// call UI Manager 
+    /// </summary>
     public UIManager uiMgr;
 
     public GameObject coverLabel;
@@ -205,7 +229,7 @@ public class TriggerCheck : MonoBehaviour
                 adjustComponents();
             }
         }
-
+        /// once the moldTigger- the mold is detected 
         if (other.gameObject.tag == "moldTrigger")
         {
             if (gameObject.tag == "dough")
@@ -223,7 +247,7 @@ public class TriggerCheck : MonoBehaviour
                 adjustComponents();
             }
         }
-
+        ///once steamTrigger- the steamer is detected 
         if (other.gameObject.tag == "steamTrigger")
         {
             if (gameObject.tag == "kueh")

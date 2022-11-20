@@ -1,7 +1,7 @@
 /*
 * Author: Janel Lim
 * Date: 20/11/2022
-* Description: 
+* Description: When touch interacted for step 5 and 6
 */
 
 using System.Collections;
@@ -13,32 +13,65 @@ using UnityEngine.UI;
 
 public class TouchInteractionThree : MonoBehaviour
 {
+    /// <summary>
+    /// GameObjects fo step 5 
+    /// </summary>
     public GameObject kuehMold;
     public GameObject dough;
     public GameObject peanutFilling;
+    /// <summary>
+    /// Trigger checks for to ensure steps before are completed 
+    /// </summary>
     TriggerCheck trigger;
     TriggerCheck triggerCheck;
 
+    /// <summary>
+    /// To call UI Manager script 
+    /// </summary>
     public UIManager managerUI;
 
+
+    /// <summary>
+    /// GameObjects for step 6
+    /// </summary>
     public GameObject steamerCap;
     public GameObject kueh;
 
+    /// <summary>
+    /// scrollbar reference to progrss bar; show if user is done with the step 
+    /// </summary>
     public Scrollbar mixingSlider;
+
+    /// <summary>
+    /// increase number in tag name
+    /// </summary>
     int moldClickPos = 1;
+    /// <summary>
+    /// call circles on the UI for molding
+    /// </summary>
     string moldTag;
     public GameObject moldUI;
+    /// <summary>
+    /// Ang Ku Kueh model to show the user has finished molding 
+    /// </summary>
     public GameObject akkModel;
 
+    /// <summary>
+    /// Particle systems for step 5 and 6
+    /// </summary>
     public ParticleSystem moldingPowder;
     public ParticleSystem finishMolding;
     public ParticleSystem steam;
 
+    /// <summary>
+    /// Audio source for steps 5 and 6
+    /// </summary>
     public AudioSource moldingSound;
     public AudioSource steaming;    
 
     private void Update()
     {
+        // to move the progress bar as the kueh is steaming
         trigger = steamerCap.GetComponent<TriggerCheck>();
        
         if(trigger.steamerCapOn == true)
@@ -86,6 +119,7 @@ public class TouchInteractionThree : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(rayPosition);
         RaycastHit hitInfo;
 
+        //get the user to be able to move the dough and the fillinsg to a specific spot
         trigger = dough.GetComponent<TriggerCheck>();
         if (Physics.Raycast(ray, out hitInfo))
         {
@@ -101,7 +135,7 @@ public class TouchInteractionThree : MonoBehaviour
 
             
 
-
+            //to get the tag the player should click to mold 
             moldTag = "moldCircle" + moldClickPos.ToString();
 
             if (hitInfo.collider.tag == moldTag)
@@ -112,7 +146,7 @@ public class TouchInteractionThree : MonoBehaviour
                 moldingPowder.Play();
                 moldingSound.Play();
 
-
+                //once mixing done 
                 if (mixingSlider.size == 1)
                 {
                     moldClickPos = 1;
@@ -131,6 +165,7 @@ public class TouchInteractionThree : MonoBehaviour
            
         }
 
+        //to let user be able to move the kueh and the stamer cover to a specific spot
         trigger = kueh.GetComponent<TriggerCheck>();
         if (Physics.Raycast(ray, out hitInfo))
         {
