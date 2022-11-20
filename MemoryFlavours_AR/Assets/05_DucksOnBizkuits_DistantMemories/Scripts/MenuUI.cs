@@ -4,23 +4,30 @@
  * Description: Script to apply onto the pause menu UI such as audio mute, pause and resume functions
  */
 
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
 public class MenuUI : MonoBehaviour
 {
-    public AudioSource audio;
+    public AudioSource sound;
     // to toggle AR cam
     private AnchorBehaviour[] groundPlane;
     private ImageTargetBehaviour imageTarget;
 
-    
+    public Camera camera;
+
+    public void Start()
+    {
+        camera = Camera.main;
+    }
     
     public void OnPause()
     {
+        camera.GetComponent<AudioListener>().enabled = false;
+        sound.Pause();
         Time.timeScale = 0;
-        audio.Pause();
         groundPlane = FindObjectsOfType<AnchorBehaviour>();
         imageTarget = FindObjectOfType<ImageTargetBehaviour>();
         
@@ -33,8 +40,9 @@ public class MenuUI : MonoBehaviour
 
     public void OnResume()
     {
+        camera.GetComponent<AudioListener>().enabled = true;
         Time.timeScale = 1f;
-        audio.Play();
+        sound.Play();
         
         foreach (var plane in groundPlane)
         {
@@ -49,10 +57,15 @@ public class MenuUI : MonoBehaviour
         var gameManager = FindObjectOfType<GameManager>();
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            FindObjectOfType<GameManager>().sceneIndex = 0;
+            gameManager.sceneIndex = 0;
         }
         else
         {
+            #if UNITY_EDITOR
+            
+            EditorApplication.ExitPlaymode();
+            
+            #endif
             Application.Quit();
         }
     }
