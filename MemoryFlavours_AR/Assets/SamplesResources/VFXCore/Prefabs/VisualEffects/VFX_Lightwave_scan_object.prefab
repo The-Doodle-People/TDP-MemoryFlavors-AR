@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5694660252637494409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5694660252637494408}
+  - component: {fileID: 5694660252637494423}
+  m_Layer: 0
+  m_Name: VFX_Lightwave_Scan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5694660252637494408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694660252637494409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5694660252637494423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5694660252637494409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589f1d7bc83744d79973f2a6f8ae4156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetObject: {fileID: 0}
+  EffectMaterial: {fileID: 2100000, guid: 8588c2e533f634ae787878f5b4dc6923, type: 2}
+  PlayOnAwake: 0
+  Loop: 0
+  AnimationAutoRewind: 1
+  TransitionMode: 0
+  StaticScalarProperties:
+  - name: _WaveLength
+    value: 0.3
+  - name: _WaveNoise
+    value: 1
+  - name: _NoiseAmp
+    value: 0.1
+  - name: _NoiseFreq
+    value: 10
+  - name: _MosaicEffect
+    value: 1
+  - name: _MosaicBlockSize
+    value: 0.008
+  StaticVectorProperties: []
+  StaticColors: []
+  DynamicScalarProperties:
+  - name: _Radius
+    startValue: 0
+    endValue: 1
+    delay: 0
+    duration: 3
+  DynamicVectorProperties: []
+  DynamicColors:
+  - name: _Color
+    startColor: {r: 0, g: 0.33333334, b: 1, a: 1}
+    endColor: {r: 0, g: 0.33333334, b: 1, a: 0}
+    delay: 1
+    duration: 1
+  OnEffectStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReachedEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  Observer: {fileID: 0}
+  IsTargetShownOnTargetFound: 1
+  ShowDelay: 0
+  ShaderCenter: _Center
+  ShaderAxisX: _AxisX
+  ShaderAxisY: _AxisY
+  ShaderAxisZ: _AxisZ
+  ShaderScale: _Scale
+  Center: {x: 0, y: 0, z: 0}
+  CenterMode: 0

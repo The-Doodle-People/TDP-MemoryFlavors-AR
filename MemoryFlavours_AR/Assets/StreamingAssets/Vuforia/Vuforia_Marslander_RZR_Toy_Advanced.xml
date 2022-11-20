@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<QCARConfig>
+    <Tracking>
+        <ModelTarget name="Vuforia_MarsLander" trackingMode="default" motionHint="adaptive" upVector="0.0 1.0 0.0" optimizeTrackingFor="default"> </ModelTarget>
+        <ModelTarget name="Vuforia_RZR_Toy" trackingMode="car" motionHint="adaptive" upVector="0.0 1.0 0.0" optimizeTrackingFor="default"> </ModelTarget>
+    </Tracking>
+    <Assembly name="Vuforia_MarsLander" assemblyId="668736f0d1cf4b4e86b49951b5a64299">
+        <Part name="Vuforia_MarsLander" translation="0 0 0" rotation="AD: 0 0 1 0"></Part>
+        <EntryPoint
+        image="Dome.png" rotation="AD: -0.9327466756918392 -0.09008579274270886 0.3490962459433513 152.93277540020856" translation="0.005913075249816181 0.04361378674498996 0.42734418141747804" name="Dome" trained="yes">
+</EntryPoint>
+    </Assembly>
+    <Assembly name="Vuforia_RZR_Toy" assemblyId="1a2be78ce3a34211bf6f81548e54154e">
+        <Part name="Vuforia_RZR_Toy" translation="0 0 0" rotation="AD: 0 0 1 0"></Part>
+        <EntryPoint
+        image="Dome.png" rotation="AD: -0.8519570698115602 -0.1129846297507095 0.5112764659537886 158.6754551998147" translation="-0.0012890232129627063 0.05465050788712795 0.6012040956464689" name="Dome" trained="yes">
+</EntryPoint>
+    </Assembly>
+    <ModelTargetDatabase name="Vuforia_Marslander_RZR_Toy_Advanced"> </ModelTargetDatabase>
+</QCARConfig>
