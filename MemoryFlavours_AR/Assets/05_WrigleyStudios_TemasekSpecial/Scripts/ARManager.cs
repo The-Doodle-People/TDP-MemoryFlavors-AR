@@ -1,3 +1,10 @@
+/*
+ * Author: Wrigley Studios
+ * Date: 20/11/22
+ * Description: The AR Manager manages everything within the AR scene, such as the scanning,
+ * sending variable to Static Controller and displaying of description.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +54,10 @@ public class ARManager : MonoBehaviour
     /// </summary>
     Dictionary<GameObject, bool> objectsTracked = new Dictionary<GameObject, bool>();
 
+
+    /// <summary>
+    /// Initialize the following variable
+    /// </summary>
     void Awake()
     {
         playAmbience = false;
@@ -80,31 +91,41 @@ public class ARManager : MonoBehaviour
             objectsTracked[objectToTrack] = true;
             //displayText.text = objectToTrack.name + " Track Status: true";
             Debug.Log(objectToTrack.name);
+
+            // Only when devil curry is being scanned
             if (objectToTrack.name == "DevilCurry")
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = objectToTrack.name + "Devil curry also known as curry Debal in Kristang is a very spicy curry flavoured with candlenuts, galangal, mustard seed and vinegar from the Eurasian Kristang (Cristão) culinary tradition in Malacca, " +
+                descriptionText.text = "Devil curry also known as curry Debal in Kristang is a very spicy curry flavoured with candlenuts, " +
+                    "galangal, mustard seed and vinegar from the Eurasian Kristang (Cristão) culinary tradition in Malacca, " +
                     "Malaysia, Indonesia and the Indo-Dutch diaspora (where it is known as Ayam ore Daging Setan). It was historically served one or two days after Christmas and on other special occasions. " +
                     "Kristang cuisine blends the cuisines of Southeast Asia with a western-style cuisine inherited from Portuguese colonial rulers";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
+
+            // Only when Nasi Pandang is being scanned
             else if (objectToTrack.name == "NasiPandang")
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = " Nasi Padang is literally translated as ‘rice’ from Padang city in Indonesia. It’s a style of eating where the diner is presented with a number of dishes to choose from. " +
-                    "In Singapore, the selection often showcases the diversity of dishes from all over Indonesia and Malaysia.But don’t be fooled for, despite the sheer number of dishes on display, ordering is a straightforward affair." +
-                    "Choose between having it two ways: as mixed rice(nasi campur) where all the different dishes are served on your own plate or served family - style(hidang) where each selection is placed on individual plates";
+                descriptionText.text = "Nasi Padang is literally translated as ‘rice’ from Padang city in Indonesia. It’s a style of eating where the " +
+                    "diner is presented with a number of dishes to choose from. " +
+                    "In Singapore, the selection often showcases the diversity of dishes from all over Indonesia and Malaysia.But don’t be fooled for, " +
+                    "despite the sheer number of dishes on display, ordering is a straightforward affair." +
+                    "Choose between having it two ways: as mixed rice(nasi campur) where all the different dishes are served on your own plate or served " +
+                    "family - style(hidang) where each selection is placed on individual plates";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
+
+            // Only when Hokkien Mee is being scanned
             else if (objectToTrack.name == "HokkienMee")
             {
                 StaticController.objectName = objectToTrack.name;
                //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = objectToTrack.name + "In Singapore, Hokkien mee (???) refers to a dish of" +
+                descriptionText.text = "In Singapore, Hokkien Mee refers to a dish of" +
                     " egg noodles and rice noodles stir-fried with egg, slices of pork, prawns, and squid. The key" +
                     " to the dish is copious quantities of an aromatic broth made from prawns and pork bones, slowly" +
                     " simmered for many hours. Sambal chili and calamansi limes are served on the side for the diner" +
@@ -113,32 +134,43 @@ public class ARManager : MonoBehaviour
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
+
+            // Only when Thosai is being scanned
             else if (objectToTrack.name == "Thosai")
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = objectToTrack.name + "Thosai (also spelled dosa) is a savory pancake " +
+                descriptionText.text = "Thosai (also spelled dosa) is a savory pancake " +
                     "served with a slew of spicy dipping sauces. Like so much of the Indian food popular at" +
                     " Singapore hawker centers, thosai are cheap, tasty and 100% vegetarian.";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
+
+            // Only when Hawker is being scanned
             else if (objectToTrack.name == "Hawker")
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = " Hawker centers sprang up in urban areas following the rapid urbanization in the 1950s and 1960s. In many cases, they were built partly to address the problem of unhygienic food preparation by unlicensed street hawkers. " +
-                    "More recently, they have become less ubiquitous due to growing affluence in the urban populations of Malaysia and Singapore. Particularly in Singapore, they are increasingly being replaced by food courts, which are indoor, air-conditioned versions of hawker centers located in shopping malls and other commercial venues.";
+                descriptionText.text = "Hawker centers sprang up in urban areas following the rapid urbanization in the 1950s and 1960s. " +
+                    "In many cases, they were built partly to address the problem of unhygienic food preparation by unlicensed street hawkers. " +
+                    "More recently, they have become less ubiquitous due to growing affluence in the urban populations of Malaysia and Singapore. " +
+                    "Particularly in Singapore, they are increasingly being replaced by food courts, which are indoor, air-conditioned versions of hawker " +
+                    "centers located in shopping malls and other commercial venues.";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
+
+            // Only when Push Cart is being scanned
             else if (objectToTrack.name == "PushCart")
             {
                 StaticController.objectName = objectToTrack.name;
                 //descriptionBtn.gameObject.SetActive(true);
-                descriptionText.text = " Traveling hawkers or itinerant hawkers were a common sight in Singapore from the 19th century to the mid-20th century. " +
-                    "They were frequently found along busy streets and intersections, peddling food, drinks, vegetables, poultry, and sundries. Street hawking was a popular occupation for many new immigrants to Singapore as it gave the unemployed and the unskilled a way to make a living with little cost. " +
-                    "Though there were many issues associated with street hawking, such as traffic obstruction and hygiene, street hawkers played an important role in providing the working classes with easy access to affordable meals.";
+                descriptionText.text = "Traveling hawkers or itinerant hawkers were a common sight in Singapore from the 19th century to the mid-20th century. " +
+                    "They were frequently found along busy streets and intersections, peddling food, drinks, vegetables, poultry, and sundries. Street hawking was a " +
+                    "popular occupation for many new immigrants to Singapore as it gave the unemployed and the unskilled a way to make a living with little cost. " +
+                    "Though there were many issues associated with street hawking, such as traffic obstruction and hygiene, street hawkers played an important role in " +
+                    "providing the working classes with easy access to affordable meals.";
                 toggleNarrate.interactable = true;
                 ToPlayAmbienceSound(objectToTrack.name);
             }
@@ -155,6 +187,10 @@ public class ARManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When the object is lost, theis function will be executed
+    /// </summary>
+    /// <param name="objectToTrack"></param>
     public void ObjectLost(GameObject objectToTrack)
     {
         Debug.Log("Object lost");

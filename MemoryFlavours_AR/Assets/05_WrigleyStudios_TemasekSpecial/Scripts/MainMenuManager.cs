@@ -1,3 +1,9 @@
+/*
+ * Author: Wrigley Studios
+ * Date: 20/11/22
+ * Description: The main menu Manager that handle the main menu scene
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,21 +27,32 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// To start the AR expereiences
+    /// </summary>
     public void StartAR()
     {
         SceneManager.LoadScene(1);
     }
-
+    /// <summary>
+    /// Quits the application
+    /// </summary>
     public void QuitApplication()
     {
         Application.Quit();
     }
 
+    /// <summary>
+    /// Open how to use information
+    /// </summary>
     public void Infomenu()
     {
         infoMenu.SetActive(true);
     }
 
+    /// <summary>
+    /// Close how to use information
+    /// </summary>
     public void back()
     {
         infoMenu.SetActive(false);

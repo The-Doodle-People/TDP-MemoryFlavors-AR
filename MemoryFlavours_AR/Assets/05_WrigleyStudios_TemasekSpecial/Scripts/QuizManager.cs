@@ -1,3 +1,9 @@
+/*
+ * Author: Wrigley Studios
+ * Date: 20/11/22
+ * Description: The Quiz Manager handle the quiz scene
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,19 +14,31 @@ using Vuforia;
 
 public class QuizManager : MonoBehaviour
 {
-
+    /// <summary>
+    /// Text display of the question and answer
+    /// </summary>
     public TextMeshProUGUI quizQuestionText;
     public TextMeshProUGUI tryAgainText;
     public TextMeshProUGUI answerOneText;
     public TextMeshProUGUI answerTwoText;
     public TextMeshProUGUI answerThreeText;
 
+    /// <summary>
+    /// Toggle button to turn on and off the AR Camera
+    /// </summary>
     public GameObject toggleImageTarget;
+
+    /// <summary>
+    /// Enable user to go back to AR scene
+    /// </summary>
     public GameObject CompleteBtn;
     string objectName;
     int answer = 0;
     bool isCorrect = false;
 
+    /// <summary>
+    /// Initialzie Function and update
+    /// </summary>
     private void Update()
     {
         Question();
@@ -31,6 +49,9 @@ public class QuizManager : MonoBehaviour
         Debug.Log("Answer is Correct: " + isCorrect);
     }
 
+    /// <summary>
+    /// Initialize the variable, retrieve objectName from Static Controller
+    /// </summary>
     private void Start()
     {
         objectName = StaticController.objectName;
@@ -38,8 +59,13 @@ public class QuizManager : MonoBehaviour
         tryAgainText.text = "";
     }
 
+    /// <summary>
+    /// Question Function, when objectName received the variable from Static Controller,
+    /// It will vet through which variable to be able to execute the code.
+    /// </summary>
     private void Question()
     {
+        // If objectName is equal to the string, following line will be executed
         if (objectName == "DevilCurry")
         {
             StaticController.objectName = "";
@@ -92,10 +118,17 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// MCQ Function, when objectName received the variable from Static Controller,
+    /// It will vet through which variable to be able to execute the code.
+    /// User have to select the correct answer, if wrong is red and correct is green
+    /// </summary>
     private void MCQ()
     {
+        // If objectName is equal to the string, following line will be executed
         if (objectName == "DevilCurry")
         {
+            // If answer based on the user input, if is 1, the if statement of 1 will be executed and vice versa
             if (answer == 1)
             {
                 answerOneText.color = Color.red;
@@ -233,19 +266,33 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function to change answer to one
+    /// </summary>
     public void AnswerOne()
     {
         answer = 1;
     }
+
+    /// <summary>
+    /// Function to change answer to two
+    /// </summary>
     public void AnswerTwo()
     {
         answer = 2;
     }
+
+    /// <summary>
+    /// Function to change answer to three
+    /// </summary>
     public void AnswerThree()
     {
         answer = 3;
     }
 
+    /// <summary>
+    /// If the answer is correct, the return button will appear
+    /// </summary>
     public void CompleteButtonCheck()
     {
         if(isCorrect == true)
@@ -258,6 +305,10 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggle Camera, the user can toggle on and off the camera if the background is too distracting
+    /// when answer the question.
+    /// </summary>
     public void ToggleCamera()
     {
         if (VuforiaBehaviour.Instance.enabled)
@@ -274,7 +325,9 @@ public class QuizManager : MonoBehaviour
             toggleImageTarget.SetActive(true);
         }
     }
-
+    /// <summary>
+    /// Go back to main menu
+    /// </summary>
     public void GoBackToMain()
     {
         SceneManager.LoadScene(1);
