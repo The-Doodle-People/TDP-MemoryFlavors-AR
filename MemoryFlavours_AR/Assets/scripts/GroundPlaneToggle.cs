@@ -1,8 +1,14 @@
+/*
+ * Author: Charlene Ngiam, Rovee
+ * Date: 1 november - 20 november 2022
+ * Description: the script used for ground plane toggle 
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 using TMPro;
+
 
 public class GroundPlaneToggle : MonoBehaviour
 {

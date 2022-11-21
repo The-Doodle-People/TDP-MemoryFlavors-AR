@@ -1,7 +1,7 @@
 /*
  * Author: Charlene Ngiam, Rovee
  * Date: 1 november - 20 november 2022
- * Description: the script used for info button to toggle on and off
+ * Description: the script used for instructions button to toggle on and off
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -10,14 +10,14 @@ using Vuforia;
 using UnityEngine.UI;
 
 /// <summary>
-/// class for information button
+/// class for instructions button to toggle on and off
 /// </summary>
-public class InfoButton : MonoBehaviour
+public class InstructionButton : MonoBehaviour
 {
     /// <summary>
-    /// link information button 
+    /// link the instructions button
     /// </summary>
-    public Button infoButton;
+    public Button instructionButton;
     /// <summary>
     /// set current option as option 1
     /// </summary>
@@ -29,7 +29,7 @@ public class InfoButton : MonoBehaviour
     /// <summary>
     /// set gameobject to link second groundplane
     /// </summary>
-    public GameObject Information;
+    public GameObject Instruction;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class InfoButton : MonoBehaviour
         setButtonText(currentOption);
 
         // add an event listener to look out for button clicks
-        infoButton.onClick.AddListener(myButtonClick);
+        instructionButton.onClick.AddListener(myButtonClick);
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ public class InfoButton : MonoBehaviour
         {
             case "option 1":
                 //set groundplanel1 as true for option 1
-                Information.SetActive(true);
+                Instruction.SetActive(true);
 
                 // change the current option string to option 2 for the next click
                 currentOption = "option 2";
@@ -61,7 +61,7 @@ public class InfoButton : MonoBehaviour
 
             case "option 2":
                 //set midair as true for option 2
-                Information.SetActive(false);
+                Instruction.SetActive(false);
                 // change the current option string to option 3 for the next click
                 currentOption = "option 1";
                 setButtonText(currentOption);
@@ -72,13 +72,14 @@ public class InfoButton : MonoBehaviour
     }
 
     /// <summary>
-    /// function to set button text
+    /// function to set button text 
     /// </summary>
     /// <param name="buttonText"></param>
     void setButtonText(string buttonText)
     {
-        infoButton.transform.GetChild(0).GetComponent<Text>().text = buttonText;
+        instructionButton.transform.GetChild(0).GetComponent<Text>().text = buttonText;
     }
 
 }
+
 

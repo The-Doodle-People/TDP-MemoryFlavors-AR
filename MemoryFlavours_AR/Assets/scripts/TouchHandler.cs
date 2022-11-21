@@ -1,10 +1,21 @@
+/*
+ * Author: Charlene Ngiam, Rovee
+ * Date: 1 november - 20 november 2022
+ * Description: the script used for touch screen 
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// class for touch handler 
+/// </summary>
 public class TouchHandler : MonoBehaviour
 {
+    /// <summary>
+    /// function on touch press, when player taps the screen 
+    /// </summary>
    void OnTouchPress()
     {
         // Get the x and y coordinates of the touch
@@ -24,7 +35,8 @@ public class TouchHandler : MonoBehaviour
             if (hitInfo.collider.GetComponent<AuntyController>() != null)
             {
                 Debug.Log("Touch detected");
-                //hitInfo.collider.GetComponent<AuntyController>().Interact();
+                //get aunty controller script, to link waving animation to raycast, using raycast for waving animation
+                hitInfo.collider.GetComponent<AuntyController>().Interact();
             }
         }
     }

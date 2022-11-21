@@ -1,3 +1,8 @@
+/*
+ * Author: Charlene Ngiam, Rovee
+ * Date: 1 november - 20 november 2022
+ * Description: the script used to start AR
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
